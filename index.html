@@ -6,33 +6,32 @@
   <meta name="theme-color" content="#0b0b0f" />
 
   <title>Макс Пойзон — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — независимый артист. Музыка, клипы и официальные ссылки." />
+  <meta name="description" content="Макс Пойзон — независимый артист с большим сценическим бэкграундом: разогрев Onyx (Лужники), финалист Rap Music (2010/2011), победы фестивалей и баттлов. Клипы и лайвы." />
   <link rel="canonical" href="https://max-poison.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Макс Пойзон — официальный сайт" />
-  <meta property="og:description" content="Музыка, клипы и официальные ссылки." />
+  <meta property="og:description" content="Клипы, лайвы, музыка и официальные ссылки. Сильный бэкграунд и живые выступления." />
   <meta property="og:url" content="https://max-poison.github.io/" />
   <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Макс Пойзон — официальный сайт" />
-  <meta name="twitter:description" content="Музыка, клипы и официальные ссылки." />
+  <meta name="twitter:description" content="Клипы, лайвы, музыка и официальные ссылки." />
   <meta name="twitter:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
 
   <style>
     :root{
       --bg:#0b0b0f;
       --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.09);
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.66);
       --hair:rgba(255,255,255,.10);
       --radius:18px;
       --shadow: 0 14px 40px rgba(0,0,0,.55);
-      --max: 1040px;
+      --max: 1100px;
     }
 
     *{box-sizing:border-box}
@@ -50,6 +49,8 @@
     }
 
     a{color:inherit}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px;}
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
@@ -84,9 +85,9 @@
       overflow:hidden;
       box-shadow: var(--shadow);
       background:
-        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.90)),
+        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.92)),
         url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center/cover no-repeat;
-      min-height: 540px;
+      min-height: 560px;
     }
     .hero::after{
       content:"";
@@ -99,16 +100,16 @@
     }
     .heroInner{
       position:relative;
-      padding:32px 22px 22px;
+      padding:34px 22px 22px;
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      min-height:540px;
+      min-height:560px;
     }
 
     h1{
       margin:0;
-      font-size: clamp(36px, 6vw, 60px);
+      font-size: clamp(36px, 6vw, 62px);
       letter-spacing:-.02em;
       line-height:1.02;
       text-transform:uppercase;
@@ -117,7 +118,7 @@
       margin-top:10px;
       font-size: 16px;
       color: var(--muted);
-      max-width: 62ch;
+      max-width: 70ch;
     }
     .pillRow{
       display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
@@ -132,6 +133,7 @@
       font-size:13px;
       backdrop-filter: blur(6px);
     }
+
     .actions{
       margin-top:18px;
       display:flex; gap:10px; flex-wrap:wrap;
@@ -140,7 +142,7 @@
       appearance:none; border:0;
       border-radius: 999px;
       padding: 12px 16px;
-      font-weight:800;
+      font-weight:900;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
@@ -164,13 +166,13 @@
     .grid{
       margin-top:18px;
       display:grid;
-      grid-template-columns: 1.3fr .7fr;
+      grid-template-columns: 1.35fr .65fr;
       gap:14px;
     }
-    @media (max-width: 860px){
+    @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
-      .hero{ min-height: 560px; }
-      .heroInner{ min-height: 560px; }
+      .hero{ min-height: 590px; }
+      .heroInner{ min-height: 590px; }
     }
 
     .card{
@@ -189,7 +191,7 @@
     }
     .bio{
       font-size:15px;
-      line-height:1.6;
+      line-height:1.65;
       color: rgba(255,255,255,.86);
     }
     .bio strong{color:rgba(255,255,255,.95)}
@@ -219,7 +221,7 @@
       gap:10px;
     }
     .linkBtn:hover{ background: rgba(255,255,255,.08); }
-    .linkBtn span{ color: rgba(255,255,255,.88); font-weight:800; }
+    .linkBtn span{ color: rgba(255,255,255,.88); font-weight:900; }
     .linkBtn em{ color: var(--muted); font-style:normal; font-size:12px; }
 
     .section{
@@ -228,13 +230,14 @@
       border-top:1px solid var(--hair);
     }
 
+    /* Gallery */
     .gallery{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap:12px;
       margin-top:12px;
     }
-    @media (max-width: 860px){
+    @media (max-width: 900px){
       .gallery{ grid-template-columns: 1fr; }
     }
     figure{
@@ -257,34 +260,34 @@
       color: var(--muted);
     }
 
-    /* Clips */
-    .clipsGrid{
+    /* Video grid */
+    .videoGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:12px;
       margin-top:12px;
     }
-    @media (max-width: 860px){
-      .clipsGrid{ grid-template-columns: 1fr; }
+    @media (max-width: 900px){
+      .videoGrid{ grid-template-columns: 1fr; }
     }
-    .clipCard{
+    .videoCard{
       border-radius: var(--radius);
       overflow:hidden;
       border:1px solid var(--hair);
       background: rgba(0,0,0,.25);
     }
-    .clipFrame{
+    .videoFrame{
       aspect-ratio:16/9;
       width:100%;
       background:rgba(0,0,0,.35);
     }
-    .clipFrame iframe{
+    .videoFrame iframe{
       width:100%;
       height:100%;
       border:0;
       display:block;
     }
-    .clipMeta{
+    .videoMeta{
       padding:10px 12px;
       display:flex;
       justify-content:space-between;
@@ -293,13 +296,17 @@
       background: rgba(255,255,255,.03);
       border-top:1px solid var(--hair);
     }
-    .clipMeta .left{
+    .videoMeta .left{
       font-weight:900;
       color:rgba(255,255,255,.85);
       font-size:13px;
       letter-spacing:.02em;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      max-width: 70%;
     }
-    .clipMeta a{
+    .videoMeta a{
       font-size:12px;
       color:rgba(255,255,255,.65);
       text-decoration:none;
@@ -309,7 +316,7 @@
       background:rgba(255,255,255,.03);
       white-space:nowrap;
     }
-    .clipMeta a:hover{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.85) }
+    .videoMeta a:hover{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.85) }
 
     footer{
       margin-top:18px;
@@ -320,10 +327,7 @@
       gap:10px;
       flex-wrap:wrap;
     }
-    .disclaimer{
-      color: rgba(255,255,255,.50);
-      font-size:12px;
-    }
+    .disclaimer{ color: rgba(255,255,255,.50); font-size:12px; }
   </style>
 </head>
 
@@ -332,11 +336,12 @@
     <header class="topbar">
       <a class="brand" href="#top">
         <span class="dot" aria-hidden="true"></span>
-        <strong>MAX POISON / МАКС ПОЙЗОН</strong>
+        <strong>МАКС ПОЙЗОН</strong>
       </a>
       <nav class="nav" aria-label="Навигация">
         <a href="#listen">Слушать</a>
-        <a href="#watch">Клипы</a>
+        <a href="#clips">Клипы</a>
+        <a href="#lives">Лайвы</a>
         <a href="#about">Обо мне</a>
         <a href="#gallery">Фото</a>
         <a href="#contacts">Контакты</a>
@@ -348,18 +353,24 @@
         <div class="heroInner">
           <h1>МАКС ПОЙЗОН</h1>
           <div class="subtitle">
-            Официальный сайт. Музыка, клипы и соцсети — всё в одном месте.
+            Официальный сайт. Музыка, клипы и живые выступления — всё в одном месте.
           </div>
 
+          <!-- Регалии: коротко, статусно -->
           <div class="pillRow" aria-label="Факты">
             <div class="pill">Разогрев: <strong>Onyx (Лужники)</strong></div>
-            <div class="pill">Финалист <strong>Rap Music</strong> (2010/2011)</div>
-            <div class="pill">Живые выступления: <strong>мощная подача</strong></div>
+            <div class="pill"><strong>Rap Music</strong>: финалист (2010/2011)</div>
+            <div class="pill">Hip-Hop Line: <strong>3× победитель</strong></div>
+            <div class="pill">Красноярск: <strong>Лучший хип-хоп</strong> (2011, 2016)</div>
+            <div class="pill"><strong>Best MC</strong> (2018)</div>
+            <div class="pill">HipHop.Ru: <strong>4 место</strong> (9 командный баттл)</div>
+            <div class="pill">Победы 2024: <strong>9VOX</strong> · <strong>Арт-Парад</strong> · <strong>Шоубиз (Рэп)</strong></div>
           </div>
 
           <div class="actions">
-            <a class="btn btnPrimary" href="#listen">▶ Слушать сейчас</a>
-            <a class="btn btnGhost" href="#watch">🎬 Смотреть клипы</a>
+            <a class="btn btnPrimary" href="#listen">▶ Слушать</a>
+            <a class="btn btnGhost" href="#clips">🎬 Клипы</a>
+            <a class="btn btnGhost" href="#lives">🔥 Лайвы</a>
           </div>
         </div>
       </section>
@@ -369,13 +380,26 @@
           <h2>Обо мне</h2>
           <div class="bio">
             <p>
-              <strong>Макс Пойзон</strong> — независимый артист.
-              Рэп с характером и саунд, который цепляет с первых секунд — без позы, но с реальной историей.
+              <strong>Макс Пойзон</strong> — независимый артист с большим сценическим бэкграундом.
+              Живые выступления — энергия, контакт с залом и мощная подача.
             </p>
+
             <p>
-              В прошлом: сцена, баттлы, фестивали, живые выступления — в том числе разогрев
-              <strong>Onyx</strong> в Лужниках. Сейчас — новый этап: музыка “не в тренде, а в сердцах”.
+              <strong>Разогрев:</strong> Onyx (Лужники).<br/>
+              <strong>Rap Music:</strong> финалист (2010 — Le Arestantz Crew; 2011 — DaOldCinema).
             </p>
+
+            <p>
+              <strong>Достижения:</strong><br/>
+              — Трёхкратный победитель Сибирского фестиваля <strong>Hip-Hop Line</strong><br/>
+              — Лучший хип-хоп исполнитель г. Красноярска: <strong>2011, 2016</strong><br/>
+              — <strong>Best MC</strong>: 2018<br/>
+              — 4 место: <strong>9 командный баттл HipHop.Ru</strong><br/>
+              — Победитель: <strong>9VOX 2024</strong><br/>
+              — Победитель: <strong>Арт-Парад 2024</strong> (номинация рэп)<br/>
+              — Победитель: <strong>Шоубиз 2024</strong> (номинация рэп, Радио «Главный Красноярск»)
+            </p>
+
             <p class="note">
               ⚠️ Макс Пойзон не связан с маркетплейсом Poison — это разные бренды.
             </p>
@@ -419,39 +443,38 @@
         </section>
       </div>
 
-      <!-- КЛИПЫ (23) -->
-      <section class="card section" id="watch">
+      <!-- КЛИПЫ (23 YouTube) -->
+      <section class="card section" id="clips">
         <h2>Клипы</h2>
         <div class="bio" style="margin-bottom:8px;color:rgba(255,255,255,.80)">
-          Полная видеотека. Смотри прямо на сайте или открывай на YouTube.
+          Официальные клипы. Смотреть прямо на сайте или открыть на YouTube.
         </div>
 
-        <div class="clipsGrid">
-          <!-- порядок пока как ты прислал; потом можно разложить по годам -->
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/9Qrlc1fiVVE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">9Qrlc1fiVVE</div><a href="https://www.youtube.com/watch?v=9Qrlc1fiVVE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/B3qdPETEejw" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">B3qdPETEejw</div><a href="https://www.youtube.com/watch?v=B3qdPETEejw" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/Dpmp4oaDsHE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">Dpmp4oaDsHE</div><a href="https://www.youtube.com/watch?v=Dpmp4oaDsHE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/QfE2VUTCoNE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">QfE2VUTCoNE</div><a href="https://www.youtube.com/watch?v=QfE2VUTCoNE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/4kcJd3sPoP4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">4kcJd3sPoP4</div><a href="https://www.youtube.com/watch?v=4kcJd3sPoP4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/AMACj-nDgqY" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">AMACj-nDgqY</div><a href="https://www.youtube.com/watch?v=AMACj-nDgqY" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/ORS89D6LRTU" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">ORS89D6LRTU</div><a href="https://www.youtube.com/watch?v=ORS89D6LRTU" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/R3nDA-GWJ_0" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">R3nDA-GWJ_0</div><a href="https://www.youtube.com/watch?v=R3nDA-GWJ_0" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/y6eAeUmBIbo" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">y6eAeUmBIbo</div><a href="https://www.youtube.com/watch?v=y6eAeUmBIbo" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/I0vL1n_6kJ4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">I0vL1n_6kJ4</div><a href="https://www.youtube.com/watch?v=I0vL1n_6kJ4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/ZcyNTVCs6sU" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">ZcyNTVCs6sU</div><a href="https://www.youtube.com/watch?v=ZcyNTVCs6sU" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/WIhVtSshb7g" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">WIhVtSshb7g</div><a href="https://www.youtube.com/watch?v=WIhVtSshb7g" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/sAbJ_BTGXw0" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">sAbJ_BTGXw0</div><a href="https://www.youtube.com/watch?v=sAbJ_BTGXw0" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/26kMZ7cm3a4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">26kMZ7cm3a4</div><a href="https://www.youtube.com/watch?v=26kMZ7cm3a4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/gQ5ryuP365I" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">gQ5ryuP365I</div><a href="https://www.youtube.com/watch?v=gQ5ryuP365I" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/9COBEYUdd4s" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">9COBEYUdd4s</div><a href="https://www.youtube.com/watch?v=9COBEYUdd4s" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/tif1ntp_ZwA" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">tif1ntp_ZwA</div><a href="https://www.youtube.com/watch?v=tif1ntp_ZwA" target="_blank" rel="noopener">Открыть</a></div></div>
-
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/rubuyReQ8Z4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">rubuyReQ8Z4</div><a href="https://www.youtube.com/watch?v=rubuyReQ8Z4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/ckIhdEhsLSo" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">ckIhdEhsLSo</div><a href="https://www.youtube.com/watch?v=ckIhdEhsLSo" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/uokXnS2kqBM" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">uokXnS2kqBM</div><a href="https://www.youtube.com/watch?v=uokXnS2kqBM" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/QuOZISvlkeE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">QuOZISvlkeE</div><a href="https://www.youtube.com/watch?v=QuOZISvlkeE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/fDqi_Kti9ZY" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">fDqi_Kti9ZY</div><a href="https://www.youtube.com/watch?v=fDqi_Kti9ZY" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/uMgjzGeOjVA" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">uMgjzGeOjVA</div><a href="https://www.youtube.com/watch?v=uMgjzGeOjVA" target="_blank" rel="noopener">Открыть</a></div></div>
+        <div class="videoGrid">
+          <!-- 23 клипа -->
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/9Qrlc1fiVVE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">9Qrlc1fiVVE</div><a href="https://www.youtube.com/watch?v=9Qrlc1fiVVE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/B3qdPETEejw" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">B3qdPETEejw</div><a href="https://www.youtube.com/watch?v=B3qdPETEejw" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/Dpmp4oaDsHE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">Dpmp4oaDsHE</div><a href="https://www.youtube.com/watch?v=Dpmp4oaDsHE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/QfE2VUTCoNE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">QfE2VUTCoNE</div><a href="https://www.youtube.com/watch?v=QfE2VUTCoNE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/4kcJd3sPoP4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">4kcJd3sPoP4</div><a href="https://www.youtube.com/watch?v=4kcJd3sPoP4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/AMACj-nDgqY" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">AMACj-nDgqY</div><a href="https://www.youtube.com/watch?v=AMACj-nDgqY" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/ORS89D6LRTU" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">ORS89D6LRTU</div><a href="https://www.youtube.com/watch?v=ORS89D6LRTU" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/R3nDA-GWJ_0" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">R3nDA-GWJ_0</div><a href="https://www.youtube.com/watch?v=R3nDA-GWJ_0" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/y6eAeUmBIbo" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">y6eAeUmBIbo</div><a href="https://www.youtube.com/watch?v=y6eAeUmBIbo" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/I0vL1n_6kJ4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">I0vL1n_6kJ4</div><a href="https://www.youtube.com/watch?v=I0vL1n_6kJ4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/ZcyNTVCs6sU" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">ZcyNTVCs6sU</div><a href="https://www.youtube.com/watch?v=ZcyNTVCs6sU" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/WIhVtSshb7g" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">WIhVtSshb7g</div><a href="https://www.youtube.com/watch?v=WIhVtSshb7g" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/sAbJ_BTGXw0" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">sAbJ_BTGXw0</div><a href="https://www.youtube.com/watch?v=sAbJ_BTGXw0" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/26kMZ7cm3a4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">26kMZ7cm3a4</div><a href="https://www.youtube.com/watch?v=26kMZ7cm3a4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/gQ5ryuP365I" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">gQ5ryuP365I</div><a href="https://www.youtube.com/watch?v=gQ5ryuP365I" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/9COBEYUdd4s" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">9COBEYUdd4s</div><a href="https://www.youtube.com/watch?v=9COBEYUdd4s" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/tif1ntp_ZwA" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">tif1ntp_ZwA</div><a href="https://www.youtube.com/watch?v=tif1ntp_ZwA" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/rubuyReQ8Z4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">rubuyReQ8Z4</div><a href="https://www.youtube.com/watch?v=rubuyReQ8Z4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/ckIhdEhsLSo" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">ckIhdEhsLSo</div><a href="https://www.youtube.com/watch?v=ckIhdEhsLSo" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/uokXnS2kqBM" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">uokXnS2kqBM</div><a href="https://www.youtube.com/watch?v=uokXnS2kqBM" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/QuOZISvlkeE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">QuOZISvlkeE</div><a href="https://www.youtube.com/watch?v=QuOZISvlkeE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/fDqi_Kti9ZY" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">fDqi_Kti9ZY</div><a href="https://www.youtube.com/watch?v=fDqi_Kti9ZY" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/uMgjzGeOjVA" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">uMgjzGeOjVA</div><a href="https://www.youtube.com/watch?v=uMgjzGeOjVA" target="_blank" rel="noopener">Открыть</a></div></div>
         </div>
 
         <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
@@ -460,10 +483,56 @@
         </div>
       </section>
 
+      <!-- ЛАЙВЫ (VK + YouTube) -->
+      <section class="card section" id="lives">
+        <h2>Лайвы</h2>
+        <div class="bio" style="margin-bottom:8px;color:rgba(255,255,255,.80)">
+          Живые выступления. Энергия сцены без фильтров.
+        </div>
+
+        <!-- быстрые ссылки на посты VK -->
+        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btnGhost" href="https://vk.ru/wall-12246775_506" target="_blank" rel="noopener">VK пост #506</a>
+          <a class="btn btnGhost" href="https://vk.ru/wall-12246775_512" target="_blank" rel="noopener">VK пост #512</a>
+          <a class="btn btnGhost" href="https://vk.ru/wall-12246775_528" target="_blank" rel="noopener">VK пост #528</a>
+        </div>
+
+        <div class="videoGrid">
+          <!-- VK VIDEO embeds -->
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=3015741&id=144299756" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video3015741_144299756" target="_blank" rel="noopener">Открыть</a></div></div>
+
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=164200808" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_164200808" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572971" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572971" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572975" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572975" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572972" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572972" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572977" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572977" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572979" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572979" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=159259212" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_159259212" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=158685642" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_158685642" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=148582761" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_148582761" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=158685646" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_158685646" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=146389306" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_146389306" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=157274116" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_157274116" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=143827822" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_143827822" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=162396783" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_162396783" target="_blank" rel="noopener">Открыть</a></div></div>
+
+          <!-- YouTube LIVE -->
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/M4KO0fu2xaM" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=M4KO0fu2xaM" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/jae5iwrn8YI" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=jae5iwrn8YI" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/u0dgDPgRa9E" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=u0dgDPgRa9E" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/tOAnVkqOR7o" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=tOAnVkqOR7o" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/KN024XA8skw" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=KN024XA8skw" target="_blank" rel="noopener">Открыть</a></div></div>
+        </div>
+
+        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btnGhost" href="#top">⬆️ Наверх</a>
+        </div>
+      </section>
+
       <section class="card section" id="gallery">
         <h2>Фото</h2>
         <div class="bio" style="color:rgba(255,255,255,.78)">
-          Три образа — серьёзный/киношный, вайбовый и яркий.
+          Три образа — киношный, лайвовый, яркий.
         </div>
 
         <div class="gallery">
@@ -473,19 +542,20 @@
           </figure>
 
           <figure>
-            <img src="IMG_6391.jpeg" alt="Макс Пойзон — худи, энергия" loading="lazy" />
-            <figcaption>Энергия / лайв — живой артист.</figcaption>
+            <img src="IMG_6391.jpeg" alt="Макс Пойзон — худи" loading="lazy" />
+            <figcaption>Энергия / лайв.</figcaption>
           </figure>
 
           <figure>
-            <img src="IMG_4467.jpeg" alt="Макс Пойзон — жёлтый образ" loading="lazy" />
-            <figcaption>Яркий образ — контраст и характер.</figcaption>
+            <img src="IMG_4467.jpeg" alt="Макс Пойзон — очки / яркий образ" loading="lazy" />
+            <figcaption>Характер и контраст.</figcaption>
           </figure>
         </div>
 
         <div class="note">
-          Если цветные фото не отображаются — значит их имена в репозитории отличаются.
-          Тогда просто открой файл-изображение в GitHub и скопируй точное имя, и замени в двух строках <code>IMG_6391.jpeg</code> / <code>IMG_4467.jpeg</code>.
+          Если цветные фото не отображаются — значит имена файлов в репозитории отличаются.
+          Открой файл-изображение в GitHub и скопируй точное имя, затем замени 2 строки:
+          <code>IMG_6391.jpeg</code> и <code>IMG_4467.jpeg</code>.
         </div>
       </section>
 
@@ -502,7 +572,7 @@
 
       <footer>
         <div>© <span id="y"></span> Макс Пойзон</div>
-        <div class="disclaimer">GitHub Pages • официальный набор ссылок</div>
+        <div class="disclaimer">GitHub Pages • официальный сайт</div>
       </footer>
     </main>
   </div>
@@ -522,4 +592,4 @@
     });
   </script>
 </body>
-</html>
+</html>  
