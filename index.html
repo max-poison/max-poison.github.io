@@ -2,183 +2,467 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0f" />
 
-  <title>Макс Пойзон — официальный сайт | музыка, клипы, ссылки</title>
-  <meta name="description" content="Макс Пойзон — независимый артист (рэп/хип-хоп). Официальные ссылки на музыку, клипы и соцсети. Не связан с маркетплейсом Poizon." />
-
+  <title>Макс Пойзон — официальный сайт</title>
+  <meta name="description" content="Макс Пойзон — независимый артист. Официальные ссылки на музыку, клипы и соцсети." />
   <link rel="canonical" href="https://max-poison.github.io/" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Макс Пойзон — официальный сайт" />
-  <meta property="og:description" content="Музыка, клипы и официальные ссылки артиста Макс Пойзон." />
+  <meta property="og:description" content="Музыка, клипы, соцсети. Официальная страница артиста." />
   <meta property="og:url" content="https://max-poison.github.io/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Макс Пойзон — официальный сайт" />
+  <meta name="twitter:description" content="Музыка, клипы, соцсети. Официальная страница артиста." />
+  <meta name="twitter:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
 
   <style>
     :root{
-      --bg:#0b0c10; --card:#11131a; --text:#eef2ff; --muted:#a7b0c0;
-      --line:rgba(255,255,255,.10); --btn:#1b2130; --btn2:#161b27;
-      --accent:#8b5cf6; --accent2:#22c55e;
-      color-scheme: dark;
+      --bg:#0b0b0f;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.66);
+      --hair:rgba(255,255,255,.10);
+      --accent:#ffffff;
+      --btn:#ffffff;
+      --btnText:#0b0b0f;
+      --radius:18px;
+      --shadow: 0 14px 40px rgba(0,0,0,.55);
+      --max: 1040px;
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f7fb; --card:#ffffff; --text:#0f172a; --muted:#475569;
-        --line:rgba(15,23,42,.12); --btn:#f1f5f9; --btn2:#e2e8f0; color-scheme: light;}
-    }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
       background:
-        radial-gradient(1200px 800px at 10% 0%, rgba(139,92,246,.25), transparent 60%),
-        radial-gradient(1200px 800px at 90% 10%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(900px 500px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(800px 500px at 80% 10%, rgba(255,255,255,.05), transparent 55%),
         var(--bg);
-      color:var(--text); line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    .wrap{max-width:980px;margin:0 auto;padding:28px 16px 44px}
-    .top{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
-      padding:18px; border:1px solid var(--line); border-radius:16px;
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin-bottom:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background:rgba(255,255,255,.9);
+      box-shadow:0 0 0 6px rgba(255,255,255,.06);
+    }
+    .brand strong{letter-spacing:.08em; font-size:12px; text-transform:uppercase; color:var(--muted)}
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:13px; color:var(--muted);
+    }
+    .nav a{ text-decoration:none; padding:8px 10px; border:1px solid var(--hair); border-radius:999px; background:rgba(255,255,255,.03) }
+    .nav a:hover{ background:rgba(255,255,255,.06) }
+
+    .hero{
+      position:relative;
+      border:1px solid var(--hair);
+      border-radius: calc(var(--radius) + 10px);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.88)),
+        url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center/cover no-repeat;
+      min-height: 520px;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(700px 300px at 50% 20%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(700px 300px at 10% 80%, rgba(255,255,255,.06), transparent 55%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+    .heroInner{
+      position:relative;
+      padding:32px 22px 22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      min-height:520px;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(36px, 6vw, 60px);
+      letter-spacing:-.02em;
+      line-height:1.02;
+      text-transform:uppercase;
+    }
+    .subtitle{
+      margin-top:10px;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+    .pillRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--hair);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.82);
+      font-size:13px;
       backdrop-filter: blur(6px);
     }
-    .brand h1{margin:0;font-size:34px;letter-spacing:.2px}
-    .brand p{margin:6px 0 0;color:var(--muted)}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border:1px solid var(--line); border-radius:999px;
-      background:rgba(255,255,255,.04); color:var(--muted); font-size:13px;
-      white-space:nowrap;
+    .actions{
+      margin-top:18px;
+      display:flex; gap:10px; flex-wrap:wrap;
     }
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--accent2);box-shadow:0 0 18px rgba(34,197,94,.55)}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
-    @media (min-width:860px){.grid{grid-template-columns:1.15fr .85fr}}
-    .card{
-      border:1px solid var(--line); border-radius:16px; padding:18px;
-      background:rgba(255,255,255,.03);
+    .btn{
+      appearance:none; border:0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      cursor:pointer;
+      transition:transform .08s ease, opacity .15s ease, background .15s ease;
     }
-    h2{margin:0 0 10px;font-size:18px}
-    .lead{margin:0}
-    .muted{color:var(--muted)}
-    .note{
-      margin:12px 0 0; padding:10px 12px; border-radius:12px;
-      border:1px dashed rgba(139,92,246,.35);
-      background:rgba(139,92,246,.08); color:var(--muted); font-size:13px;
+    .btnPrimary{
+      background: var(--btn);
+      color: var(--btnText);
     }
-    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    a.btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:11px 14px;border-radius:12px;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      text-decoration:none;color:var(--text);
-      transition:transform .08s ease, border-color .12s ease;
+    .btnGhost{
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      border: 1px solid var(--hair);
     }
-    a.btn:hover{transform:translateY(-1px);border-color:rgba(139,92,246,.35)}
-    .btn small{color:var(--muted);font-size:12px}
-    .two{display:grid;grid-template-columns:1fr;gap:12px}
-    @media (min-width:860px){.two{grid-template-columns:1fr 1fr}}
-    footer{margin-top:22px;color:var(--muted);font-size:13px}
-    .hr{height:1px;background:var(--line);margin:14px 0}
-  </style>
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0px); opacity:.9; }
 
-  <!-- Structured Data: helps Google understand "this is the artist" -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MusicGroup",
-    "name":"Макс Пойзон",
-    "alternateName":["Max Poison","Poison Ivy"],
-    "genre":["Hip-Hop","Rap"],
-    "url":"https://max-poison.github.io/",
-    "sameAs":[
-      "https://www.youtube.com/@ItsMaxPoison",
-      "https://rutube.ru/channel/910055/",
-      "https://music.yandex.ru/artist/3364880",
-      "https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644",
-      "https://www.tiktok.com/@max_poison",
-      "https://www.instagram.com/max_poison",
-      "https://vk.com/max__poison",
-      "https://vk.com/maxpoison1"
-    ]
-  }
-  </script>
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .hero{ min-height: 520px; }
+      .heroInner{ min-height: 520px; }
+    }
+
+    .card{
+      border:1px solid var(--hair);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: var(--muted);
+    }
+    .bio{
+      font-size:15px;
+      line-height:1.6;
+      color: rgba(255,255,255,.86);
+    }
+    .bio strong{color:rgba(255,255,255,.95)}
+    .note{
+      margin-top:10px;
+      font-size:13px;
+      color: rgba(255,255,255,.62);
+      border-top:1px dashed var(--hair);
+      padding-top:10px;
+    }
+
+    .linkGrid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width: 520px){
+      .linkGrid{ grid-template-columns: 1fr; }
+    }
+    .linkBtn{
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--hair);
+      background: rgba(255,255,255,.05);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+    }
+    .linkBtn:hover{ background: rgba(255,255,255,.08); }
+    .linkBtn span{ color: rgba(255,255,255,.88); font-weight:700; }
+    .linkBtn em{ color: var(--muted); font-style:normal; font-size:12px; }
+
+    .section{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--hair);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 860px){
+      .gallery{ grid-template-columns: 1fr; }
+    }
+    figure{
+      margin:0;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--hair);
+      background: rgba(255,255,255,.03);
+    }
+    figure img{
+      width:100%;
+      height: 360px;
+      object-fit: cover;
+      display:block;
+      filter: contrast(1.02) saturate(1.02);
+    }
+    figcaption{
+      padding:10px 12px;
+      font-size:13px;
+      color: var(--muted);
+    }
+
+    .videoGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 860px){
+      .videoGrid{ grid-template-columns: 1fr; }
+    }
+    .video{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--hair);
+      background: rgba(0,0,0,.25);
+      aspect-ratio: 16/9;
+      width:100%;
+    }
+    .video iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    footer{
+      margin-top:18px;
+      color: rgba(255,255,255,.55);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .disclaimer{
+      color: rgba(255,255,255,.50);
+      font-size:12px;
+    }
+  </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="top">
-      <div class="brand">
-        <h1>Макс Пойзон</h1>
-        <p>Официальный сайт • музыкальный исполнитель (рэп / хип-хоп)</p>
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>MAX POISON / МАКС ПОЙЗОН</strong>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a href="#listen">Слушать</a>
+        <a href="#watch">Клипы</a>
+        <a href="#about">Обо мне</a>
+        <a href="#gallery">Фото</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Главный экран">
+        <div class="heroInner">
+          <h1>МАКС ПОЙЗОН</h1>
+          <div class="subtitle">
+            Официальный сайт. Музыка, клипы и соцсети — всё в одном месте.
+          </div>
+
+          <div class="pillRow" aria-label="Факты">
+            <div class="pill">Разогрев: <strong>Onyx (Лужники)</strong></div>
+            <div class="pill">Финалист <strong>Rap Music</strong> (2010/2011)</div>
+            <div class="pill">Живые выступления: <strong>мощная подача</strong></div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btnPrimary" href="#listen">▶ Слушать сейчас</a>
+            <a class="btn btnGhost" href="#watch">🎬 Смотреть клипы</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="card" id="about">
+          <h2>Обо мне</h2>
+          <div class="bio">
+            <p>
+              <strong>Макс Пойзон</strong> — независимый артист.
+              Рэп с характером и саунд, который цепляет с первых секунд — без позы, но с реальной историей.
+            </p>
+            <p>
+              В прошлом: сцена, баттлы, фестивали, живые выступления — в том числе разогрев
+              <strong>Onyx</strong> в Лужниках.
+              Сейчас — новый этап: музыка “не в тренде, а в сердцах”.
+            </p>
+            <p class="note">
+              ⚠️ Макс Пойзон не связан с маркетплейсом Poison — это разные бренды.
+            </p>
+          </div>
+        </section>
+
+        <section class="card" id="listen">
+          <h2>Слушать</h2>
+          <div class="linkGrid" role="list">
+            <a class="linkBtn" role="listitem" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
+              <span>Яндекс.Музыка</span><em>официальная страница</em>
+            </a>
+            <a class="linkBtn" role="listitem" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
+              <span>Apple Music</span><em>официальная страница</em>
+            </a>
+            <a class="linkBtn" role="listitem" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">
+              <span>YouTube</span><em>клипы и релизы</em>
+            </a>
+            <a class="linkBtn" role="listitem" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">
+              <span>RuTube</span><em>клипы</em>
+            </a>
+          </div>
+
+          <div class="section">
+            <h2>Соцсети</h2>
+            <div class="linkGrid" role="list">
+              <a class="linkBtn" role="listitem" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">
+                <span>TikTok</span><em>shorts / вайб</em>
+              </a>
+              <a class="linkBtn" role="listitem" href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">
+                <span>Instagram</span><em>визуал / бэкстейдж</em>
+              </a>
+              <a class="linkBtn" role="listitem" href="https://vk.com/max__poison" target="_blank" rel="noopener">
+                <span>VK (личная)</span><em>новости</em>
+              </a>
+              <a class="linkBtn" role="listitem" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
+                <span>VK (группа)</span><em>официально</em>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="badge"><span class="dot"></span> Official links</div>
-    </div>
 
-    <div class="grid">
-      <div class="card">
-        <h2>Обо мне</h2>
-        <p class="lead">
-          Макс Пойзон — независимый артист. Здесь собраны официальные ссылки на музыку,
-          клипы и соцсети, чтобы тебя находили правильно.
-        </p>
-        <div class="note">
-          Важно: Макс Пойзон не связан с маркетплейсом <b>Poizon</b> — это разные бренды.
+      <section class="card section" id="watch">
+        <h2>Клипы</h2>
+        <div class="bio" style="margin-bottom:8px;color:rgba(255,255,255,.80)">
+          Два официальных видео — YouTube и RuTube.
         </div>
 
-        <div class="hr"></div>
+        <div class="videoGrid">
+          <div class="video" aria-label="YouTube видео">
+            <iframe
+              src="https://www.youtube.com/embed/Dpmp4oaDsHE"
+              title="Макс Пойзон — клип (YouTube)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
 
-        <h2>Слушать</h2>
-        <div class="btns">
-          <a class="btn" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
-            Яндекс Музыка <small>официальная страница артиста</small>
-          </a>
-          <a class="btn" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
-            Apple Music <small>официальная страница артиста</small>
-          </a>
-        </div>
-
-        <div class="hr"></div>
-
-        <h2>Смотреть</h2>
-        <div class="btns">
-          <a class="btn" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">
-            YouTube <small>клипы и видео</small>
-          </a>
-          <a class="btn" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">
-            RuTube <small>альтернативная площадка</small>
-          </a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Соцсети</h2>
-        <div class="two">
-          <div class="btns">
-            <a class="btn" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">VK группа <small>официальные посты</small></a>
-            <a class="btn" href="https://vk.com/max__poison" target="_blank" rel="noopener">VK личная <small>страница</small></a>
-            <a class="btn" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">TikTok <small>клипы/короткие видео</small></a>
-            <a class="btn" href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">Instagram <small>визуал/закулисье</small></a>
+          <div class="video" aria-label="RuTube видео">
+            <iframe
+              src="https://rutube.ru/play/embed/bd0e3560a0516efece08e04175d57ecb/"
+              title="Макс Пойзон — клип (RuTube)"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen></iframe>
           </div>
         </div>
 
-        <div class="hr"></div>
+        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btnPrimary" href="https://youtu.be/Dpmp4oaDsHE" target="_blank" rel="noopener">Открыть на YouTube</a>
+          <a class="btn btnGhost" href="https://rutube.ru/video/bd0e3560a0516efece08e04175d57ecb/" target="_blank" rel="noopener">Открыть на RuTube</a>
+        </div>
+      </section>
 
-        <h2>Контакт</h2>
-        <p class="muted" style="margin:0">
-          Для предложений по сотрудничеству — напиши в VK/Instagram.
-          (Позже добавим отдельную почту/форму.)
-        </p>
-      </div>
-    </div>
+      <section class="card section" id="gallery">
+        <h2>Фото</h2>
+        <div class="bio" style="color:rgba(255,255,255,.78)">
+          Три образа — серьёзный/киношный, вайбовый и яркий.
+        </div>
 
-    <footer>
-      © <span id="y"></span> Макс Пойзон • <a href="https://max-poison.github.io/">max-poison.github.io</a>
-    </footer>
+        <div class="gallery">
+          <figure>
+            <img src="75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" alt="Макс Пойзон — киношный портрет" loading="lazy" />
+            <figcaption>Киношный портрет — главный стиль сайта.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="IMG_6391.jpeg" alt="Макс Пойзон — худи, вайб" loading="lazy" />
+            <figcaption>Вайб / энергия — живой артист.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="IMG_4467.jpeg" alt="Макс Пойзон — жёлтый образ" loading="lazy" />
+            <figcaption>Яркий образ — контраст и характер.</figcaption>
+          </figure>
+        </div>
+
+        <div class="note">
+          Если картинки не отображаются — значит названия файлов в репозитории отличаются.
+          Тогда просто открой файл в GitHub и скопируй точное имя (как ты делал с ч/б фото) и замени в трёх строках <code>src="..."</code>.
+        </div>
+      </section>
+
+      <section class="card section" id="contacts">
+        <h2>Контакты</h2>
+        <div class="bio" style="color:rgba(255,255,255,.80)">
+          Для связи и сотрудничества — пиши в личку VK или Instagram.
+        </div>
+        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btnPrimary" href="https://vk.com/max__poison" target="_blank" rel="noopener">Написать в VK</a>
+          <a class="btn btnGhost" href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">Написать в Instagram</a>
+        </div>
+      </section>
+
+      <footer>
+        <div>© 2025 Макс Пойзон</div>
+        <div class="disclaimer">GitHub Pages • официальный набор ссылок</div>
+      </footer>
+    </main>
   </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
