@@ -2,594 +2,482 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b0b0f" />
 
   <title>Макс Пойзон — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — независимый артист с большим сценическим бэкграундом: разогрев Onyx (Лужники), финалист Rap Music (2010/2011), победы фестивалей и баттлов. Клипы и лайвы." />
+  <meta name="description" content="Официальный сайт Макса Пойзона: музыка, клипы, лайвы, фото и контакты." />
   <link rel="canonical" href="https://max-poison.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Макс Пойзон — официальный сайт" />
-  <meta property="og:description" content="Клипы, лайвы, музыка и официальные ссылки. Сильный бэкграунд и живые выступления." />
+  <meta property="og:description" content="Музыка, клипы, лайвы, фото и контакты." />
   <meta property="og:url" content="https://max-poison.github.io/" />
   <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Макс Пойзон — официальный сайт" />
-  <meta name="twitter:description" content="Клипы, лайвы, музыка и официальные ссылки." />
-  <meta name="twitter:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
 
   <style>
     :root{
       --bg:#0b0b0f;
       --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.10);
       --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.66);
-      --hair:rgba(255,255,255,.10);
-      --radius:18px;
-      --shadow: 0 14px 40px rgba(0,0,0,.55);
-      --max: 1100px;
+      --muted:rgba(255,255,255,.68);
+      --muted2:rgba(255,255,255,.55);
+      --shadow: 0 30px 60px rgba(0,0,0,.55);
+      --radius:22px;
+      --radius2:16px;
+      --max:1060px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,system-ui,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(800px 500px at 80% 10%, rgba(255,255,255,.05), transparent 55%),
-        var(--bg);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+        radial-gradient(1000px 600px at 70% -10%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(900px 600px at 10% 0%, rgba(255,255,255,.06), transparent 55%),
+        linear-gradient(180deg, #08080c, #0b0b0f 30%, #07070a);
+      overflow-x:hidden;
     }
 
-    a{color:inherit}
-    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:20px 16px 64px;}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px;}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; margin-bottom:16px;
+    /* Top bar */
+    .top{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,11,15,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .top .inner{
+      max-width:var(--max); margin:0 auto; padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      text-decoration:none;
+      display:flex; align-items:center; gap:10px; min-width:160px;
+      letter-spacing:.22em; text-transform:uppercase; font-weight:700; font-size:12px; color:rgba(255,255,255,.82);
     }
     .dot{
-      width:10px; height:10px; border-radius:999px;
-      background:rgba(255,255,255,.9);
-      box-shadow:0 0 0 6px rgba(255,255,255,.06);
+      width:10px; height:10px; border-radius:3px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.06);
+      flex:0 0 auto;
     }
-    .brand strong{letter-spacing:.08em; font-size:12px; text-transform:uppercase; color:var(--muted)}
     .nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-      font-size:13px; color:var(--muted);
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end;
     }
-    .nav a{
-      text-decoration:none; padding:8px 10px;
-      border:1px solid var(--hair);
+    .pill{
+      padding:10px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,.03)
+      background: var(--panel);
+      border:1px solid var(--stroke);
+      color:rgba(255,255,255,.82);
+      font-size:14px;
+      transition:.18s ease;
+      user-select:none;
     }
-    .nav a:hover{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.9) }
+    .pill:hover{ background:var(--panel2); transform: translateY(-1px); }
 
+    /* Hero */
     .hero{
-      position:relative;
-      border:1px solid var(--hair);
-      border-radius: calc(var(--radius) + 10px);
+      margin-top:18px;
+      border-radius:28px;
       overflow:hidden;
+      position:relative;
       box-shadow: var(--shadow);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.92)),
-        url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center/cover no-repeat;
-      min-height: 560px;
+      border:1px solid rgba(255,255,255,.08);
+      background:#000;
     }
-    .hero::after{
+    .hero::before{
       content:"";
       position:absolute; inset:0;
       background:
-        radial-gradient(700px 300px at 50% 20%, rgba(255,255,255,.09), transparent 60%),
-        radial-gradient(700px 300px at 10% 80%, rgba(255,255,255,.06), transparent 55%);
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.65) 55%, rgba(0,0,0,.92)),
+        radial-gradient(900px 500px at 50% 35%, rgba(255,255,255,.10), transparent 55%);
+      z-index:2;
       pointer-events:none;
-      mix-blend-mode: screen;
     }
-    .heroInner{
-      position:relative;
-      padding:34px 22px 22px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      min-height:560px;
+    .hero img{
+      width:100%;
+      height: min(74vh, 720px);
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) brightness(.86);
+      transform: scale(1.02);
     }
-
+    .hero .content{
+      position:absolute; inset:0;
+      z-index:3;
+      display:flex; align-items:flex-end;
+      padding:22px;
+    }
+    .hero .box{
+      width:100%;
+      max-width:720px;
+      padding:18px 18px 16px;
+      border-radius:24px;
+      background: rgba(12,12,16,.55);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(12px);
+    }
     h1{
-      margin:0;
-      font-size: clamp(36px, 6vw, 62px);
-      letter-spacing:-.02em;
-      line-height:1.02;
-      text-transform:uppercase;
+      margin:0 0 8px 0;
+      font-size: clamp(34px, 5.6vw, 58px);
+      letter-spacing:.02em;
+      line-height:1.05;
     }
     .subtitle{
-      margin-top:10px;
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 70ch;
+      margin:0 0 14px 0;
+      color:var(--muted);
+      font-size: clamp(14px, 2.6vw, 18px);
+      line-height:1.45;
     }
-    .pillRow{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
+    .badges{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin:0 0 16px 0;
     }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
+    .badge{
+      padding:10px 12px;
       border-radius:999px;
-      border:1px solid var(--hair);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.82);
-      font-size:13px;
-      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.10);
+      color:rgba(255,255,255,.86);
+      font-size:14px;
+      white-space:nowrap;
     }
 
-    .actions{
-      margin-top:18px;
-      display:flex; gap:10px; flex-wrap:wrap;
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top:8px;
     }
     .btn{
-      appearance:none; border:0;
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight:900;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      cursor:pointer;
-      transition:transform .08s ease, opacity .15s ease, background .15s ease;
-    }
-    .btnPrimary{
-      background: #fff;
-      color: #0b0b0f;
-    }
-    .btnGhost{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:14px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.08);
-      color: var(--text);
-      border: 1px solid var(--hair);
+      color:rgba(255,255,255,.92);
+      font-weight:650;
+      transition:.18s ease;
     }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn:active{ transform: translateY(0px); opacity:.9; }
+    .btn:hover{ background: rgba(255,255,255,.12); transform: translateY(-1px); }
+    .btn.primary{
+      background: rgba(255,255,255,.92);
+      color:#0b0b0f;
+      border-color: rgba(255,255,255,.92);
+    }
+    .btn.primary:hover{ filter: brightness(.96); }
 
+    /* Sections */
+    .section{
+      margin-top:22px;
+      padding:18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+    .section h2{
+      margin:0 0 10px 0;
+      font-size:18px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.72);
+    }
     .grid{
-      margin-top:18px;
       display:grid;
-      grid-template-columns: 1.35fr .65fr;
+      grid-template-columns: repeat(12, 1fr);
       gap:14px;
     }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-      .hero{ min-height: 590px; }
-      .heroInner{ min-height: 590px; }
-    }
-
     .card{
-      border:1px solid var(--hair);
+      grid-column: span 6;
+      border-radius: var(--radius2);
       background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+      overflow:hidden;
     }
-    .card h2{
-      margin:0 0 10px;
-      font-size:14px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color: var(--muted);
-    }
-    .bio{
-      font-size:15px;
-      line-height:1.65;
+    .card .pad{ padding:14px; }
+    .muted{ color:var(--muted); }
+    .list{
+      margin:10px 0 0;
+      padding-left:18px;
       color: rgba(255,255,255,.86);
     }
-    .bio strong{color:rgba(255,255,255,.95)}
-    .note{
-      margin-top:10px;
-      font-size:13px;
-      color: rgba(255,255,255,.62);
-      border-top:1px dashed var(--hair);
-      padding-top:10px;
-    }
+    .list li{ margin:8px 0; color: rgba(255,255,255,.82); }
+    .small{ font-size:13px; color:var(--muted2); }
 
-    .linkGrid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:10px;
+    /* Video embeds */
+    .video{
+      position:relative;
+      padding-top:56.25%;
+      background: #000;
     }
-    @media (max-width: 520px){
-      .linkGrid{ grid-template-columns: 1fr; }
-    }
-    .linkBtn{
-      text-decoration:none;
-      padding:12px 14px;
-      border-radius: 14px;
-      border:1px solid var(--hair);
-      background: rgba(255,255,255,.05);
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-    }
-    .linkBtn:hover{ background: rgba(255,255,255,.08); }
-    .linkBtn span{ color: rgba(255,255,255,.88); font-weight:900; }
-    .linkBtn em{ color: var(--muted); font-style:normal; font-size:12px; }
-
-    .section{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid var(--hair);
-    }
-
-    /* Gallery */
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 900px){
-      .gallery{ grid-template-columns: 1fr; }
-    }
-    figure{
-      margin:0;
-      border-radius: var(--radius);
-      overflow:hidden;
-      border:1px solid var(--hair);
-      background: rgba(255,255,255,.03);
-    }
-    figure img{
-      width:100%;
-      height: 360px;
-      object-fit: cover;
-      display:block;
-      filter: contrast(1.02) saturate(1.02);
-    }
-    figcaption{
-      padding:10px 12px;
-      font-size:13px;
-      color: var(--muted);
-    }
-
-    /* Video grid */
-    .videoGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 900px){
-      .videoGrid{ grid-template-columns: 1fr; }
-    }
-    .videoCard{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border:1px solid var(--hair);
-      background: rgba(0,0,0,.25);
-    }
-    .videoFrame{
-      aspect-ratio:16/9;
-      width:100%;
-      background:rgba(0,0,0,.35);
-    }
-    .videoFrame iframe{
-      width:100%;
-      height:100%;
+    .video iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
       border:0;
-      display:block;
     }
-    .videoMeta{
-      padding:10px 12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:center;
-      background: rgba(255,255,255,.03);
-      border-top:1px solid var(--hair);
-    }
-    .videoMeta .left{
-      font-weight:900;
-      color:rgba(255,255,255,.85);
-      font-size:13px;
-      letter-spacing:.02em;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-      max-width: 70%;
-    }
-    .videoMeta a{
-      font-size:12px;
-      color:rgba(255,255,255,.65);
-      text-decoration:none;
-      border:1px solid var(--hair);
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      white-space:nowrap;
-    }
-    .videoMeta a:hover{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.85) }
 
-    footer{
-      margin-top:18px;
-      color: rgba(255,255,255,.55);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
+    /* Photos */
+    .photo{
+      position:relative;
+      background:#000;
+      aspect-ratio: 4/5;
     }
-    .disclaimer{ color: rgba(255,255,255,.50); font-size:12px; }
+    .photo img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) brightness(.92);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:24px;
+      text-align:center;
+      color: rgba(255,255,255,.48);
+      font-size:13px;
+    }
+
+    @media (max-width: 760px){
+      .card{ grid-column: span 12; }
+      .hero img{ height: 74vh; }
+      .hero .content{ padding:16px; }
+      .hero .box{ padding:16px; }
+      .brand{ min-width:auto; }
+    }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <a class="brand" href="#top">
-        <span class="dot" aria-hidden="true"></span>
-        <strong>МАКС ПОЙЗОН</strong>
-      </a>
-      <nav class="nav" aria-label="Навигация">
-        <a href="#listen">Слушать</a>
-        <a href="#clips">Клипы</a>
-        <a href="#lives">Лайвы</a>
-        <a href="#about">Обо мне</a>
-        <a href="#gallery">Фото</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-    </header>
-
-    <main id="top">
-      <section class="hero" aria-label="Главный экран">
-        <div class="heroInner">
-          <h1>МАКС ПОЙЗОН</h1>
-          <div class="subtitle">
-            Официальный сайт. Музыка, клипы и живые выступления — всё в одном месте.
-          </div>
-
-          <!-- Регалии: коротко, статусно -->
-          <div class="pillRow" aria-label="Факты">
-            <div class="pill">Разогрев: <strong>Onyx (Лужники)</strong></div>
-            <div class="pill"><strong>Rap Music</strong>: финалист (2010/2011)</div>
-            <div class="pill">Hip-Hop Line: <strong>3× победитель</strong></div>
-            <div class="pill">Красноярск: <strong>Лучший хип-хоп</strong> (2011, 2016)</div>
-            <div class="pill"><strong>Best MC</strong> (2018)</div>
-            <div class="pill">HipHop.Ru: <strong>4 место</strong> (9 командный баттл)</div>
-            <div class="pill">Победы 2024: <strong>9VOX</strong> · <strong>Арт-Парад</strong> · <strong>Шоубиз (Рэп)</strong></div>
-          </div>
-
-          <div class="actions">
-            <a class="btn btnPrimary" href="#listen">▶ Слушать</a>
-            <a class="btn btnGhost" href="#clips">🎬 Клипы</a>
-            <a class="btn btnGhost" href="#lives">🔥 Лайвы</a>
-          </div>
-        </div>
-      </section>
-
-      <div class="grid">
-        <section class="card" id="about">
-          <h2>Обо мне</h2>
-          <div class="bio">
-            <p>
-              <strong>Макс Пойзон</strong> — независимый артист с большим сценическим бэкграундом.
-              Живые выступления — энергия, контакт с залом и мощная подача.
-            </p>
-
-            <p>
-              <strong>Разогрев:</strong> Onyx (Лужники).<br/>
-              <strong>Rap Music:</strong> финалист (2010 — Le Arestantz Crew; 2011 — DaOldCinema).
-            </p>
-
-            <p>
-              <strong>Достижения:</strong><br/>
-              — Трёхкратный победитель Сибирского фестиваля <strong>Hip-Hop Line</strong><br/>
-              — Лучший хип-хоп исполнитель г. Красноярска: <strong>2011, 2016</strong><br/>
-              — <strong>Best MC</strong>: 2018<br/>
-              — 4 место: <strong>9 командный баттл HipHop.Ru</strong><br/>
-              — Победитель: <strong>9VOX 2024</strong><br/>
-              — Победитель: <strong>Арт-Парад 2024</strong> (номинация рэп)<br/>
-              — Победитель: <strong>Шоубиз 2024</strong> (номинация рэп, Радио «Главный Красноярск»)
-            </p>
-
-            <p class="note">
-              ⚠️ Макс Пойзон не связан с маркетплейсом Poison — это разные бренды.
-            </p>
-          </div>
-        </section>
-
-        <section class="card" id="listen">
-          <h2>Слушать</h2>
-          <div class="linkGrid" role="list">
-            <a class="linkBtn" role="listitem" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
-              <span>Яндекс.Музыка</span><em>официальная страница</em>
-            </a>
-            <a class="linkBtn" role="listitem" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
-              <span>Apple Music</span><em>официальная страница</em>
-            </a>
-            <a class="linkBtn" role="listitem" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">
-              <span>YouTube</span><em>клипы и релизы</em>
-            </a>
-            <a class="linkBtn" role="listitem" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">
-              <span>RuTube</span><em>клипы</em>
-            </a>
-          </div>
-
-          <div class="section">
-            <h2>Соцсети</h2>
-            <div class="linkGrid" role="list">
-              <a class="linkBtn" role="listitem" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">
-                <span>TikTok</span><em>shorts / вайб</em>
-              </a>
-              <a class="linkBtn" role="listitem" href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">
-                <span>Instagram</span><em>визуал / бэкстейдж</em>
-              </a>
-              <a class="linkBtn" role="listitem" href="https://vk.com/max__poison" target="_blank" rel="noopener">
-                <span>VK (личная)</span><em>новости</em>
-              </a>
-              <a class="linkBtn" role="listitem" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
-                <span>VK (группа)</span><em>официально</em>
-              </a>
-            </div>
-          </div>
-        </section>
+  <div class="top">
+    <div class="inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>MAX POISON / МАКС ПОЙЗОН</span>
       </div>
 
-      <!-- КЛИПЫ (23 YouTube) -->
-      <section class="card section" id="clips">
-        <h2>Клипы</h2>
-        <div class="bio" style="margin-bottom:8px;color:rgba(255,255,255,.80)">
-          Официальные клипы. Смотреть прямо на сайте или открыть на YouTube.
-        </div>
-
-        <div class="videoGrid">
-          <!-- 23 клипа -->
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/9Qrlc1fiVVE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">9Qrlc1fiVVE</div><a href="https://www.youtube.com/watch?v=9Qrlc1fiVVE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/B3qdPETEejw" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">B3qdPETEejw</div><a href="https://www.youtube.com/watch?v=B3qdPETEejw" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/Dpmp4oaDsHE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">Dpmp4oaDsHE</div><a href="https://www.youtube.com/watch?v=Dpmp4oaDsHE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/QfE2VUTCoNE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">QfE2VUTCoNE</div><a href="https://www.youtube.com/watch?v=QfE2VUTCoNE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/4kcJd3sPoP4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">4kcJd3sPoP4</div><a href="https://www.youtube.com/watch?v=4kcJd3sPoP4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/AMACj-nDgqY" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">AMACj-nDgqY</div><a href="https://www.youtube.com/watch?v=AMACj-nDgqY" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/ORS89D6LRTU" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">ORS89D6LRTU</div><a href="https://www.youtube.com/watch?v=ORS89D6LRTU" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/R3nDA-GWJ_0" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">R3nDA-GWJ_0</div><a href="https://www.youtube.com/watch?v=R3nDA-GWJ_0" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/y6eAeUmBIbo" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">y6eAeUmBIbo</div><a href="https://www.youtube.com/watch?v=y6eAeUmBIbo" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/I0vL1n_6kJ4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">I0vL1n_6kJ4</div><a href="https://www.youtube.com/watch?v=I0vL1n_6kJ4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/ZcyNTVCs6sU" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">ZcyNTVCs6sU</div><a href="https://www.youtube.com/watch?v=ZcyNTVCs6sU" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/WIhVtSshb7g" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">WIhVtSshb7g</div><a href="https://www.youtube.com/watch?v=WIhVtSshb7g" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/sAbJ_BTGXw0" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">sAbJ_BTGXw0</div><a href="https://www.youtube.com/watch?v=sAbJ_BTGXw0" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/26kMZ7cm3a4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">26kMZ7cm3a4</div><a href="https://www.youtube.com/watch?v=26kMZ7cm3a4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/gQ5ryuP365I" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">gQ5ryuP365I</div><a href="https://www.youtube.com/watch?v=gQ5ryuP365I" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/9COBEYUdd4s" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">9COBEYUdd4s</div><a href="https://www.youtube.com/watch?v=9COBEYUdd4s" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/tif1ntp_ZwA" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">tif1ntp_ZwA</div><a href="https://www.youtube.com/watch?v=tif1ntp_ZwA" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/rubuyReQ8Z4" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">rubuyReQ8Z4</div><a href="https://www.youtube.com/watch?v=rubuyReQ8Z4" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/ckIhdEhsLSo" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">ckIhdEhsLSo</div><a href="https://www.youtube.com/watch?v=ckIhdEhsLSo" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/uokXnS2kqBM" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">uokXnS2kqBM</div><a href="https://www.youtube.com/watch?v=uokXnS2kqBM" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/QuOZISvlkeE" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">QuOZISvlkeE</div><a href="https://www.youtube.com/watch?v=QuOZISvlkeE" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/fDqi_Kti9ZY" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">fDqi_Kti9ZY</div><a href="https://www.youtube.com/watch?v=fDqi_Kti9ZY" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/uMgjzGeOjVA" title="Клип" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">uMgjzGeOjVA</div><a href="https://www.youtube.com/watch?v=uMgjzGeOjVA" target="_blank" rel="noopener">Открыть</a></div></div>
-        </div>
-
-        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn btnPrimary" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">Открыть канал YouTube</a>
-          <a class="btn btnGhost" href="#top">⬆️ Наверх</a>
-        </div>
-      </section>
-
-      <!-- ЛАЙВЫ (VK + YouTube) -->
-      <section class="card section" id="lives">
-        <h2>Лайвы</h2>
-        <div class="bio" style="margin-bottom:8px;color:rgba(255,255,255,.80)">
-          Живые выступления. Энергия сцены без фильтров.
-        </div>
-
-        <!-- быстрые ссылки на посты VK -->
-        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn btnGhost" href="https://vk.ru/wall-12246775_506" target="_blank" rel="noopener">VK пост #506</a>
-          <a class="btn btnGhost" href="https://vk.ru/wall-12246775_512" target="_blank" rel="noopener">VK пост #512</a>
-          <a class="btn btnGhost" href="https://vk.ru/wall-12246775_528" target="_blank" rel="noopener">VK пост #528</a>
-        </div>
-
-        <div class="videoGrid">
-          <!-- VK VIDEO embeds -->
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=3015741&id=144299756" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video3015741_144299756" target="_blank" rel="noopener">Открыть</a></div></div>
-
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=164200808" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_164200808" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572971" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572971" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572975" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572975" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572972" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572972" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572977" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572977" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=163572979" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_163572979" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=159259212" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_159259212" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=158685642" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_158685642" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=148582761" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_148582761" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=158685646" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_158685646" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=146389306" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_146389306" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=157274116" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_157274116" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=143827822" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_143827822" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://vkvideo.ru/video_ext.php?oid=26565864&id=162396783" title="Live VK" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">VK Live</div><a href="https://vkvideo.ru/video26565864_162396783" target="_blank" rel="noopener">Открыть</a></div></div>
-
-          <!-- YouTube LIVE -->
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/M4KO0fu2xaM" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=M4KO0fu2xaM" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/jae5iwrn8YI" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=jae5iwrn8YI" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/u0dgDPgRa9E" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=u0dgDPgRa9E" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/tOAnVkqOR7o" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=tOAnVkqOR7o" target="_blank" rel="noopener">Открыть</a></div></div>
-          <div class="videoCard"><div class="videoFrame"><iframe src="https://www.youtube-nocookie.com/embed/KN024XA8skw" title="Live YouTube" allowfullscreen></iframe></div><div class="videoMeta"><div class="left">YouTube Live</div><a href="https://www.youtube.com/watch?v=KN024XA8skw" target="_blank" rel="noopener">Открыть</a></div></div>
-        </div>
-
-        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn btnGhost" href="#top">⬆️ Наверх</a>
-        </div>
-      </section>
-
-      <section class="card section" id="gallery">
-        <h2>Фото</h2>
-        <div class="bio" style="color:rgba(255,255,255,.78)">
-          Три образа — киношный, лайвовый, яркий.
-        </div>
-
-        <div class="gallery">
-          <figure>
-            <img src="75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" alt="Макс Пойзон — киношный портрет" loading="lazy" />
-            <figcaption>Киношный портрет — главный стиль сайта.</figcaption>
-          </figure>
-
-          <figure>
-            <img src="IMG_6391.jpeg" alt="Макс Пойзон — худи" loading="lazy" />
-            <figcaption>Энергия / лайв.</figcaption>
-          </figure>
-
-          <figure>
-            <img src="IMG_4467.jpeg" alt="Макс Пойзон — очки / яркий образ" loading="lazy" />
-            <figcaption>Характер и контраст.</figcaption>
-          </figure>
-        </div>
-
-        <div class="note">
-          Если цветные фото не отображаются — значит имена файлов в репозитории отличаются.
-          Открой файл-изображение в GitHub и скопируй точное имя, затем замени 2 строки:
-          <code>IMG_6391.jpeg</code> и <code>IMG_4467.jpeg</code>.
-        </div>
-      </section>
-
-      <section class="card section" id="contacts">
-        <h2>Контакты</h2>
-        <div class="bio" style="color:rgba(255,255,255,.80)">
-          Для связи и сотрудничества — пиши в личку VK или Instagram.
-        </div>
-        <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn btnPrimary" href="https://vk.com/max__poison" target="_blank" rel="noopener">Написать в VK</a>
-          <a class="btn btnGhost" href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">Написать в Instagram</a>
-        </div>
-      </section>
-
-      <footer>
-        <div>© <span id="y"></span> Макс Пойзон</div>
-        <div class="disclaimer">GitHub Pages • официальный сайт</div>
-      </footer>
-    </main>
+      <nav class="nav">
+        <a class="pill" href="#listen">Слушать</a>
+        <a class="pill" href="#clips">Клипы</a>
+        <a class="pill" href="#lives">Лайвы</a>
+        <a class="pill" href="#about">Обо мне</a>
+        <a class="pill" href="#photos">Фото</a>
+        <a class="pill" href="#contacts">Контакты</a>
+      </nav>
+    </div>
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Главный экран">
+      <!-- HERO IMAGE -->
+      <img src="75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" alt="Макс Пойзон" />
 
-    // плавная прокрутка
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener("click", e=>{
-        const id = a.getAttribute("href");
-        const el = document.querySelector(id);
-        if(!el) return;
-        e.preventDefault();
-        el.scrollIntoView({behavior:"smooth", block:"start"});
-      });
-    });
-  </script>
+      <div class="content">
+        <div class="box">
+          <h1>МАКС ПОЙЗОН</h1>
+          <p class="subtitle">Официальный сайт. Музыка, клипы и живые выступления — всё в одном месте.</p>
+
+          <div class="badges">
+            <div class="badge">Разогрев: Onyx (Лужники)</div>
+            <div class="badge">Rap Music: финалист (2010/2011)</div>
+            <div class="badge">Hip-Hop Line: 3× победитель</div>
+            <div class="badge">Красноярск: лучший хип-хоп (2011, 2016)</div>
+            <div class="badge">Best MC (2018)</div>
+            <div class="badge">HipHop.Ru: 4 место (9 командный баттл)</div>
+            <div class="badge">Победы 2024: 9vox · Арт-Парад · Шоубиз (Рэп)</div>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="#listen">▶︎ Слушать сейчас</a>
+            <a class="btn" href="#clips">🎬 Смотреть клипы</a>
+            <a class="btn" href="#lives">🎤 Лайвы</a>
+          </div>
+
+          <div style="margin-top:10px" class="small">
+            Проекты/группы: <strong>DaOldCinema</strong>, <strong>Le Arestantz Crew</strong>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section id="listen" class="section">
+      <h2>Слушать</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="pad">
+            <div class="muted">Стриминги</div>
+            <ul class="list">
+              <li><a href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">Яндекс.Музыка</a></li>
+              <li><a href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">Apple Music</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pad">
+            <div class="muted">Соцсети</div>
+            <ul class="list">
+              <li><a href="https://vk.com/maxpoison1" target="_blank" rel="noopener">VK (группа)</a></li>
+              <li><a href="https://vk.com/max__poison" target="_blank" rel="noopener">VK (личная)</a></li>
+              <li><a href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">YouTube</a></li>
+              <li><a href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">RuTube</a></li>
+              <li><a href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">TikTok</a></li>
+              <li><a href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIPS -->
+    <section id="clips" class="section">
+      <h2>Клипы</h2>
+      <div class="grid">
+        <!-- 23 YouTube clips -->
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/9Qrlc1fiVVE" title="Клип 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/B3qdPETEejw" title="Клип 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/Dpmp4oaDsHE" title="Клип 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/QfE2VUTCoNE" title="Клип 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/4kcJd3sPoP4" title="Клип 5" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/AMACj-nDgqY" title="Клип 6" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/ORS89D6LRTU" title="Клип 7" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/R3nDA-GWJ_0" title="Клип 8" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/y6eAeUmBIbo" title="Клип 9" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/I0vL1n_6kJ4" title="Клип 10" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/ZcyNTVCs6sU" title="Клип 11" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/WIhVtSshb7g" title="Клип 12" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/sAbJ_BTGXw0" title="Клип 13" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/26kMZ7cm3a4" title="Клип 14" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/gQ5ryuP365I" title="Клип 15" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/9COBEYUdd4s" title="Клип 16" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/tif1ntp_ZwA" title="Клип 17" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/rubuyReQ8Z4" title="Клип 18" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/ckIhdEhsLSo" title="Клип 19" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/uokXnS2kqBM" title="Клип 20" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/QuOZISvlkeE" title="Клип 21" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/fDqi_Kti9ZY" title="Клип 22" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/uMgjzGeOjVA" title="Клип 23" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      </div>
+
+      <div class="small" style="margin-top:10px;">
+        Если захочешь отсортировать по годам (от нового к старому) — просто переставь карточки местами (двигая строки с нужными iframe).
+      </div>
+    </section>
+
+    <!-- LIVES -->
+    <section id="lives" class="section">
+      <h2>Лайвы</h2>
+      <div class="grid">
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/M4KO0fu2xaM" title="Лайв 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/jae5iwrn8YI" title="Лайв 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/u0dgDPgRa9E" title="Лайв 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/tOAnVkqOR7o" title="Лайв 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="card"><div class="video"><iframe src="https://www.youtube.com/embed/KN024XA8skw" title="Лайв 5" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      </div>
+
+      <div class="small" style="margin-top:10px;">
+        VK-лайвы убрал полностью, чтобы не было “видеофайл не найден”. Если нужно — добавим обратно, но только если ссылки гарантированно открываются без приложения.
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>Обо мне</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="pad">
+            <div class="muted">Макс Пойзон</div>
+            <ul class="list">
+              <li>Разогрев у <strong>Onyx</strong> в Лужниках</li>
+              <li><strong>Rap Music</strong>: финалист (2010, 2011)</li>
+              <li><strong>Hip-Hop Line</strong>: 3× победитель</li>
+              <li><strong>Красноярск</strong>: лучший хип-хоп исполнитель (2011, 2016)</li>
+              <li><strong>Best MC</strong> (2018)</li>
+              <li><strong>HipHop.Ru</strong>: 4 место (9 командный баттл)</li>
+              <li>Победитель <strong>9vox 2024</strong></li>
+              <li>Победитель <strong>Арт-Парад 2024</strong> (номинация рэп)</li>
+              <li>Победитель <strong>Шоубиз 2024</strong> (номинация рэп, Радио “Главный”, Красноярск)</li>
+              <li>Проекты: <strong>DaOldCinema</strong>, <strong>Le Arestantz Crew</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pad">
+            <div class="muted">Коротко</div>
+            <p class="muted" style="margin:10px 0 0; line-height:1.55;">
+              Я делаю музыку с характером и киношной атмосферой: от жесткого уличного вайба до личных, живых историй.
+              Здесь — все официальные клипы, лайвы, фото и ссылки.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section id="photos" class="section">
+      <h2>Фото</h2>
+      <div class="grid">
+        <!-- PHOTOS: поменяй имена файлов, если у тебя они другие -->
+        <div class="card"><div class="photo"><img src="75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" alt="Фото Макс Пойзон 1"></div></div>
+        <div class="card"><div class="photo"><img src="IMG_6391.jpeg" alt="Фото Макс Пойзон 2"></div></div>
+        <div class="card"><div class="photo"><img src="IMG_4467.jpeg" alt="Фото Макс Пойзон 3"></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section">
+      <h2>Контакты</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="pad">
+            <div class="muted">Написать / подписаться</div>
+            <ul class="list">
+              <li><a href="https://vk.com/maxpoison1" target="_blank" rel="noopener">VK группа</a></li>
+              <li><a href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">YouTube</a></li>
+              <li><a href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">RuTube</a></li>
+              <li><a href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">TikTok</a></li>
+              <li><a href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pad">
+            <div class="muted">Сайт</div>
+            <div class="small" style="margin-top:10px;">
+              max-poison.github.io
+            </div>
+            <div class="small" style="margin-top:8px;">
+              Если захочешь “солидный” домен — подключим свой домен к GitHub Pages и этот адрес останется рабочим как запасной.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © Макс Пойзон — официальный сайт
+    </footer>
+  </div>
 </body>
-</html>  
+</html> 
