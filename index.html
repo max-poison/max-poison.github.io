@@ -6,20 +6,20 @@
   <meta name="theme-color" content="#0b0b0f" />
 
   <title>Макс Пойзон — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — независимый артист. Официальные ссылки на музыку, клипы и соцсети." />
+  <meta name="description" content="Макс Пойзон — независимый артист. Музыка, клипы и официальные ссылки." />
   <link rel="canonical" href="https://max-poison.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Макс Пойзон — официальный сайт" />
-  <meta property="og:description" content="Музыка, клипы, соцсети. Официальная страница артиста." />
+  <meta property="og:description" content="Музыка, клипы и официальные ссылки." />
   <meta property="og:url" content="https://max-poison.github.io/" />
   <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Макс Пойзон — официальный сайт" />
-  <meta name="twitter:description" content="Музыка, клипы, соцсети. Официальная страница артиста." />
+  <meta name="twitter:description" content="Музыка, клипы и официальные ссылки." />
   <meta name="twitter:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
 
   <style>
@@ -30,9 +30,6 @@
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.66);
       --hair:rgba(255,255,255,.10);
-      --accent:#ffffff;
-      --btn:#ffffff;
-      --btnText:#0b0b0f;
       --radius:18px;
       --shadow: 0 14px 40px rgba(0,0,0,.55);
       --max: 1040px;
@@ -72,8 +69,13 @@
       display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
       font-size:13px; color:var(--muted);
     }
-    .nav a{ text-decoration:none; padding:8px 10px; border:1px solid var(--hair); border-radius:999px; background:rgba(255,255,255,.03) }
-    .nav a:hover{ background:rgba(255,255,255,.06) }
+    .nav a{
+      text-decoration:none; padding:8px 10px;
+      border:1px solid var(--hair);
+      border-radius:999px;
+      background:rgba(255,255,255,.03)
+    }
+    .nav a:hover{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.9) }
 
     .hero{
       position:relative;
@@ -82,15 +84,15 @@
       overflow:hidden;
       box-shadow: var(--shadow);
       background:
-        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.88)),
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.90)),
         url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center/cover no-repeat;
-      min-height: 520px;
+      min-height: 540px;
     }
     .hero::after{
       content:"";
       position:absolute; inset:0;
       background:
-        radial-gradient(700px 300px at 50% 20%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(700px 300px at 50% 20%, rgba(255,255,255,.09), transparent 60%),
         radial-gradient(700px 300px at 10% 80%, rgba(255,255,255,.06), transparent 55%);
       pointer-events:none;
       mix-blend-mode: screen;
@@ -101,7 +103,7 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      min-height:520px;
+      min-height:540px;
     }
 
     h1{
@@ -115,7 +117,7 @@
       margin-top:10px;
       font-size: 16px;
       color: var(--muted);
-      max-width: 58ch;
+      max-width: 62ch;
     }
     .pillRow{
       display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
@@ -138,7 +140,7 @@
       appearance:none; border:0;
       border-radius: 999px;
       padding: 12px 16px;
-      font-weight:700;
+      font-weight:800;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
@@ -148,8 +150,8 @@
       transition:transform .08s ease, opacity .15s ease, background .15s ease;
     }
     .btnPrimary{
-      background: var(--btn);
-      color: var(--btnText);
+      background: #fff;
+      color: #0b0b0f;
     }
     .btnGhost{
       background: rgba(255,255,255,.08);
@@ -167,8 +169,8 @@
     }
     @media (max-width: 860px){
       .grid{ grid-template-columns: 1fr; }
-      .hero{ min-height: 520px; }
-      .heroInner{ min-height: 520px; }
+      .hero{ min-height: 560px; }
+      .heroInner{ min-height: 560px; }
     }
 
     .card{
@@ -217,7 +219,7 @@
       gap:10px;
     }
     .linkBtn:hover{ background: rgba(255,255,255,.08); }
-    .linkBtn span{ color: rgba(255,255,255,.88); font-weight:700; }
+    .linkBtn span{ color: rgba(255,255,255,.88); font-weight:800; }
     .linkBtn em{ color: var(--muted); font-style:normal; font-size:12px; }
 
     .section{
@@ -255,29 +257,59 @@
       color: var(--muted);
     }
 
-    .videoGrid{
+    /* Clips */
+    .clipsGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:12px;
       margin-top:12px;
     }
     @media (max-width: 860px){
-      .videoGrid{ grid-template-columns: 1fr; }
+      .clipsGrid{ grid-template-columns: 1fr; }
     }
-    .video{
+    .clipCard{
       border-radius: var(--radius);
       overflow:hidden;
       border:1px solid var(--hair);
       background: rgba(0,0,0,.25);
-      aspect-ratio: 16/9;
-      width:100%;
     }
-    .video iframe{
+    .clipFrame{
+      aspect-ratio:16/9;
+      width:100%;
+      background:rgba(0,0,0,.35);
+    }
+    .clipFrame iframe{
       width:100%;
       height:100%;
       border:0;
       display:block;
     }
+    .clipMeta{
+      padding:10px 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      background: rgba(255,255,255,.03);
+      border-top:1px solid var(--hair);
+    }
+    .clipMeta .left{
+      font-weight:900;
+      color:rgba(255,255,255,.85);
+      font-size:13px;
+      letter-spacing:.02em;
+    }
+    .clipMeta a{
+      font-size:12px;
+      color:rgba(255,255,255,.65);
+      text-decoration:none;
+      border:1px solid var(--hair);
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+    .clipMeta a:hover{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.85) }
 
     footer{
       margin-top:18px;
@@ -342,8 +374,7 @@
             </p>
             <p>
               В прошлом: сцена, баттлы, фестивали, живые выступления — в том числе разогрев
-              <strong>Onyx</strong> в Лужниках.
-              Сейчас — новый этап: музыка “не в тренде, а в сердцах”.
+              <strong>Onyx</strong> в Лужниках. Сейчас — новый этап: музыка “не в тренде, а в сердцах”.
             </p>
             <p class="note">
               ⚠️ Макс Пойзон не связан с маркетплейсом Poison — это разные бренды.
@@ -388,33 +419,44 @@
         </section>
       </div>
 
+      <!-- КЛИПЫ (23) -->
       <section class="card section" id="watch">
         <h2>Клипы</h2>
         <div class="bio" style="margin-bottom:8px;color:rgba(255,255,255,.80)">
-          Два официальных видео — YouTube и RuTube.
+          Полная видеотека. Смотри прямо на сайте или открывай на YouTube.
         </div>
 
-        <div class="videoGrid">
-          <div class="video" aria-label="YouTube видео">
-            <iframe
-              src="https://www.youtube.com/embed/Dpmp4oaDsHE"
-              title="Макс Пойзон — клип (YouTube)"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
+        <div class="clipsGrid">
+          <!-- порядок пока как ты прислал; потом можно разложить по годам -->
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/9Qrlc1fiVVE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">9Qrlc1fiVVE</div><a href="https://www.youtube.com/watch?v=9Qrlc1fiVVE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/B3qdPETEejw" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">B3qdPETEejw</div><a href="https://www.youtube.com/watch?v=B3qdPETEejw" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/Dpmp4oaDsHE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">Dpmp4oaDsHE</div><a href="https://www.youtube.com/watch?v=Dpmp4oaDsHE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/QfE2VUTCoNE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">QfE2VUTCoNE</div><a href="https://www.youtube.com/watch?v=QfE2VUTCoNE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/4kcJd3sPoP4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">4kcJd3sPoP4</div><a href="https://www.youtube.com/watch?v=4kcJd3sPoP4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/AMACj-nDgqY" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">AMACj-nDgqY</div><a href="https://www.youtube.com/watch?v=AMACj-nDgqY" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/ORS89D6LRTU" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">ORS89D6LRTU</div><a href="https://www.youtube.com/watch?v=ORS89D6LRTU" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/R3nDA-GWJ_0" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">R3nDA-GWJ_0</div><a href="https://www.youtube.com/watch?v=R3nDA-GWJ_0" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/y6eAeUmBIbo" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">y6eAeUmBIbo</div><a href="https://www.youtube.com/watch?v=y6eAeUmBIbo" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/I0vL1n_6kJ4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">I0vL1n_6kJ4</div><a href="https://www.youtube.com/watch?v=I0vL1n_6kJ4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/ZcyNTVCs6sU" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">ZcyNTVCs6sU</div><a href="https://www.youtube.com/watch?v=ZcyNTVCs6sU" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/WIhVtSshb7g" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">WIhVtSshb7g</div><a href="https://www.youtube.com/watch?v=WIhVtSshb7g" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/sAbJ_BTGXw0" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">sAbJ_BTGXw0</div><a href="https://www.youtube.com/watch?v=sAbJ_BTGXw0" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/26kMZ7cm3a4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">26kMZ7cm3a4</div><a href="https://www.youtube.com/watch?v=26kMZ7cm3a4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/gQ5ryuP365I" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">gQ5ryuP365I</div><a href="https://www.youtube.com/watch?v=gQ5ryuP365I" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/9COBEYUdd4s" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">9COBEYUdd4s</div><a href="https://www.youtube.com/watch?v=9COBEYUdd4s" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/tif1ntp_ZwA" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">tif1ntp_ZwA</div><a href="https://www.youtube.com/watch?v=tif1ntp_ZwA" target="_blank" rel="noopener">Открыть</a></div></div>
 
-          <div class="video" aria-label="RuTube видео">
-            <iframe
-              src="https://rutube.ru/play/embed/bd0e3560a0516efece08e04175d57ecb/"
-              title="Макс Пойзон — клип (RuTube)"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/rubuyReQ8Z4" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">rubuyReQ8Z4</div><a href="https://www.youtube.com/watch?v=rubuyReQ8Z4" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/ckIhdEhsLSo" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">ckIhdEhsLSo</div><a href="https://www.youtube.com/watch?v=ckIhdEhsLSo" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/uokXnS2kqBM" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">uokXnS2kqBM</div><a href="https://www.youtube.com/watch?v=uokXnS2kqBM" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/QuOZISvlkeE" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">QuOZISvlkeE</div><a href="https://www.youtube.com/watch?v=QuOZISvlkeE" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/fDqi_Kti9ZY" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">fDqi_Kti9ZY</div><a href="https://www.youtube.com/watch?v=fDqi_Kti9ZY" target="_blank" rel="noopener">Открыть</a></div></div>
+          <div class="clipCard"><div class="clipFrame"><iframe src="https://www.youtube-nocookie.com/embed/uMgjzGeOjVA" title="Клип" allowfullscreen></iframe></div><div class="clipMeta"><div class="left">uMgjzGeOjVA</div><a href="https://www.youtube.com/watch?v=uMgjzGeOjVA" target="_blank" rel="noopener">Открыть</a></div></div>
         </div>
 
         <div class="section" style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn btnPrimary" href="https://youtu.be/Dpmp4oaDsHE" target="_blank" rel="noopener">Открыть на YouTube</a>
-          <a class="btn btnGhost" href="https://rutube.ru/video/bd0e3560a0516efece08e04175d57ecb/" target="_blank" rel="noopener">Открыть на RuTube</a>
+          <a class="btn btnPrimary" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">Открыть канал YouTube</a>
+          <a class="btn btnGhost" href="#top">⬆️ Наверх</a>
         </div>
       </section>
 
@@ -431,8 +473,8 @@
           </figure>
 
           <figure>
-            <img src="IMG_6391.jpeg" alt="Макс Пойзон — худи, вайб" loading="lazy" />
-            <figcaption>Вайб / энергия — живой артист.</figcaption>
+            <img src="IMG_6391.jpeg" alt="Макс Пойзон — худи, энергия" loading="lazy" />
+            <figcaption>Энергия / лайв — живой артист.</figcaption>
           </figure>
 
           <figure>
@@ -442,8 +484,8 @@
         </div>
 
         <div class="note">
-          Если картинки не отображаются — значит названия файлов в репозитории отличаются.
-          Тогда просто открой файл в GitHub и скопируй точное имя (как ты делал с ч/б фото) и замени в трёх строках <code>src="..."</code>.
+          Если цветные фото не отображаются — значит их имена в репозитории отличаются.
+          Тогда просто открой файл-изображение в GitHub и скопируй точное имя, и замени в двух строках <code>IMG_6391.jpeg</code> / <code>IMG_4467.jpeg</code>.
         </div>
       </section>
 
@@ -459,10 +501,25 @@
       </section>
 
       <footer>
-        <div>© 2025 Макс Пойзон</div>
+        <div>© <span id="y"></span> Макс Пойзон</div>
         <div class="disclaimer">GitHub Pages • официальный набор ссылок</div>
       </footer>
     </main>
   </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener("click", e=>{
+        const id = a.getAttribute("href");
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  </script>
 </body>
 </html>
