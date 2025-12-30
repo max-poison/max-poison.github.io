@@ -15,9 +15,25 @@
   <meta property="og:title" content="Макс Пойзон — официальный сайт" />
   <meta property="og:description" content="Музыка, клипы, лайвы и соцсети — всё в одном месте." />
   <meta property="og:url" content="https://max-poison.github.io/" />
-  <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" />
+  <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.
+ 
+<style>
+/* чипы выглядят кликабельными */
+.chip {
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
 
-  <style>
+/* ховер — хочется нажать */
+.chip:hover {
+  background: rgba(255,255,255,.14);
+  transform: translateY(-1px);
+}
+
+/* корректный скролл с фиксированным меню */
+section {
+  scroll-margin-top: 90px;
+}
     :root{
       --bg:#0b0b0f;
       --panel:rgba(255,255,255,.06);
@@ -290,14 +306,14 @@
         <p class="sub">Официальный сайт. Музыка, клипы и живые выступления — всё в одном месте.</p>
 
         <div class="chips">
-          <span class="chip">Разогрев: Onyx (Лужники)</span>
-          <span class="chip">Rap Music: финалист (2010/2011)</span>
-          <span class="chip">Hip-Hop Line: 3× победитель</span>
-          <span class="chip">Красноярск: лучший хип-хоп (2011, 2016)</span>
-          <span class="chip">Best MC (2018)</span>
-          <span class="chip">HipHop.Ru: 4 место (9 командный баттл)</span>
-          <span class="chip">Победы 2024: 9vox · Арт-Парад · Шоубиз (рэп)</span>
-        </div>
+  <a class="chip chip-link" href="#about">Разогрев: Onyx (Лужники)</a>
+  <a class="chip chip-link" href="#about">Rap Music: финалист (2010/2011)</a>
+  <a class="chip chip-link" href="#about">Hip-Hop Line: 3x победитель</a>
+  <a class="chip chip-link" href="#about">Красноярск: лучший хип-хоп (2011, 2016)</a>
+  <a class="chip chip-link" href="#about">Best MC (2018)</a>
+  <a class="chip chip-link" href="#about">HipHop.Ru: 4 место (9 командный баттл)</a>
+  <a class="chip chip-link" href="#about">Победы 2024: 9vox · Арт-Парад · Шоубиз (рэп)</a>
+</div>
 
         <div class="cta">
           <a class="btn primary" href="#listen">▶ Слушать сейчас</a>
