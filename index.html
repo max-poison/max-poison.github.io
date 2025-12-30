@@ -3,446 +3,447 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Макс Пойзон — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — музыка, клипы и лайвы. Последний трек: Боссфайт. Официальные ссылки и контакты." />
   <meta name="theme-color" content="#0b0c10" />
-
+  <title>Макс Пойзон — официальный сайт</title>
+  <meta name="description" content="Макс Пойзон — музыка, клипы и лайвы в одном месте. Последний трек, клипы, живые выступления, контакты." />
   <style>
     :root{
-      --bg:#0b0c10;
+      --bg:#07080b;
       --card:rgba(255,255,255,.06);
       --card2:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.12);
+      --stroke:rgba(255,255,255,.10);
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.62);
       --muted2:rgba(255,255,255,.48);
-      --shadow:0 20px 70px rgba(0,0,0,.55);
-      --r:22px;
-      --r2:16px;
-      --max:1100px;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --radius:26px;
+      --radius2:18px;
+      --max:1060px;
+      --blur:18px;
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      background: radial-gradient(900px 600px at 20% 10%, rgba(90,120,255,.18), transparent 60%),
-                  radial-gradient(900px 600px at 90% 40%, rgba(255,90,170,.10), transparent 55%),
-                  var(--bg);
+      background:radial-gradient(1200px 900px at 20% 0%, rgba(60,90,255,.16), transparent 55%),
+                 radial-gradient(900px 700px at 85% 10%, rgba(140,80,255,.14), transparent 55%),
+                 var(--bg);
       color:var(--text);
-      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      line-height:1.25;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
       overflow-x:hidden;
     }
-
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 14px 70px}
-
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 70px}
     .topbar{
-      position:sticky;top:0;z-index:40;
-      backdrop-filter:saturate(140%) blur(16px);
-      background:linear-gradient(to bottom, rgba(11,12,16,.78), rgba(11,12,16,.55));
+      position:sticky; top:0; z-index:50;
+      background:linear-gradient(to bottom, rgba(5,6,9,.78), rgba(5,6,9,.52));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .toprow{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:10px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-    .logoBox{
-      width:42px;height:42px;border-radius:12px;
-      background:rgba(0,0,0,.25);
+    .topbar .wrap{padding:14px 16px}
+    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; align-items:center; gap:10px; min-width:0}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.10);
-      display:grid;place-items:center;
-      overflow:hidden;
-      box-shadow:0 12px 28px rgba(0,0,0,.35);
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      overflow:hidden; flex:0 0 auto;
     }
-    .logoBox img{
-      width:100%;height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .brandLine{
-      display:flex;flex-direction:column;gap:2px;min-width:0;
-    }
+    .logo img{width:100%; height:100%; object-fit:cover; display:block}
     .brandTitle{
       font-weight:800;
-      letter-spacing:.08em;
+      letter-spacing:.14em;
       text-transform:uppercase;
-      font-size:13px;
-      color:rgba(255,255,255,.78);
+      font-size:14px;
+      color:rgba(255,255,255,.86);
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      max-width:70vw;
     }
-
-    .btn{
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      padding:11px 14px;
+    .menuBtn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
       border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:750;
-      letter-spacing:.01em;
-      cursor:pointer;
-      user-select:none;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      box-shadow:0 18px 55px rgba(0,0,0,.30);
-    }
-    .btn:active{transform:scale(.98)}
-    .btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
-    .btn.primary{
-      background:rgba(255,255,255,.92);
-      color:#0b0c10;
-      border-color:rgba(255,255,255,.92);
-    }
-    .btn.primary:hover{background:#fff;border-color:#fff}
-    .btn.small{padding:10px 13px;font-size:14px}
-    .icon{
-      width:18px;height:18px;display:inline-block;flex:0 0 auto;
-      background:currentColor;
-      -webkit-mask-size:contain;
-      -webkit-mask-repeat:no-repeat;
-      -webkit-mask-position:center;
-      mask-size:contain;
-      mask-repeat:no-repeat;
-      mask-position:center;
-    }
-    .iMenu{ -webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"/></svg>'); }
-    .iPlay{ -webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>'); }
-    .iArrow{ -webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/><path d="M5 5h7v2H7v10h10v-5h2v7H5z"/></svg>'); }
-    .iClose{ -webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.29-6.3z"/></svg>'); }
-
-    .hero{
-      margin:14px auto 0;
-      border-radius:28px;
+      background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      box-shadow:var(--shadow);
+      color:rgba(255,255,255,.86);
+      font-weight:700;
+      cursor:pointer;
+    }
+    .menuBtn svg{opacity:.85}
+    .hero{
       position:relative;
-      min-height:78vh;
-      max-width:var(--max);
+      border-radius:34px;
+      overflow:hidden;
+      min-height:520px;
+      background:#0a0b10;
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      margin-top:16px;
+      isolation:isolate;
     }
     .heroBg{
-      position:absolute;inset:0;
-      background-image:url('75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png');
+      position:absolute; inset:0;
+      background-image:url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png");
       background-size:cover;
-      background-position:center 20%;
+      background-position:50% 22%;
+      filter:saturate(1.05) contrast(1.05);
       transform:scale(1.02);
-      filter:saturate(1.08) contrast(1.05);
     }
-    .heroOverlay{
-      position:absolute;inset:0;
+    .heroShade{
+      position:absolute; inset:0;
       background:
-        linear-gradient(to bottom, rgba(11,12,16,.25), rgba(11,12,16,.55) 55%, rgba(11,12,16,.86)),
-        radial-gradient(900px 480px at 12% 78%, rgba(0,0,0,.15), transparent 60%),
-        radial-gradient(900px 520px at 85% 10%, rgba(20,40,120,.25), transparent 60%);
+        radial-gradient(900px 560px at 15% 65%, rgba(0,0,0,.70), transparent 62%),
+        linear-gradient(to top, rgba(6,7,11,.88), rgba(6,7,11,.18) 55%, rgba(6,7,11,.42));
+      pointer-events:none;
     }
     .heroInner{
       position:relative;
-      padding:22px 18px 22px;
+      padding:22px;
       display:flex;
-      min-height:78vh;
+      justify-content:flex-start;
       align-items:flex-end;
+      min-height:520px;
     }
     .heroCard{
-      width:min(640px, 100%);
-      background:linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:26px;
-      padding:18px 18px 16px;
-      backdrop-filter: blur(18px) saturate(140%);
-      box-shadow:0 30px 90px rgba(0,0,0,.55);
+      width:min(560px, 100%);
+      background:rgba(10,12,18,.42);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      padding:22px 20px;
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow:0 20px 70px rgba(0,0,0,.55);
     }
     .kicker{
-      font-size:12.5px;
-      letter-spacing:.22em;
+      font-size:12px;
+      letter-spacing:.28em;
       text-transform:uppercase;
-      color:rgba(255,255,255,.72);
+      color:rgba(255,255,255,.70);
       margin:0 0 10px;
     }
-    .heroTitle{
+    .h1{
       margin:0;
       font-weight:900;
-      letter-spacing:.02em;
+      letter-spacing:.06em;
       text-transform:uppercase;
-      line-height:.92;
-      font-size:clamp(40px, 6vw, 66px);
+      line-height:0.92;
+      font-size: clamp(40px, 6vw, 64px);
     }
-    .heroSub{
-      margin:12px 0 16px;
-      color:rgba(255,255,255,.70);
-      font-size:16px;
+    .sub{
+      margin:14px 0 18px;
+      color:rgba(255,255,255,.74);
+      font-size:18px;
     }
-    .heroActions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.92);
+      font-weight:800;
+      cursor:pointer;
+      user-select:none;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
     }
-
-    .section{
-      margin-top:26px;
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16)}
+    .btnPrimary{
+      background:rgba(255,255,255,.92);
+      color:#0a0b10;
+      border-color:rgba(255,255,255,.92);
     }
-    .sectionHead{
-      display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-      margin:0 0 12px;
-    }
-    .h2{
-      margin:0;
-      font-size:30px;
+    .btnPrimary:hover{background:rgba(255,255,255,.98); border-color:rgba(255,255,255,.98)}
+    .section{padding:28px 2px 6px}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:12px}
+    .title{
+      font-size:32px;
       letter-spacing:.08em;
       text-transform:uppercase;
+      margin:0;
       font-weight:900;
     }
-    .hint{
-      margin:0;
-      color:var(--muted2);
-      font-size:14px;
-      letter-spacing:.02em;
-      white-space:nowrap;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:12px;
-    }
+    .hint{color:var(--muted2); font-weight:700}
     .card{
-      grid-column:span 12;
-      background:linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--r);
-      padding:14px;
-      box-shadow:0 20px 70px rgba(0,0,0,.35);
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 18px 60px rgba(0,0,0,.40);
+      overflow:hidden;
     }
-    @media(min-width:860px){
-      .card.half{grid-column:span 6}
-      .card.third{grid-column:span 4}
-    }
-
-    .row{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      flex-wrap:wrap;
-    }
-    .titleBig{
-      font-size:22px;
+    .pad{padding:18px}
+    .mini{color:var(--muted2); font-weight:700; font-size:13px}
+    .trackTitle{
+      margin:0 0 8px;
       font-weight:900;
-      letter-spacing:.06em;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      margin:0 0 6px;
+      font-size:28px;
     }
-    .p{
-      margin:0;
-      color:var(--muted);
-    }
-
-    .audioWrap{
-      margin-top:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
+    .audioBox{
+      margin-top:14px;
       background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
       padding:12px;
     }
-    audio{
-      width:100%;
-      accent-color:#fff;
-    }
-
-    .list{
-      display:flex;flex-direction:column;gap:10px;margin-top:12px;
-    }
-    .itemBtn{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:14px 14px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      cursor:pointer;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .itemBtn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
-    .itemBtn:active{transform:scale(.99)}
-    .itemTitle{
-      font-weight:850;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      margin:0;
-      line-height:1.2;
-      font-size:14px;
-      color:rgba(255,255,255,.92);
-    }
-    .subline{
-      margin:2px 0 0;
-      font-size:12.5px;
-      color:rgba(255,255,255,.52);
-    }
-
-    .links{
-      display:flex;
-      flex-direction:column;
+    audio{width:100%}
+    .platforms{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
       gap:10px;
       margin-top:12px;
     }
-    .linkBtn{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:16px 16px;
+    .plink{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:14px 14px;
       border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
     }
-
-    .footer{
-      margin-top:34px;
-      text-align:center;
-      color:rgba(255,255,255,.35);
-      font-size:13px;
-      padding:18px 0 0;
+    .plink small{
+      display:block;
+      font-weight:700;
+      letter-spacing:0;
+      text-transform:none;
+      color:var(--muted2);
+      margin-top:4px;
     }
-
-    .sheet{
-      position:fixed;inset:0;z-index:60;
-      display:none;
-      background:rgba(0,0,0,.62);
-      backdrop-filter: blur(10px);
-      padding:16px;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
     }
-    .sheet[aria-hidden="false"]{display:block}
-    .sheetBox{
-      max-width:var(--max);
-      margin:0 auto;
+    .tile{
+      position:relative;
       border-radius:24px;
-      border:1px solid rgba(255,255,255,.14);
-      background:linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      box-shadow:0 40px 120px rgba(0,0,0,.65);
       overflow:hidden;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 16px 44px rgba(0,0,0,.38);
+      cursor:pointer;
+      min-height:160px;
     }
-    .sheetList{
-      display:flex;flex-direction:column;
+    .thumb{
+      position:absolute; inset:0;
+      background-size:cover;
+      background-position:center;
+      filter:saturate(1.02) contrast(1.05);
+      transform:scale(1.01);
     }
-    .sheetLink{
-      padding:18px 18px;
-      border-top:1px solid rgba(255,255,255,.10);
+    .tileShade{
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.15) 60%, rgba(0,0,0,.35));
+    }
+    .tileMeta{
+      position:relative;
+      padding:16px;
+      display:flex; flex-direction:column; justify-content:flex-end;
+      min-height:160px;
+      gap:10px;
+    }
+    .tileTitle{
+      margin:0;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:16px;
+      line-height:1.1;
+      color:rgba(255,255,255,.92);
+      text-shadow:0 10px 30px rgba(0,0,0,.55);
+    }
+    .playPill{
+      display:inline-flex; align-items:center; gap:10px;
+      width:max-content;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-weight:900;
+      color:rgba(255,255,255,.90);
+    }
+    .aboutText{
+      color:rgba(255,255,255,.78);
+      font-size:16px;
+      line-height:1.55;
+      margin:0;
+    }
+    .contacts{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+    }
+    .contactBtn{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:16px;
+      border-radius:22px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
       font-weight:900;
       letter-spacing:.06em;
       text-transform:uppercase;
-      color:rgba(255,255,255,.92);
     }
-    .sheetLink:first-child{border-top:none}
-    .sheetTop{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:12px 12px 10px;
+    .contactBtn span{color:rgba(255,255,255,.86)}
+    .footer{
+      text-align:center;
+      padding:26px 0 10px;
+      color:rgba(255,255,255,.45);
+      font-weight:700;
     }
 
-    .modal{
-      position:fixed;inset:0;z-index:80;
+    .overlay{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.72);
       display:none;
-      background:rgba(0,0,0,.75);
-      backdrop-filter: blur(10px);
-      padding:16px;
       align-items:center;
       justify-content:center;
+      padding:18px;
+      z-index:120;
     }
-    .modal[aria-hidden="false"]{display:flex}
-    .modalBox{
+    .overlay.open{display:flex}
+    .modal{
       width:min(980px, 100%);
-      background:linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:24px;
+      background:rgba(10,12,18,.62);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:0 30px 100px rgba(0,0,0,.65);
       overflow:hidden;
-      box-shadow:0 50px 140px rgba(0,0,0,.75);
     }
-    .modalHead{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:12px 12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:14px 14px 10px 16px;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .modalTitle{
       margin:0;
       font-weight:900;
-      letter-spacing:.05em;
+      letter-spacing:.06em;
       text-transform:uppercase;
       font-size:14px;
-      color:rgba(255,255,255,.92);
-      padding-left:6px;
+      color:rgba(255,255,255,.90);
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
     }
     .closeBtn{
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.06);
-      display:grid;place-items:center;
+      color:rgba(255,255,255,.92);
       cursor:pointer;
+      font-size:18px;
+      font-weight:900;
     }
-    .playerFrame{
+    .player{
       aspect-ratio:16/9;
-      width:100%;
       background:#000;
+      width:100%;
     }
-    .playerFrame iframe{
-      width:100%;height:100%;
+    .player iframe{
+      width:100%;
+      height:100%;
       border:0;
-    }
-    .playerPad{
-      padding:14px;
+      display:block;
     }
 
-    @media(max-width:520px){
-      .hero{min-height:76vh}
-      .heroInner{min-height:76vh}
-      .brandTitle{max-width:58vw}
+    .sheet{
+      position:fixed; inset:0;
+      display:none;
+      z-index:110;
+    }
+    .sheet.open{display:block}
+    .sheetBg{
+      position:absolute; inset:0;
+      background:rgba(0,0,0,.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .sheetPanel{
+      position:absolute;
+      top:72px;
+      right:16px;
+      left:16px;
+      max-width:520px;
+      margin:0 auto;
+      background:rgba(10,12,18,.70);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:0 26px 90px rgba(0,0,0,.65);
+    }
+    .sheetA{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 16px;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.92);
+    }
+    .sheetA:last-child{border-bottom:none}
+
+    @media (max-width:860px){
+      .platforms{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .contacts{grid-template-columns:1fr}
+      .hero{min-height:560px}
+      .heroInner{min-height:560px}
+      .sub{font-size:16px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .btn{transition:none}
     }
   </style>
 </head>
 
 <body>
   <header class="topbar">
-    <div class="toprow">
-      <div class="brand" aria-label="Логотип и название">
-        <div class="logoBox" title="Макс Пойзон">
-          <img src="IMG_4881.png" alt="Логотип Макс Пойзон" />
+    <div class="wrap">
+      <div class="row">
+        <div class="brand" aria-label="Max Poison">
+          <div class="logo" aria-hidden="true">
+            <img src="IMG_4881.png" alt="Макс Пойзон" />
+          </div>
+          <div class="brandTitle">МАКС ПОЙЗОН</div>
         </div>
-        <div class="brandLine">
-          <div class="brandTitle">Макс Пойзон</div>
-        </div>
-      </div>
 
-      <button class="btn small" id="menuBtn" type="button" aria-label="Открыть меню">
-        <span class="icon iMenu"></span>
-        Меню
-      </button>
+        <button class="menuBtn" id="menuBtn" type="button" aria-label="Открыть меню">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Меню
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero" aria-label="Титульный экран">
-      <div class="heroBg" aria-hidden="true"></div>
-      <div class="heroOverlay" aria-hidden="true"></div>
-
+      <div class="heroBg"></div>
+      <div class="heroShade"></div>
       <div class="heroInner">
         <div class="heroCard">
-          <p class="kicker">Официальный сайт</p>
-          <h1 class="heroTitle">МАКС<br>ПОЙЗОН</h1>
-          <p class="heroSub">Музыка · клипы · лайвы — в одном месте.</p>
-          <div class="heroActions">
-            <a class="btn primary" href="#listen">
-              <span class="icon iPlay"></span>
-              Последний трек
-            </a>
+          <p class="kicker">ОФИЦИАЛЬНЫЙ САЙТ</p>
+          <h1 class="h1">МАКС<br/>ПОЙЗОН</h1>
+          <p class="sub">Музыка · клипы · лайвы — в одном месте.</p>
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="#listen">▶ Последний трек</a>
             <a class="btn" href="#clips">Смотреть клипы</a>
             <a class="btn" href="#lives">Лайвы</a>
           </div>
@@ -450,326 +451,286 @@
       </div>
     </section>
 
-    <section class="section" id="listen">
+    <section id="listen" class="section" aria-label="Слушать">
       <div class="sectionHead">
-        <h2 class="h2">Слушать</h2>
-        <p class="hint">Последний трек</p>
+        <h2 class="title">СЛУШАТЬ</h2>
+        <div class="hint">Последний трек</div>
       </div>
 
-      <div class="grid">
-        <div class="card half">
-          <div class="row">
-            <div>
-              <p class="titleBig">БОССФАЙТ</p>
-              <p class="p">Плеер на сайте (MP3 из репозитория)</p>
-            </div>
-            <button class="btn" type="button" id="openAudioModal">
-              Открыть плеер <span class="icon iArrow"></span>
-            </button>
-          </div>
+      <div class="card">
+        <div class="pad">
+          <div class="mini">Плеер на сайте</div>
+          <h3 class="trackTitle">БОССФАЙТ</h3>
 
-          <div class="audioWrap">
-            <!-- У тебя файл называется "Боссфайт .mp3" (с пробелом). Если переименуешь на "Боссфайт.mp3" — поменяй src на "Боссфайт.mp3" -->
-            <audio id="bossAudio" controls preload="metadata" playsinline>
+          <div class="audioBox">
+            <audio controls preload="none" playsinline>
               <source src="Боссфайт%20.mp3" type="audio/mpeg">
+              <source src="Боссфайт.mp3" type="audio/mpeg">
             </audio>
           </div>
 
-          <p class="p" style="margin-top:10px">
-            Если на iPhone не запускается — нажми Play ещё раз (Safari иногда просит повторное действие).
-          </p>
-        </div>
-
-        <div class="card half">
-          <p class="titleBig">Площадки</p>
-          <p class="p">Официальные ссылки</p>
-          <div class="links">
-            <a class="linkBtn" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
+          <div class="platforms" aria-label="Площадки">
+            <a class="plink" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
               <div>
-                <div class="itemTitle">Яндекс.Музыка</div>
-                <div class="subline">Страница артиста</div>
+                Яндекс.Музыка
+                <small>Страница артиста</small>
               </div>
-              <span class="icon iArrow"></span>
+              <span aria-hidden="true">↗</span>
             </a>
 
-            <a class="linkBtn" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
+            <a class="plink" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
               <div>
-                <div class="itemTitle">VK группа</div>
-                <div class="subline">Официальное сообщество</div>
+                VK группа
+                <small>Официальное сообщество</small>
               </div>
-              <span class="icon iArrow"></span>
+              <span aria-hidden="true">↗</span>
             </a>
 
-            <a class="linkBtn" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
+            <a class="plink" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
               <div>
-                <div class="itemTitle">Apple Music</div>
-                <div class="subline">Страница артиста</div>
+                Apple Music
+                <small>Страница артиста</small>
               </div>
-              <span class="icon iArrow"></span>
+              <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="clips">
+    <section id="clips" class="section" aria-label="Клипы">
       <div class="sectionHead">
-        <h2 class="h2">Клипы</h2>
-        <p class="hint">YouTube · открыть по клику</p>
+        <h2 class="title">КЛИПЫ</h2>
+        <div class="hint">YouTube · смотреть на сайте</div>
       </div>
 
       <div class="grid" id="clipsGrid"></div>
     </section>
 
-    <section class="section" id="lives">
+    <section id="lives" class="section" aria-label="Лайвы">
       <div class="sectionHead">
-        <h2 class="h2">Лайвы</h2>
-        <p class="hint">5 выступлений</p>
+        <h2 class="title">ЛАЙВЫ</h2>
+        <div class="hint">5 выступлений</div>
       </div>
 
       <div class="grid" id="livesGrid"></div>
     </section>
 
-    <section class="section" id="about">
+    <section id="about" class="section" aria-label="Обо мне">
       <div class="sectionHead">
-        <h2 class="h2">Обо мне</h2>
-        <p class="hint">кратко и по делу</p>
+        <h2 class="title">ОБО МНЕ</h2>
+        <div class="hint">коротко и по делу</div>
       </div>
 
       <div class="card">
-        <p class="p" style="font-size:16px;line-height:1.6;color:rgba(255,255,255,.78)">
-          Макс Пойзон — независимый артист. В активе: разогрев <b>Onyx</b> в Лужниках, финалы <b>Rap Music</b> (2010/2011),
-          победы на фестивалях (Красноярск и Сибирь), десятки лайвов и <b>18</b> клипов за путь с 2003 года.
-          Этот сайт — точка входа: последний трек, клипы и лайвы без лишнего шума.
-        </p>
+        <div class="pad">
+          <p class="aboutText">
+            Макс Пойзон — независимый артист. Разогрев <b>Onyx</b> в Лужниках.
+            Финалист <b>Rap Music</b> (2010/2011). Победы на баттлах и фестивалях в Красноярске (2011/2016/2018).
+            Проекты: <b>DaOldCinema</b> и <b>Le Arestantz Crew</b>.
+            Этот сайт — точка входа: последний трек, клипы и лайвы без лишнего шума.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="contacts">
+    <section id="contacts" class="section" aria-label="Контакты">
       <div class="sectionHead">
-        <h2 class="h2">Контакты</h2>
-        <p class="hint">для предложений</p>
+        <h2 class="title">КОНТАКТЫ</h2>
+        <div class="hint">для предложений и сотрудничества</div>
       </div>
 
-      <div class="grid">
-        <div class="card half">
-          <p class="titleBig">VK</p>
-          <p class="p">Самый быстрый способ связи</p>
-          <div class="links">
-            <a class="linkBtn" href="https://vk.com/max__poison" target="_blank" rel="noopener">
-              <div>
-                <div class="itemTitle">Личная страница</div>
-                <div class="subline">Написать в сообщения</div>
-              </div>
-              <span class="icon iArrow"></span>
-            </a>
-          </div>
-        </div>
-
-        <div class="card half">
-          <p class="titleBig">Почта</p>
-          <p class="p">Вставь свою почту в строку ниже</p>
-          <div class="links">
-            <a class="linkBtn" href="mailto:YOUR_EMAIL_HERE">
-              <div>
-                <div class="itemTitle">YOUR_EMAIL_HERE</div>
-                <div class="subline">замени на реальную</div>
-              </div>
-              <span class="icon iArrow"></span>
-            </a>
-          </div>
+      <div class="card">
+        <div class="pad contacts">
+          <a class="contactBtn" href="https://vk.com/max__poison" target="_blank" rel="noopener">
+            <span>VK</span><span aria-hidden="true">↗</span>
+          </a>
+          <a class="contactBtn" href="mailto:poison7sc@mail.ru">
+            <span>poison7sc@mail.ru</span><span aria-hidden="true">✉</span>
+          </a>
         </div>
       </div>
-
-      <div class="footer">maxpoison.ru</div>
     </section>
+
+    <div class="footer">maxpoison.ru</div>
   </main>
 
-  <div class="sheet" id="sheet" aria-hidden="true" role="dialog" aria-label="Меню">
-    <div class="sheetBox">
-      <div class="sheetTop">
-        <div style="display:flex;align-items:center;gap:10px;padding-left:6px">
-          <div class="logoBox" style="width:40px;height:40px;border-radius:14px">
-            <img src="IMG_4881.png" alt="Логотип" />
-          </div>
-          <div style="font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.92);font-size:14px">
-            Макс Пойзон
-          </div>
-        </div>
-        <button class="closeBtn" type="button" id="closeSheet" aria-label="Закрыть меню">
-          <span class="icon iClose"></span>
-        </button>
-      </div>
-      <div class="sheetList">
-        <a class="sheetLink" href="#listen">Слушать</a>
-        <a class="sheetLink" href="#clips">Клипы</a>
-        <a class="sheetLink" href="#lives">Лайвы</a>
-        <a class="sheetLink" href="#about">Обо мне</a>
-        <a class="sheetLink" href="#contacts">Контакты</a>
-      </div>
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheetBg" id="sheetBg"></div>
+    <div class="sheetPanel" role="dialog" aria-label="Меню">
+      <a class="sheetA" href="#listen">Слушать <span aria-hidden="true">→</span></a>
+      <a class="sheetA" href="#clips">Клипы <span aria-hidden="true">→</span></a>
+      <a class="sheetA" href="#lives">Лайвы <span aria-hidden="true">→</span></a>
+      <a class="sheetA" href="#about">Обо мне <span aria-hidden="true">→</span></a>
+      <a class="sheetA" href="#contacts">Контакты <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Плеер">
-    <div class="modalBox">
-      <div class="modalHead">
-        <p class="modalTitle" id="modalTitle">Плеер</p>
-        <button class="closeBtn" type="button" id="closeModal" aria-label="Закрыть">
-          <span class="icon iClose"></span>
-        </button>
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-label="Видео">
+      <div class="modalTop">
+        <p class="modalTitle" id="modalTitle">Видео</p>
+        <button class="closeBtn" id="closeBtn" type="button" aria-label="Закрыть">×</button>
       </div>
-      <div id="modalBody"></div>
+      <div class="player" id="player"></div>
     </div>
   </div>
 
   <script>
-    const $ = (s, el=document)=>el.querySelector(s);
-    const $$ = (s, el=document)=>Array.from(el.querySelectorAll(s));
-
-    const sheet = $("#sheet");
-    const menuBtn = $("#menuBtn");
-    const closeSheet = $("#closeSheet");
-
-    function openSheet(){
-      sheet.setAttribute("aria-hidden","false");
-      document.body.style.overflow = "hidden";
-    }
-    function hideSheet(){
-      sheet.setAttribute("aria-hidden","true");
-      document.body.style.overflow = "";
-    }
-    menuBtn.addEventListener("click", openSheet);
-    closeSheet.addEventListener("click", hideSheet);
-    sheet.addEventListener("click", (e)=>{ if(e.target === sheet) hideSheet(); });
-    $$(".sheetLink").forEach(a=>{
-      a.addEventListener("click", ()=>{ hideSheet(); });
-    });
-
-    const modal = $("#modal");
-    const modalTitle = $("#modalTitle");
-    const modalBody = $("#modalBody");
-    const closeModal = $("#closeModal");
-
-    function openModal(title, node){
-      modalTitle.textContent = title;
-      modalBody.innerHTML = "";
-      modalBody.appendChild(node);
-      modal.setAttribute("aria-hidden","false");
-      document.body.style.overflow = "hidden";
-    }
-    function hideModal(){
-      modal.setAttribute("aria-hidden","true");
-      modalBody.innerHTML = "";
-      document.body.style.overflow = "";
-    }
-    closeModal.addEventListener("click", hideModal);
-    modal.addEventListener("click", (e)=>{ if(e.target === modal) hideModal(); });
-
-    function ytId(url){
-      try{
-        const u = new URL(url);
-        if(u.pathname.includes("/watch")) return u.searchParams.get("v");
-        const parts = u.pathname.split("/").filter(Boolean);
-        return parts[parts.length-1];
-      }catch(e){ return ""; }
-    }
-
-    function makeVideoCard(item){
-      const card = document.createElement("div");
-      card.className = "card third";
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "itemBtn";
-      btn.style.width = "100%";
-
-      const left = document.createElement("div");
-      const t = document.createElement("div");
-      t.className = "itemTitle";
-      t.textContent = item.title;
-      const s = document.createElement("div");
-      s.className = "subline";
-      s.textContent = "Открыть";
-      left.appendChild(t);
-      left.appendChild(s);
-
-      const right = document.createElement("span");
-      right.className = "icon iPlay";
-
-      btn.appendChild(left);
-      btn.appendChild(right);
-      card.appendChild(btn);
-
-      btn.addEventListener("click", ()=>{
-        const wrap = document.createElement("div");
-        wrap.className = "playerFrame";
-        const iframe = document.createElement("iframe");
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
-        iframe.src = "https://www.youtube-nocookie.com/embed/" + item.id + "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
-        wrap.appendChild(iframe);
-        openModal(item.title, wrap);
-      });
-
-      return card;
-    }
+    const YT = {
+      idFromUrl(url){
+        try{
+          const u = new URL(url.replace("m.youtube.com","www.youtube.com"));
+          if(u.searchParams.get("v")) return u.searchParams.get("v");
+          const p = u.pathname.split("/").filter(Boolean);
+          if(p[0] === "watch" && u.searchParams.get("v")) return u.searchParams.get("v");
+          if(p[0] === "shorts" && p[1]) return p[1];
+          if(p[0] === "embed" && p[1]) return p[1];
+        }catch(e){}
+        return null;
+      },
+      thumb(id){
+        return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      },
+      embed(id){
+        return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      }
+    };
 
     const clips = [
-      { title:"Макс Пойзон — Приём (официальный клип)", id: ytId("https://m.youtube.com/watch?v=Dpmp4oaDsHE") },
-      { title:"ПОЙЗОН — #ГолосУлиц", id: ytId("https://m.youtube.com/watch?v=QfE2VUTCoNE") },
-      { title:"Макс Пойзон — Жизнь Борода", id: ytId("https://m.youtube.com/watch?v=4kcJd3sPoP4") },
-      { title:"POISON IVY (Le Arestantz) — На фоне этих состояний", id: ytId("https://m.youtube.com/watch?v=uMgjzGeOjVA") },
+      { url:"https://m.youtube.com/watch?v=9Qrlc1fiVVE", title:"Макс Пойзон — Приём (официальный клип)" },
+      { url:"https://m.youtube.com/watch?v=B3qdPETEejw", title:"Пойзон — #ГолосУлиц" },
+      { url:"https://m.youtube.com/watch?v=Dpmp4oaDsHE", title:"Макс Пойзон — Жизнь Борода" },
+      { url:"https://m.youtube.com/watch?v=QfE2VUTCoNE", title:"Poison Ivy (Le Arestantz) — На фоне этих состояний" },
 
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=9Qrlc1fiVVE") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=B3qdPETEejw") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=AMACj-nDgqY") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=ORS89D6LRTU") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=R3nDA-GWJ_0") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=y6eAeUmBIbo") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=I0vL1n_6kJ4") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=ZcyNTVCs6sU") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=WIhVtSshb7g") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=sAbJ_BTGXw0") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=26kMZ7cm3a4") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=gQ5ryuP365I") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=9COBEYUdd4s") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=tif1ntp_ZwA") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=rubuyReQ8Z4") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=ckIhdEhsLSo") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=uokXnS2kqBM") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=QuOZISvlkeE") },
-      { title:"Клип", id: ytId("https://m.youtube.com/watch?v=fDqi_Kti9ZY") }
-    ].filter(x=>x.id);
+      { url:"https://m.youtube.com/watch?v=4kcJd3sPoP4", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=AMACj-nDgqY", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=ORS89D6LRTU", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=R3nDA-GWJ_0", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=y6eAeUmBIbo", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=I0vL1n_6kJ4", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=ZcyNTVCs6sU", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=WIhVtSshb7g", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=sAbJ_BTGXw0", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=26kMZ7cm3a4", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=gQ5ryuP365I", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=9COBEYUdd4s", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=tif1ntp_ZwA", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=rubuyReQ8Z4", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=ckIhdEhsLSo", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=uokXnS2kqBM", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=QuOZISvlkeE", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=fDqi_Kti9ZY", title:"Клип" },
+      { url:"https://m.youtube.com/watch?v=uMgjzGeOjVA", title:"Клип" }
+    ];
 
     const lives = [
-      { title:"Лайв 1", id: ytId("https://m.youtube.com/watch?v=M4KO0fu2xaM") },
-      { title:"Лайв 2", id: ytId("https://m.youtube.com/watch?v=jae5iwrn8YI") },
-      { title:"Лайв 3", id: ytId("https://m.youtube.com/watch?v=u0dgDPgRa9E") },
-      { title:"Лайв 4", id: ytId("https://m.youtube.com/watch?v=tOAnVkqOR7o") },
-      { title:"Лайв 5", id: ytId("https://m.youtube.com/watch?v=KN024XA8skw") }
-    ].filter(x=>x.id);
+      { url:"https://m.youtube.com/watch?v=M4KO0fu2xaM", title:"Лайв 1" },
+      { url:"https://m.youtube.com/watch?v=jae5iwrn8YI", title:"Лайв 2" },
+      { url:"https://m.youtube.com/watch?v=u0dgDPgRa9E", title:"Лайв 3" },
+      { url:"https://m.youtube.com/watch?v=tOAnVkqOR7o", title:"Лайв 4" },
+      { url:"https://m.youtube.com/watch?v=KN024XA8skw", title:"Лайв 5" }
+    ];
 
-    const clipsGrid = $("#clipsGrid");
-    const livesGrid = $("#livesGrid");
-    clips.forEach(v=>clipsGrid.appendChild(makeVideoCard(v)));
-    lives.forEach(v=>livesGrid.appendChild(makeVideoCard(v)));
+    function makeTile(item){
+      const id = YT.idFromUrl(item.url);
+      const el = document.createElement("div");
+      el.className = "tile";
+      el.setAttribute("role","button");
+      el.setAttribute("tabindex","0");
+      el.dataset.videoId = id || "";
+      el.dataset.title = item.title || "Видео";
 
-    $("#openAudioModal").addEventListener("click", ()=>{
-      const box = document.createElement("div");
-      box.className = "playerPad";
-      const a = document.createElement("audio");
-      a.controls = true;
-      a.preload = "metadata";
-      a.setAttribute("playsinline","");
-      a.innerHTML = '<source src="Боссфайт%20.mp3" type="audio/mpeg">';
-      box.appendChild(a);
-      openModal("БОССФАЙТ — плеер", box);
+      const thumb = document.createElement("div");
+      thumb.className = "thumb";
+      thumb.style.backgroundImage = id ? `url("${YT.thumb(id)}")` : "none";
+
+      const shade = document.createElement("div");
+      shade.className = "tileShade";
+
+      const meta = document.createElement("div");
+      meta.className = "tileMeta";
+
+      const t = document.createElement("p");
+      t.className = "tileTitle";
+      t.textContent = item.title || "Видео";
+
+      const pill = document.createElement("div");
+      pill.className = "playPill";
+      pill.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+        </svg>
+        Смотреть
+      `;
+
+      meta.appendChild(t);
+      meta.appendChild(pill);
+
+      el.appendChild(thumb);
+      el.appendChild(shade);
+      el.appendChild(meta);
+
+      return el;
+    }
+
+    const clipsGrid = document.getElementById("clipsGrid");
+    const livesGrid = document.getElementById("livesGrid");
+
+    clips.forEach(x => clipsGrid.appendChild(makeTile(x)));
+    lives.forEach(x => livesGrid.appendChild(makeTile(x)));
+
+    const overlay = document.getElementById("overlay");
+    const player = document.getElementById("player");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeBtn = document.getElementById("closeBtn");
+
+    function openVideo(id, title){
+      if(!id) return;
+      modalTitle.textContent = title || "Видео";
+      player.innerHTML = `<iframe src="${YT.embed(id)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      overlay.classList.add("open");
+      overlay.setAttribute("aria-hidden","false");
+    }
+    function closeVideo(){
+      overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden","true");
+      player.innerHTML = "";
+    }
+
+    document.addEventListener("click", (e) => {
+      const tile = e.target.closest(".tile");
+      if(tile){
+        openVideo(tile.dataset.videoId, tile.dataset.title);
+        return;
+      }
+      if(e.target === overlay) closeVideo();
+    });
+    closeBtn.addEventListener("click", closeVideo);
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeVideo();
     });
 
-    window.addEventListener("keydown", (e)=>{
-      if(e.key === "Escape"){
-        hideModal();
-        hideSheet();
-      }
+    const sheet = document.getElementById("sheet");
+    const menuBtn = document.getElementById("menuBtn");
+    const sheetBg = document.getElementById("sheetBg");
+
+    function openSheet(){
+      sheet.classList.add("open");
+      sheet.setAttribute("aria-hidden","false");
+    }
+    function closeSheet(){
+      sheet.classList.remove("open");
+      sheet.setAttribute("aria-hidden","true");
+    }
+    menuBtn.addEventListener("click", () => {
+      if(sheet.classList.contains("open")) closeSheet();
+      else openSheet();
+    });
+    sheetBg.addEventListener("click", closeSheet);
+    sheet.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if(a) closeSheet();
     });
   </script>
 </body>
