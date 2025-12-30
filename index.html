@@ -2,558 +2,1100 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0f" />
-
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Макс Пойзон — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — музыка, клипы, лайвы и соцсети. Официальный сайт." />
 
+  <meta name="description" content="Макс Пойзон — музыка, клипы, лайвы, фото, контакты. Независимый артист." />
   <link rel="canonical" href="https://max-poison.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Макс Пойзон — официальный сайт" />
-  <meta property="og:description" content="Музыка, клипы, лайвы и соцсети — всё в одном месте." />
+  <meta property="og:description" content="Музыка, клипы, лайвы, фото и контакты — всё в одном месте." />
   <meta property="og:url" content="https://max-poison.github.io/" />
-  <meta property="og:image" content="https://max-poison.github.io/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.
- 
-<style>
-/* чипы выглядят кликабельными */
-.chip {
-  cursor: pointer;
-  transition: background .2s ease, transform .2s ease;
-}
+  <meta property="og:image" content="https://raw.githubusercontent.com/max-poison/max-poison.github.io/refs/heads/main/IMG_6391.jpeg" />
 
-/* ховер — хочется нажать */
-.chip:hover {
-  background: rgba(255,255,255,.14);
-  transform: translateY(-1px);
-}
-
-/* корректный скролл с фиксированным меню */
-section {
-  scroll-margin-top: 90px;
-}
+  <style>
     :root{
       --bg:#0b0b0f;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.14);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.66);
-      --muted2:rgba(255,255,255,.5);
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:22px;
-      --radius2:16px;
-      --max:1100px;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.66);
+      --muted2: rgba(255,255,255,.48);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --radius2: 16px;
+      --max: 1100px;
+      --safeTop: env(safe-area-inset-top);
+      --safeBottom: env(safe-area-inset-bottom);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(255,80,80,.18), transparent 55%),
+                  radial-gradient(1000px 700px at 80% 30%, rgba(120,80,255,.16), transparent 55%),
+                  var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(900px 600px at 80% 20%, rgba(255,255,255,.05), transparent 60%),
-        var(--bg);
-      line-height:1.35;
-      overflow-x:hidden;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      line-height:1.45;
+      padding-bottom: calc(78px + var(--safeBottom)); /* место под нижнюю навигацию */
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 70px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 18px 14px 28px}
+
+    /* Верхняя шапка */
     .topbar{
       position:sticky; top:0; z-index:50;
+      padding-top: var(--safeTop);
       backdrop-filter: blur(14px);
-      background: rgba(11,11,15,.62);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(to bottom, rgba(11,11,15,.82), rgba(11,11,15,.45));
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .topbar-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:12px 16px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:.12em;
-      text-transform:uppercase;
-      font-size:12px;
-      color:rgba(255,255,255,.82);
-    }
-    .dot{
-      width:14px; height:14px; border-radius:6px;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.22);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
+    .topbar .inner{
+      max-width:var(--max); margin:0 auto;
+      padding: 12px 14px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
 
-    .nav{
-      display:flex; gap:10px; flex-wrap:wrap;
-      justify-content:flex-end;
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:0;
     }
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:rgba(255,255,255,.9);
-      font-weight:600;
-      font-size:13px;
-      transition:.2s ease;
-      user-select:none;
+    .brand .avatar{
+      width:40px; height:40px; border-radius:14px;
+      background: url("https://raw.githubusercontent.com/max-poison/max-poison.github.io/refs/heads/main/IMG_4467.jpeg") center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .brand .t{
+      min-width:0;
+      display:flex; flex-direction:column;
+    }
+    .brand .t b{
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .brand .t span{
+      font-size:12px; color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    /* бургер */
+    .burger{
+      width:44px; height:44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      display:grid; place-items:center;
+      box-shadow: var(--shadow);
+      cursor:pointer;
       -webkit-tap-highlight-color: transparent;
     }
-    .pill:active{transform:translateY(1px)}
-    .pill:hover{background:rgba(255,255,255,.08)}
-    .pill.primary{
-      background:rgba(255,255,255,.92);
-      color:#0b0b0f;
-      border-color:rgba(255,255,255,.86);
+    .burger:active{transform: translateY(1px)}
+    .burger i{
+      width:18px; height:12px; position:relative; display:block;
+    }
+    .burger i::before, .burger i::after, .burger i span{
+      content:"";
+      position:absolute; left:0; right:0;
+      height:2px; border-radius:2px;
+      background: rgba(255,255,255,.86);
+    }
+    .burger i::before{top:0}
+    .burger i span{top:5px}
+    .burger i::after{bottom:0}
+
+    /* Drawer */
+    .overlay{
+      position:fixed; inset:0; z-index:80;
+      background: rgba(0,0,0,.55);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+    }
+    .overlay.on{opacity:1; pointer-events:auto}
+
+    .drawer{
+      position:fixed; top:0; right:0; bottom:0;
+      width:min(420px, 88vw);
+      z-index:90;
+      background: rgba(20,20,28,.92);
+      backdrop-filter: blur(18px);
+      border-left: 1px solid rgba(255,255,255,.10);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      padding-top: var(--safeTop);
+      box-shadow: -20px 0 60px rgba(0,0,0,.55);
+      display:flex; flex-direction:column;
+    }
+    .drawer.on{transform: translateX(0)}
+    .drawerHead{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .drawerHead b{font-size:14px; letter-spacing:.06em; text-transform:uppercase}
+    .close{
+      width:42px; height:42px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      display:grid; place-items:center;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .close:active{transform: translateY(1px)}
+    .close svg{opacity:.9}
+
+    .drawerBody{
+      padding: 12px 14px 16px;
+      overflow:auto;
     }
 
-    .hero{
-      margin-top:16px;
-      border-radius:28px;
-      overflow:hidden;
-      position:relative;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.78)),
-        url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png");
-      background-size:cover;
-      background-repeat:no-repeat;
-      background-position:center 22%;
-      box-shadow: var(--shadow);
-      border:1px solid rgba(255,255,255,.10);
+    .search{
+      display:flex; gap:10px; align-items:center;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
     }
-    .hero-inner{
-      padding:34px 18px 22px;
-      min-height:520px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      gap:14px;
+    .search input{
+      width:100%;
+      font-size:15px;
+      background:transparent;
+      border:0;
+      outline:none;
+      color:var(--text);
     }
-    .h1{
-      font-size:44px;
-      line-height:1.05;
-      margin:0;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-      font-weight:900;
-      text-shadow: 0 10px 40px rgba(0,0,0,.6);
+    .search input::placeholder{color:var(--muted2)}
+    .nav{
+      margin-top:12px;
+      display:grid; gap:10px;
     }
-    .sub{
-      margin:0;
-      max-width:780px;
-      font-size:18px;
+    .nav a{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .nav a small{color:var(--muted)}
+    .nav a:active{transform: translateY(1px)}
+
+    .mini{
+      margin-top:12px;
+      padding:12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
       color:var(--muted);
-      text-shadow: 0 10px 30px rgba(0,0,0,.6);
-    }
-
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
-    .chip{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(0,0,0,.26);
-      backdrop-filter: blur(10px);
-      color:rgba(255,255,255,.86);
-      font-weight:700;
       font-size:13px;
     }
 
-    .cta{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:10px;
+    /* Hero */
+    .hero{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        url("https://raw.githubusercontent.com/max-poison/max-poison.github.io/refs/heads/main/IMG_6391.jpeg") center/cover no-repeat;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.20));
+    }
+    .hero .content{
+      position:relative; z-index:2;
+      padding: 20px 16px;
+      min-height: 240px;
+      display:flex; flex-direction:column; justify-content:flex-end; gap:12px;
+    }
+    .hero h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing:.02em;
+    }
+    .hero p{margin:0; color: rgba(255,255,255,.82); max-width: 52ch}
+
+    .ctaRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 6px;
     }
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 16px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:800;
-      color:rgba(255,255,255,.92);
-      transition:.2s ease;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
     }
-    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn:active{transform: translateY(1px)}
     .btn.primary{
-      background:rgba(255,255,255,.92);
-      color:#0b0b0f;
-      border-color:rgba(255,255,255,.86);
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.18);
     }
 
-    section{margin-top:26px}
+    /* Sections */
+    .sections{margin-top: 14px; display:grid; gap:12px}
+    details.sec{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+    }
+    details.sec[open]{background: rgba(255,255,255,.05)}
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px 14px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary b{font-size:15px; letter-spacing:.06em; text-transform:uppercase}
+    summary span{color:var(--muted); font-size:13px}
+    .caret{
+      width:10px; height:10px; border-right:2px solid rgba(255,255,255,.7); border-bottom:2px solid rgba(255,255,255,.7);
+      transform: rotate(45deg);
+      transition: transform .18s ease;
+      margin-right: 4px;
+      opacity:.9;
+    }
+    details[open] summary .caret{transform: rotate(225deg)}
+    .secBody{
+      padding: 2px 14px 14px;
+      color: rgba(255,255,255,.86);
+    }
+
+    /* Horizontal carousel */
+    .hscroll{
+      display:flex; gap:12px;
+      overflow:auto;
+      padding: 10px 2px 6px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .hscroll::-webkit-scrollbar{height:8px}
+    .hscroll::-webkit-scrollbar-thumb{background: rgba(255,255,255,.10); border-radius:99px}
+
     .card{
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      box-shadow: var(--shadow);
+      scroll-snap-align: start;
+      flex: 0 0 min(280px, 78vw);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
       overflow:hidden;
     }
-    .card-inner{padding:18px}
-    .title{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.78);
-      font-weight:900;
+    .thumb{
+      height: 156px;
+      background: #111;
+      position:relative;
     }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+    .thumb img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.03);
+      transform: scale(1.01);
     }
-    .col-6{grid-column: span 6}
-    .col-12{grid-column: span 12}
+    .playBadge{
+      position:absolute; left:12px; bottom:12px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.52);
+      border: 1px solid rgba(255,255,255,.14);
+      display:flex; align-items:center; gap:8px;
+      font-size:13px;
+    }
+    .playBadge svg{opacity:.95}
+    .card .meta{
+      padding: 12px 12px 12px;
+      display:grid; gap:6px;
+    }
+    .card .meta b{
+      font-size: 14px;
+      line-height:1.25;
+    }
+    .card .meta small{color:var(--muted)}
+    .card .actions{
+      padding: 0 12px 12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .pill{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-size: 13px;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pill:active{transform: translateY(1px)}
 
-    .list{
-      display:flex; flex-direction:column; gap:10px;
-      margin:0; padding:0; list-style:none;
+    /* List blocks (без “ссылочного” вида) */
+    .plainList{
+      display:grid; gap:10px;
+      margin-top: 8px;
     }
-    .item{
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.22);
-      color:rgba(255,255,255,.82);
+    .row{
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .muted{color:var(--muted)}
-    .hr{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+    .row small{color:var(--muted)}
+    .row a.btnLink{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-size:13px;
+      white-space:nowrap;
+    }
 
-    .media-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+    /* Modal */
+    .modalOverlay{
+      position:fixed; inset:0; z-index:120;
+      background: rgba(0,0,0,.70);
+      display:none;
+      align-items:center; justify-content:center;
+      padding: 18px 14px;
     }
-    .media{grid-column: span 6}
-    .media-card{
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.22);
+    .modalOverlay.on{display:flex}
+    .modal{
+      width:min(920px, 96vw);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(16,16,22,.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 90px rgba(0,0,0,.65);
       overflow:hidden;
     }
-    .frame{
-      width:100%;
-      aspect-ratio: 16 / 9;
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .modalTop b{font-size:14px}
+    .modalTop button{
+      width:42px; height:42px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      display:grid; place-items:center;
+      cursor:pointer;
+    }
+    .modalTop button:active{transform: translateY(1px)}
+    .modalBody{
+      padding: 0;
+      background:#000;
+      aspect-ratio: 16/9;
+    }
+    .modalBody iframe{
+      width:100%; height:100%;
       border:0;
       display:block;
     }
 
-    .photo-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+    /* Bottom nav */
+    .bottomNav{
+      position:fixed; left:0; right:0; bottom:0;
+      z-index:60;
+      padding-bottom: var(--safeBottom);
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to top, rgba(11,11,15,.88), rgba(11,11,15,.55));
+      border-top: 1px solid rgba(255,255,255,.08);
     }
-    .photo{grid-column: span 4}
-    .photo img{
-      width:100%;
-      display:block;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    .bottomNav .inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      padding: 10px 10px;
+    }
+    .tab{
+      flex:1 1 0;
+      min-width:0;
+      padding: 10px 8px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      font-size: 11px;
+      color: rgba(255,255,255,.78);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tab:active{transform: translateY(1px)}
+    .tab svg{opacity:.9}
+    .tab.active{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.14);
+      color: rgba(255,255,255,.92);
     }
 
-    .footer{
-      margin-top:26px;
-      text-align:center;
-      color:rgba(255,255,255,.42);
-      font-size:13px;
-    }
-
-    @media (max-width: 860px){
-      .h1{font-size:36px}
-      .hero-inner{min-height:560px}
-      .col-6{grid-column: span 12}
-      .media{grid-column: span 12}
-      .photo{grid-column: span 12}
-    }
+    /* Utils */
+    .muted{color:var(--muted)}
+    .hint{color:var(--muted2); font-size:13px}
+    .sp10{height:10px}
+    .sp14{height:14px}
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>MAX POISON / МАКС ПОЙЗОН</span>
+
+  <!-- Topbar -->
+  <div class="topbar" id="top">
+    <div class="inner">
+      <div class="brand" role="banner" aria-label="Макс Пойзон">
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="t">
+          <b>Макс Пойзон</b>
+          <span>Музыка • клипы • лайвы</span>
+        </div>
       </div>
-      <nav class="nav">
-        <a class="pill" href="#listen">Слушать</a>
-        <a class="pill" href="#clips">Клипы</a>
-        <a class="pill" href="#live">Лайвы</a>
-        <a class="pill" href="#about">Обо мне</a>
-        <a class="pill" href="#photo">Фото</a>
-        <a class="pill" href="#contacts">Контакты</a>
-      </nav>
+
+      <button class="burger" id="openDrawer" aria-label="Открыть меню">
+        <i><span></span></i>
+      </button>
     </div>
   </div>
 
-  <div class="wrap">
-    <header class="hero" id="top">
-      <div class="hero-inner">
-        <h1 class="h1">МАКС ПОЙЗОН</h1>
-        <p class="sub">Официальный сайт. Музыка, клипы и живые выступления — всё в одном месте.</p>
+  <!-- Drawer -->
+  <div class="overlay" id="overlay"></div>
 
-        <div class="chips">
-  <a class="chip chip-link" href="#about">Разогрев: Onyx (Лужники)</a>
-  <a class="chip chip-link" href="#about">Rap Music: финалист (2010/2011)</a>
-  <a class="chip chip-link" href="#about">Hip-Hop Line: 3x победитель</a>
-  <a class="chip chip-link" href="#about">Красноярск: лучший хип-хоп (2011, 2016)</a>
-  <a class="chip chip-link" href="#about">Best MC (2018)</a>
-  <a class="chip chip-link" href="#about">HipHop.Ru: 4 место (9 командный баттл)</a>
-  <a class="chip chip-link" href="#about">Победы 2024: 9vox · Арт-Парад · Шоубиз (рэп)</a>
-</div>
-
-        <div class="cta">
-          <a class="btn primary" href="#listen">▶ Слушать сейчас</a>
-          <a class="btn" href="#clips">🎬 Смотреть клипы</a>
-          <a class="btn" href="#live">🎤 Лайвы</a>
-        </div>
+  <aside class="drawer" id="drawer" aria-label="Меню">
+    <div class="drawerHead">
+      <b>Меню</b>
+      <div class="close" id="closeDrawer" aria-label="Закрыть">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6L18 18M18 6L6 18" stroke="rgba(255,255,255,.9)" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
       </div>
-    </header>
+    </div>
 
-    <section id="listen">
-      <div class="card">
-        <div class="card-inner">
-          <h2 class="title">Слушать</h2>
-          <div class="grid">
-            <div class="col-6">
-              <ul class="list">
-                <li class="item"><a href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">Яндекс.Музыка</a></li>
-                <li class="item"><a href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">Apple Music</a></li>
-                <li class="item"><a href="https://vk.com/maxpoison1" target="_blank" rel="noopener">VK Музыка / группа</a></li>
-              </ul>
-            </div>
-            <div class="col-6">
-              <ul class="list">
-                <li class="item"><a href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">YouTube</a></li>
-                <li class="item"><a href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">RuTube</a></li>
-                <li class="item"><a href="#contacts">Все соцсети</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div class="drawerBody">
+      <div class="search" title="Поиск по сайту">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="rgba(255,255,255,.8)" stroke-width="2"/>
+          <path d="M16.5 16.5 21 21" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="searchInput" type="search" placeholder="Поиск: клип, лайв, фото, текст..." />
       </div>
-    </section>
 
-    <section id="clips">
-      <div class="card">
-        <div class="card-inner">
-          <h2 class="title">Клипы</h2>
-          <div class="media-grid">
-            <!-- YouTube embeds (все клипы из твоих ссылок) -->
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/9Qrlc1fiVVE" title="Клип 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/B3qdPETEejw" title="Клип 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/Dpmp4oaDsHE" title="Клип 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/QfE2VUTCoNE" title="Клип 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/4kcJd3sPoP4" title="Клип 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/AMACj-nDgqY" title="Клип 6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/ORS89D6LRTU" title="Клип 7" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/R3nDA-GWJ_0" title="Клип 8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/y6eAeUmBIbo" title="Клип 9" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/I0vL1n_6kJ4" title="Клип 10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/ZcyNTVCs6sU" title="Клип 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/WIhVtSshb7g" title="Клип 12" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/sAbJ_BTGXw0" title="Клип 13" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/26kMZ7cm3a4" title="Клип 14" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/gQ5ryuP365I" title="Клип 15" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/9COBEYUdd4s" title="Клип 16" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/tif1ntp_ZwA" title="Клип 17" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
+      <div class="nav" style="margin-top:12px">
+        <a href="#listen" data-open="listen"><span><b>Слушать</b><br><small>плееры внутри сайта</small></span><small>↗</small></a>
+        <a href="#clips" data-open="clips"><span><b>Клипы</b><br><small>превью + просмотр</small></span><small>↗</small></a>
+        <a href="#lives" data-open="lives"><span><b>Лайвы</b><br><small>свайп вправо/влево</small></span><small>↗</small></a>
+        <a href="#about" data-open="about"><span><b>Обо мне</b><br><small>кратко и по делу</small></span><small>↗</small></a>
+        <a href="#photos" data-open="photos"><span><b>Фото</b><br><small>галерея</small></span><small>↗</small></a>
+        <a href="#contacts" data-open="contacts"><span><b>Контакты</b><br><small>телега / почта</small></span><small>↗</small></a>
+      </div>
 
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/rubuyReQ8Z4" title="Клип 18" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/ckIhdEhsLSo" title="Клип 19" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/uokXnS2kqBM" title="Клип 20" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/QuOZISvlkeE" title="Клип 21" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/fDqi_Kti9ZY" title="Клип 22" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/uMgjzGeOjVA" title="Клип 23" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
+      <div class="mini">
+        Подсказка: можно искать по названию ролика, слову “клип”, “лайв”, “фото”.
+        Поиск работает без перезагрузки.
+      </div>
+    </div>
+  </aside>
 
-          </div>
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Главный блок">
+      <div class="content">
+        <h1>МАКС ПОЙЗОН</h1>
+        <p>Официальный сайт: музыка, клипы, лайвы и фото — аккуратно и удобно, без винегрета.</p>
+
+        <div class="ctaRow">
+          <button class="btn primary" data-open="listen">▶ Слушать</button>
+          <button class="btn" data-open="clips">🎬 Смотреть клипы</button>
+          <button class="btn" data-open="lives">🎙 Лайвы</button>
         </div>
       </div>
     </section>
 
-    <section id="live">
-      <div class="card">
-        <div class="card-inner">
-          <h2 class="title">Лайвы</h2>
+    <div class="sections" id="sections">
 
-          <!-- YouTube live (встраиваем, чтобы работало без сюрпризов) -->
-          <div class="media-grid">
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/M4KO0fu2xaM" title="Лайв 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <!-- LISTEN -->
+      <details class="sec" id="listen">
+        <summary>
+          <div>
+            <b>Слушать</b>
+            <div><span>плееры внутри сайта (без лишних редиректов)</span></div>
+          </div>
+          <div class="caret" aria-hidden="true"></div>
+        </summary>
+
+        <div class="secBody">
+          <div class="plainList" data-search-scope="listen">
+            <div class="row">
+              <div>
+                <b>Яндекс.Музыка — артист</b><br>
+                <small class="muted">Откроется встроенный плеер</small>
+              </div>
+              <a class="btnLink" href="#" data-embed="yandex-artist" aria-label="Открыть плеер Яндекс.Музыка">Открыть</a>
             </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/jae5iwrn8YI" title="Лайв 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+            <div class="row">
+              <div>
+                <b>Spotify — артист</b><br>
+                <small class="muted">Откроется встроенный плеер</small>
+              </div>
+              <a class="btnLink" href="#" data-embed="spotify-artist" aria-label="Открыть плеер Spotify">Открыть</a>
             </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/u0dgDPgRa9E" title="Лайв 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/tOAnVkqOR7o" title="Лайв 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            </div>
-            <div class="media">
-              <div class="media-card"><iframe class="frame" src="https://www.youtube.com/embed/KN024XA8skw" title="Лайв 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+            <div class="row">
+              <div>
+                <b>Apple Music — артист</b><br>
+                <small class="muted">Откроется встроенный плеер</small>
+              </div>
+              <a class="btnLink" href="#" data-embed="apple-artist" aria-label="Открыть плеер Apple Music">Открыть</a>
             </div>
           </div>
 
-          <div class="hr"></div>
+          <div class="sp10"></div>
+          <div class="hint">Если где-то плеер не грузится — это ограничение конкретной платформы/браузера. Но всё открывается в одном месте — на сайте.</div>
+        </div>
+      </details>
 
-          <!-- VK ссылки (без встраивания) -->
-          <div class="grid">
-            <div class="col-12">
-              <ul class="list">
-                <li class="item"><a href="https://vk.ru/wall-12246775_506" target="_blank" rel="noopener">VK: лайв-пост 1</a></li>
-                <li class="item"><a href="https://vk.ru/wall-12246775_512" target="_blank" rel="noopener">VK: лайв-пост 2</a></li>
-                <li class="item"><a href="https://vk.ru/wall-12246775_528" target="_blank" rel="noopener">VK: лайв-пост 3</a></li>
-
-                <li class="item"><a href="https://vkvideo.ru/video3015741_144299756?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 1</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_164200808?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 2</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_163572971?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 3</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_163572975?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 4</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_163572972?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 5</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_163572977?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 6</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_163572979?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 7</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_159259212?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 8</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_158685642?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 9</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_148582761?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 10</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_158685646?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 11</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_146389306?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 12</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_157274116?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 13</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_143827822?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 14</a></li>
-                <li class="item"><a href="https://vkvideo.ru/video26565864_162396783?pl=26565864_45369623" target="_blank" rel="noopener">VK Video 15</a></li>
-              </ul>
-            </div>
+      <!-- CLIPS -->
+      <details class="sec" id="clips">
+        <summary>
+          <div>
+            <b>Клипы</b>
+            <div><span>карточки с превью + просмотр внутри сайта</span></div>
           </div>
+          <div class="caret" aria-hidden="true"></div>
+        </summary>
 
+        <div class="secBody">
+          <div class="hscroll" id="clipsList" data-search-scope="clips" aria-label="Клипы (свайп вправо/влево)"></div>
+          <div class="hint">Свайпай вправо/влево. Нажми “Смотреть” — откроется плеер прямо тут.</div>
         </div>
-      </div>
-    </section>
+      </details>
 
-    <section id="about">
-      <div class="card">
-        <div class="card-inner">
-          <h2 class="title">Обо мне</h2>
-          <ul class="list">
-            <li class="item">Разогрев у <b>Onyx</b> в Лужниках</li>
-            <li class="item"><b>Rap Music</b>: финалист (2010/2011)</li>
-            <li class="item"><b>Hip-Hop Line</b>: 3× победитель</li>
-            <li class="item"><b>Красноярск</b>: лучший хип-хоп исполнитель (2011, 2016)</li>
-            <li class="item"><b>Best MC</b> (2018)</li>
-            <li class="item"><b>HipHop.Ru</b>: 4 место (9 командный баттл)</li>
-            <li class="item"><b>Победитель 9vox</b> (2024)</li>
-            <li class="item"><b>Победитель Арт-Парад</b> (2024, номинация рэп)</li>
-            <li class="item"><b>Победитель “Шоубиз”</b> (2024, номинация рэп · Радио “Главный Красноярск”)</li>
-          </ul>
-
-          <div class="hr"></div>
-          <div class="muted">Проекты/группы: <b>DaOldCinema</b>, <b>Le Arestantz Crew</b>.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="photo">
-      <div class="card">
-        <div class="card-inner">
-          <h2 class="title">Фото</h2>
-          <div class="photo-grid">
-            <div class="photo">
-              <img src="75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png" alt="Макс Пойзон — портрет" />
-            </div>
-            <div class="photo">
-              <img src="IMG_6391.jpeg" alt="Макс Пойзон — фото" />
-            </div>
-            <div class="photo">
-              <img src="IMG_4467.jpeg" alt="Макс Пойзон — фото" />
-            </div>
+      <!-- LIVES -->
+      <details class="sec" id="lives">
+        <summary>
+          <div>
+            <b>Лайвы</b>
+            <div><span>выступления — отдельным блоком, без каши</span></div>
           </div>
-        </div>
-      </div>
-    </section>
+          <div class="caret" aria-hidden="true"></div>
+        </summary>
 
-    <section id="contacts">
-      <div class="card">
-        <div class="card-inner">
-          <h2 class="title">Контакты</h2>
-          <div class="grid">
-            <div class="col-6">
-              <ul class="list">
-                <li class="item"><a href="https://vk.com/maxpoison1" target="_blank" rel="noopener">VK (группа)</a></li>
-                <li class="item"><a href="https://vk.com/max__poison" target="_blank" rel="noopener">VK (личная)</a></li>
-                <li class="item"><a href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">YouTube</a></li>
-                <li class="item"><a href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">RuTube</a></li>
-              </ul>
+        <div class="secBody">
+          <div class="hscroll" id="livesList" data-search-scope="lives" aria-label="Лайвы (свайп вправо/влево)"></div>
+          <div class="hint">Если хочешь — добавим сюда конкретные лайвы (Запал / F Love и т.д.), просто скинь ссылки.</div>
+        </div>
+      </details>
+
+      <!-- ABOUT -->
+      <details class="sec" id="about">
+        <summary>
+          <div>
+            <b>Обо мне</b>
+            <div><span>коротко, без понтов</span></div>
+          </div>
+          <div class="caret" aria-hidden="true"></div>
+        </summary>
+
+        <div class="secBody" data-search-scope="about">
+          <div class="plainList">
+            <div class="row">
+              <div>
+                <b>Макс Пойзон</b><br>
+                <small class="muted">рэп с характером • живые выступления • честная подача</small>
+              </div>
+              <span class="muted">—</span>
             </div>
-            <div class="col-6">
-              <ul class="list">
-                <li class="item"><a href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">TikTok</a></li>
-                <li class="item"><a href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">Instagram</a></li>
-                <li class="item"><a href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">Яндекс.Музыка</a></li>
-                <li class="item"><a href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">Apple Music</a></li>
-              </ul>
+
+            <div class="row">
+              <div>
+                <b>Бэкграунд</b><br>
+                <small class="muted">
+                  Разогрев Onyx (Лужники) • финалист Rap Music (2010/2011) • победы на баттлах и фестивалях
+                </small>
+              </div>
+              <span class="muted">—</span>
+            </div>
+
+            <div class="row">
+              <div>
+                <b>Проекты / группы</b><br>
+                <small class="muted">DaOldCinema, Le Arestantz Crew</small>
+              </div>
+              <span class="muted">—</span>
             </div>
           </div>
         </div>
-      </div>
+      </details>
 
-      <div class="footer">© Макс Пойзон — официальный сайт</div>
-    </section>
+      <!-- PHOTOS -->
+      <details class="sec" id="photos">
+        <summary>
+          <div>
+            <b>Фото</b>
+            <div><span>галерея с превью, листается вбок</span></div>
+          </div>
+          <div class="caret" aria-hidden="true"></div>
+        </summary>
+
+        <div class="secBody">
+          <div class="hscroll" id="photosList" data-search-scope="photos" aria-label="Фото (свайп вправо/влево)"></div>
+          <div class="hint">Фото открываются по тапу (увеличение). Добавим ещё — просто закинь файлы/ссылки.</div>
+        </div>
+      </details>
+
+      <!-- CONTACTS -->
+      <details class="sec" id="contacts">
+        <summary>
+          <div>
+            <b>Контакты</b>
+            <div><span>не “куча ссылок”, а нормальные контакты</span></div>
+          </div>
+          <div class="caret" aria-hidden="true"></div>
+        </summary>
+
+        <div class="secBody" data-search-scope="contacts">
+          <div class="plainList">
+            <div class="row">
+              <div>
+                <b>Telegram</b><br>
+                <small class="muted">@max_poison</small>
+              </div>
+              <a class="btnLink" href="https://t.me/max_poison" target="_blank" rel="noopener">Написать</a>
+            </div>
+
+            <div class="row">
+              <div>
+                <b>Email</b><br>
+                <small class="muted">для предложений и сотрудничества</small>
+              </div>
+              <a class="btnLink" href="mailto:max.poison.music@gmail.com">Письмо</a>
+            </div>
+
+            <div class="row">
+              <div>
+                <b>YouTube</b><br>
+                <small class="muted">@ItsMaxPoison</small>
+              </div>
+              <a class="btnLink" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">Открыть</a>
+            </div>
+
+            <div class="row">
+              <div>
+                <b>RuTube</b><br>
+                <small class="muted">канал</small>
+              </div>
+              <a class="btnLink" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">Открыть</a>
+            </div>
+
+            <div class="row">
+              <div>
+                <b>TikTok</b><br>
+                <small class="muted">@max_poison</small>
+              </div>
+              <a class="btnLink" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">Открыть</a>
+            </div>
+          </div>
+
+          <div class="sp14"></div>
+          <div class="hint">VK и Instagram сознательно убраны (как просили), чтобы сайт выглядел цельно и статусно.</div>
+        </div>
+      </details>
+
+    </div>
+  </main>
+
+  <!-- Modal (видео/плееры) -->
+  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Просмотр">
+      <div class="modalTop">
+        <b id="modalTitle">Просмотр</b>
+        <button id="modalClose" aria-label="Закрыть">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 6L18 18M18 6L6 18" stroke="rgba(255,255,255,.9)" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modalBody" id="modalBody"></div>
+    </div>
   </div>
+
+  <!-- Bottom nav -->
+  <nav class="bottomNav" aria-label="Нижняя навигация">
+    <div class="inner">
+      <a class="tab" href="#listen" data-open="listen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18V6l12-2v12" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M9 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="rgba(255,255,255,.85)" stroke-width="2"/>
+          <path d="M21 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="rgba(255,255,255,.85)" stroke-width="2"/>
+        </svg>
+        Слушать
+      </a>
+
+      <a class="tab" href="#clips" data-open="clips">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Клипы
+      </a>
+
+      <a class="tab" href="#lives" data-open="lives">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 18a6 6 0 0 0 6-6V6H6v6a6 6 0 0 0 6 6Z" stroke="rgba(255,255,255,.85)" stroke-width="2"/>
+          <path d="M10 10h4" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Лайвы
+      </a>
+
+      <a class="tab" href="#about" data-open="about">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="rgba(255,255,255,.85)" stroke-width="2"/>
+          <path d="M4 20a8 8 0 0 1 16 0" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Обо мне
+      </a>
+
+      <a class="tab" href="#contacts" data-open="contacts">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16v10H4z" stroke="rgba(255,255,255,.85)" stroke-width="2"/>
+          <path d="M4 7l8 6 8-6" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Контакты
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    // -----------------------------
+    // ДАННЫЕ (можно править руками)
+    // -----------------------------
+    // Клипы — список YouTube ссылок (показываем превью и открываем встроенно)
+    const CLIPS = [
+      { title: "Клип 1", url: "https://m.youtube.com/watch?v=9Qrlc1fiVVE" },
+      { title: "Клип 2", url: "https://m.youtube.com/watch?v=B3qdPETEejw" },
+      { title: "Приём", url: "https://youtu.be/Dpmp4oaDsHE" },
+      { title: "Клип 4", url: "https://m.youtube.com/watch?v=QfE2VUTCoNE" },
+      { title: "Клип 5", url: "https://m.youtube.com/watch?v=4kcJd3sPoP4" },
+      { title: "Клип 6", url: "https://m.youtube.com/watch?v=AMACj-nDgqY" },
+      { title: "Клип 7", url: "https://m.youtube.com/watch?v=ORS89D6LRTU" },
+      { title: "Клип 8", url: "https://m.youtube.com/watch?v=R3nDA-GWJ_0" },
+      { title: "Клип 9", url: "https://m.youtube.com/watch?v=y6eAeUmBIbo" },
+      { title: "Клип 10", url: "https://m.youtube.com/watch?v=I0vL1n_6kJ4" },
+      { title: "Клип 11", url: "https://m.youtube.com/watch?v=ZcyNTVCs6sU" },
+      { title: "Клип 12", url: "https://m.youtube.com/watch?v=WIhVtSshb7g" },
+      { title: "Клип 13", url: "https://m.youtube.com/watch?v=sAbJ_BTGXw0" },
+      { title: "Клип 14", url: "https://m.youtube.com/watch?v=26kMZ7cm3a4" },
+      { title: "Клип 15", url: "https://m.youtube.com/watch?v=gQ5ryuP365I" },
+      { title: "Клип 16", url: "https://m.youtube.com/watch?v=9COBEYUdd4s" },
+      { title: "Клип 17", url: "https://m.youtube.com/watch?v=tif1ntp_ZwA" },
+      { title: "Клип 18", url: "https://m.youtube.com/watch?v=rubuyReQ8Z4" },
+      { title: "Клип 19", url: "https://m.youtube.com/watch?v=ckIhdEhsLSo" },
+      { title: "Клип 20", url: "https://m.youtube.com/watch?v=uokXnS2kqBM" },
+      { title: "Клип 21", url: "https://m.youtube.com/watch?v=QuOZISvlkeE" },
+      { title: "Клип 22", url: "https://m.youtube.com/watch?v=fDqi_Kti9ZY" },
+      { title: "Клип 23", url: "https://m.youtube.com/watch?v=uMgjzGeOjVA" }
+    ];
+
+    // Лайвы — сейчас заготовка (пока нет ссылок из чата “Запал / F Love”)
+    const LIVES = [
+      { title: "Лайв (добавь ссылку)", url: "" },
+      { title: "Лайв (добавь ссылку)", url: "" },
+      { title: "Лайв (добавь ссылку)", url: "" }
+    ];
+
+    // Фото
+    const PHOTOS = [
+      { title: "Фото 1", url: "https://raw.githubusercontent.com/max-poison/max-poison.github.io/refs/heads/main/IMG_6391.jpeg" },
+      { title: "Фото 2", url: "https://raw.githubusercontent.com/max-poison/max-poison.github.io/refs/heads/main/IMG_4467.jpeg" }
+    ];
+
+    // Встроенные плееры
+    const EMBEDS = {
+      "yandex-artist": {
+        title: "Яндекс.Музыка — Макс Пойзон",
+        html: `<iframe src="https://music.yandex.ru/iframe/#artist/3364880" allow="autoplay; encrypted-media" loading="lazy"></iframe>`
+      },
+      "spotify-artist": {
+        title: "Spotify — Макс Пойзон",
+        html: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0x0?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+      },
+      "apple-artist": {
+        title: "Apple Music — Макс Пойзон",
+        html: `<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:100%;overflow:hidden;border-radius:12px" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644"></iframe>`
+      }
+    };
+
+    // -----------------------------
+    // ВСПОМОГАТЕЛЬНОЕ
+    // -----------------------------
+    const $ = (s, root=document) => root.querySelector(s);
+    const $$ = (s, root=document) => Array.from(root.querySelectorAll(s));
+
+    function ytIdFromUrl(url){
+      if(!url) return "";
+      try{
+        const u = new URL(url);
+        if(u.hostname.includes("youtu.be")){
+          return u.pathname.replace("/","").trim();
+        }
+        if(u.searchParams.get("v")) return u.searchParams.get("v");
+        // fallback for weird cases
+        const m = url.match(/v=([a-zA-Z0-9_-]{6,})/);
+        return m ? m[1] : "";
+      }catch(e){
+        const m = url.match(/([a-zA-Z0-9_-]{11})/);
+        return m ? m[1] : "";
+      }
+    }
+
+    function ytThumb(id){
+      return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
+    }
+
+    function makeVideoCard({title, url}, type){
+      const id = ytIdFromUrl(url);
+      const hasVideo = !!id;
+      const el = document.createElement("div");
+      el.className = "card";
+      el.dataset.search = `${type} ${title}`.toLowerCase();
+
+      const thumbHtml = hasVideo
+        ? `<img src="${ytThumb(id)}" alt="${title}">`
+        : `<img src="https://raw.githubusercontent.com/max-poison/max-poison.github.io/refs/heads/main/IMG_4467.jpeg" alt="${title}">`;
+
+      el.innerHTML = `
+        <div class="thumb">
+          ${thumbHtml}
+          <div class="playBadge">
+            ${type === "Клип" ? "🎬" : "🎙"} ${type}
+          </div>
+        </div>
+        <div class="meta">
+          <b>${title}</b>
+          <small>${hasVideo ? "Откроется встроенный просмотр" : "Нет ссылки — добавь"}</small>
+        </div>
+        <div class="actions">
+          <button class="pill" ${hasVideo ? "" : "disabled"} data-watch="${hasVideo ? id : ""}">
+            Смотреть
+          </button>
+          ${hasVideo ? `<a class="pill" href="${url}" target="_blank" rel="noopener">Открыть на YouTube</a>` : ""}
+        </div>
+      `;
+      return el;
+    }
+
+    function makePhotoCard({title, url}){
+      const el = document.createElement("div");
+      el.className = "card";
+      el.dataset.search = `фото ${title}`.toLowerCase();
+      el.innerHTML = remember = `
+        <div class="thumb">
+          <img src="${url}" alt="${title}">
+          <div class="playBadge">📷 Фото</div>
+        </div>
+        <div class="meta">
+          <b>${title}</b>
+          <small>Тап — открыть</small>
+        </div>
+        <div class="actions">
+          <button class="pill" data-photo="${url}" data-title="${title}">Открыть</button>
+        </div>
+      `;
+      return el;
+    }
+
+    // -----------------------------
+    // Drawer open/close + swipe
+    // -----------------------------
+    const overlay = $("#overlay");
+    const drawer = $("#drawer");
+    const openDrawer = $("#openDrawer");
+    const closeDrawer = $("#closeDrawer");
+
+    function setDrawer(on){
+      overlay.classList.toggle("on", on);
+      drawer.classList.toggle("on", on);
+      document.body.style.overflow = on ? "hidden" : "";
+    }
+    openDrawer.addEventListener("click", ()=> setDrawer(true));
+    closeDrawer.addEventListener("click", ()=> setDrawer(false));
+    overlay.addEventListener("click", ()=> setDrawer(false));
+
+    // swipe right-to-left to close (как просили)
+    let touchX = null;
+    drawer.addEventListener("touchstart", (e)=> { touchX = e.touches[0].clientX; }, {passive:true});
+    drawer.addEventListener("touchmove", (e)=>{
+      if(touchX == null) return;
+      const dx = e.touches[0].clientX - touchX;
+      if(dx > 70){ // свайп вправо
+        setDrawer(false);
+        touchX = null;
+      }
+    }, {passive:true});
+
+    // -----------------------------
+    // Modal
+    // -----------------------------
+    const modalOverlay = $("#modalOverlay");
+    const modalBody = $("#modalBody");
+    const modalTitle = $("#modalTitle");
+    const modalClose = $("#modalClose");
+
+    function openModal(title, html){
+      modalTitle.textContent = title || "Просмотр";
+      modalBody.innerHTML = html;
+      modalOverlay.classList.add("on");
+      modalOverlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal(){
+      modalOverlay.classList.remove("on");
+      modalOverlay.setAttribute("aria-hidden", "true");
+      modalBody.innerHTML = "";
+      document.body.style.overflow = "";
+    }
+    modalClose.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", (e)=> { if(e.target === modalOverlay) closeModal(); });
+    document.addEventListener("keydown", (e)=> { if(e.key === "Escape") closeModal(); });
+
+    // -----------------------------
+    // Render lists
+    // -----------------------------
+    const clipsList = $("#clipsList");
+    const livesList = $("#livesList");
+    const photosList = $("#photosList");
+
+    CLIPS.forEach(v => clipsList.appendChild(makeVideoCard(v, "Клип")));
+    LIVES.forEach(v => livesList.appendChild(makeVideoCard(v, "Лайв")));
+    PHOTOS.forEach(p => photosList.appendChild(makePhotoCard(p)));
+
+    // watch click
+    document.addEventListener("click", (e)=>{
+      const watch = e.target.closest("[data-watch]");
+      if(watch){
+        const id = watch.getAttribute("data-watch");
+        if(!id) return;
+        openModal("Просмотр", `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
+      }
+
+      const photo = e.target.closest("[data-photo]");
+      if(photo){
+        const url = photo.getAttribute("data-photo");
+        const title = photo.getAttribute("data-title") || "Фото";
+        openModal(title, `<iframe src="${url}" loading="lazy"></iframe>`);
+      }
+
+      const emb = e.target.closest("[data-embed]");
+      if(emb){
+        e.preventDefault();
+        const key = emb.getAttribute("data-embed");
+        const pack = EMBEDS[key];
+        if(!pack) return;
+        openModal(pack.title, pack.html);
+      }
+    });
+
+    // -----------------------------
+    // Open section helper (and close drawer)
+    // -----------------------------
+    function openSection(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      if(el.tagName.toLowerCase() === "details") el.open = true;
+      el.scrollIntoView({behavior:"smooth", block:"start"});
+      setDrawer(false);
+      setActiveTab(id);
+    }
+
+    // click nav items with data-open
+    document.addEventListener("click", (e)=>{
+      const a = e.target.closest("[data-open]");
+      if(!a) return preventDefaultIfNeeded(a, e);
+      const id = a.getAttribute("data-open");
+      openSection(id);
+    });
+
+    function preventDefaultIfNeeded(a, e){
+      // for buttons it's ok; for anchor prevent jump double
+      if(a.tagName.toLowerCase() === "a") e.preventDefault();
+    }
+
+    // CTA buttons
+    $$("[data-open]").forEach(btn=>{
+      btn.addEventListener("click", (e)=>{
+        if(btn.tagName.toLowerCase() === "a") e.preventDefault();
+        openSection(btn.getAttribute("data-open"));
+      }, {passive:false});
+    });
+
+    // -----------------------------
+    // Search (filters cards + text blocks)
+    // -----------------------------
+    const searchInput = $("#searchInput");
+    function applySearch(q){
+      q = (q || "").trim().toLowerCase();
+
+      // video/photo cards
+      $$(".card").forEach(card=>{
+        const hay = (card.dataset.search || "").toLowerCase();
+        card.style.display = (!q || hay.includes(q)) ? "" : "none";
+      });
+
+      // plain list rows
+      $$(".plainList .row").forEach(row=>{
+        const txt = row.innerText.toLowerCase();
+        row.style.display = (!q || txt.includes(q)) ? "" : "none";
+      });
+
+      // if user typed, open all sections to show results
+      if(q){
+        $$("details.sec").forEach(d => d.open = true);
+      }
+    }
+    searchInput.addEventListener("input", (e)=> applySearch(e.target.value));
+
+    // -----------------------------
+    // Active bottom tab
+    // -----------------------------
+    const tabs = $$(".bottomNav .tab");
+    function setActiveTab(id){
+      tabs.forEach(t => t.classList.toggle("active", t.getAttribute("data-open") === id));
+    }
+
+    // On hash change, open section and highlight
+    window.addEventListener("hashchange", ()=>{
+      const id = location.hash.replace("#","").trim();
+      if(id) openSection(id);
+    });
+
+    // initial
+    if(location.hash){
+      const id = location.hash.replace("#","").trim();
+      if(id) openSection(id);
+    } else {
+      setActiveTab("listen");
+    }
+  </script>
 </body>
 </html>
