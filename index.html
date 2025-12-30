@@ -1,144 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Макс Пойзон — официальный сайт</title>
 
 <style>
 :root{
-  --bg:#07070b;
-  --glass:rgba(255,255,255,.06);
-  --line:rgba(255,255,255,.12);
-  --text:rgba(255,255,255,.95);
-  --muted:rgba(255,255,255,.6);
-  --radius:22px;
-  --shadow:0 30px 80px rgba(0,0,0,.65);
+  --bg:#0b0b0d;
+  --text:#ffffff;
+  --muted:#b3b3b3;
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
 }
+
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,Inter,system-ui;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
 
-/* HEADER */
+/* ---------- HEADER ---------- */
 header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  backdrop-filter:blur(16px);
-  background:rgba(0,0,0,.55);
-  border-bottom:1px solid var(--line);
-}
-.top{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 18px;
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:50;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  padding:14px 18px;
+  background:linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,0));
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 .logo img{
-  height:38px;
+  width:34px;
+  height:34px;
+  border-radius:8px;
 }
+
 .menuBtn{
-  background:var(--glass);
-  border:1px solid var(--line);
-  color:var(--text);
   padding:10px 16px;
-  border-radius:14px;
+  border-radius:999px;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:#fff;
+  font-size:14px;
 }
 
-/* MENU */
-.menu{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(20px);
-  display:none;
-}
-.menu.open{display:block}
-.menuBox{
-  max-width:400px;
-  margin:80px auto;
-  background:var(--glass);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:10px;
-}
-.menuBox a{
-  display:block;
-  padding:16px;
-  color:var(--text);
-  text-decoration:none;
-  border-bottom:1px solid var(--line);
-}
-.menuBox a:last-child{border:0}
-
-/* HERO */
+/* ---------- HERO ---------- */
 .hero{
-  min-height:92vh;
+  min-height:100vh;
+  padding:140px 20px 80px;
   background:
-    linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85)),
-    url("assets/img/hero.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:flex-end;
+    linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.85)),
+    url("/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center top / cover no-repeat;
 }
-.heroInner{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 18px 70px;
-}
+
 .hero h1{
-  font-size:52px;
+  font-size:42px;
+  letter-spacing:.08em;
   margin:0 0 12px;
-  letter-spacing:.04em;
 }
+
 .hero p{
   color:var(--muted);
-  font-size:18px;
+  margin:0 0 28px;
 }
 
-/* SECTIONS */
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:14px 22px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
+}
+.btn.primary{
+  background:#fff;
+  color:#000;
+}
+
+/* ---------- SECTIONS ---------- */
 section{
-  max-width:1100px;
-  margin:60px auto;
-  padding:0 18px;
+  padding:70px 18px;
 }
 h2{
-  margin:0 0 18px;
-  font-size:26px;
+  margin:0 0 22px;
+  font-size:22px;
+  letter-spacing:.08em;
 }
 
-/* LAST TRACK */
-.track{
-  background:var(--glass);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
+/* ---------- PLAYER ---------- */
+.player{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
   padding:20px;
 }
-audio{width:100%}
-
-/* CLIPS */
-.clips{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+audio{
+  width:100%;
+  margin-top:10px;
 }
-.clip{
+
+/* ---------- GRID ---------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:16px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
   border-radius:18px;
   overflow:hidden;
-  border:1px solid var(--line);
+}
+.card iframe{
+  width:100%;
+  height:160px;
+  border:0;
 }
 
-/* FOOTER */
+/* ---------- FOOTER ---------- */
 footer{
+  padding:40px 18px;
   text-align:center;
-  padding:40px 0;
-  color:var(--muted);
-  border-top:1px solid var(--line);
+  color:#666;
+  font-size:13px;
 }
 </style>
 </head>
@@ -146,65 +146,53 @@ footer{
 <body>
 
 <header>
-  <div class="top">
-    <div class="logo">
-      <img src="assets/img/logo.png" alt="Max Poison">
-    </div>
-    <button class="menuBtn" onclick="toggleMenu()">Меню</button>
+  <div class="logo">
+    <img src="/IMG_4881.png" alt="Max Poison">
   </div>
+  <div class="menuBtn">Меню</div>
 </header>
 
-<div class="menu" id="menu">
-  <div class="menuBox">
-    <a href="#music" onclick="toggleMenu()">Музыка</a>
-    <a href="#clips" onclick="toggleMenu()">Клипы</a>
-    <a href="#live" onclick="toggleMenu()">Лайвы</a>
-    <a href="#contacts" onclick="toggleMenu()">Контакты</a>
-  </div>
-</div>
-
 <section class="hero">
-  <div class="heroInner">
-    <h1>МАКС ПОЙЗОН</h1>
-    <p>Музыка · клипы · лайвы — в одном месте</p>
+  <h1>МАКС ПОЙЗОН</h1>
+  <p>Музыка · клипы · лайвы — в одном месте</p>
+  <div class="actions">
+    <a href="#track" class="btn primary">Последний трек</a>
+    <a href="#clips" class="btn">Клипы</a>
+    <a href="#lives" class="btn">Лайвы</a>
   </div>
 </section>
 
-<section id="music">
-  <h2>Последний трек</h2>
-  <div class="track">
-    <strong>Bossfight</strong>
-    <audio controls src="assets/audio/bossfight.mp3"></audio>
+<section id="track">
+  <h2>ПОСЛЕДНИЙ ТРЕК</h2>
+  <div class="player">
+    <strong>Боссфайт</strong>
+    <audio controls src="/Боссфайт.mp3"></audio>
   </div>
 </section>
 
 <section id="clips">
-  <h2>Клипы</h2>
-  <div class="clips">
-    <div class="clip">
-      <iframe width="100%" height="200"
-        src="https://www.youtube.com/embed/Dpmp4oaDsHE"
-        frameborder="0" allowfullscreen></iframe>
+  <h2>КЛИПЫ</h2>
+  <div class="grid">
+    <!-- ВСТАВЛЯЕШЬ ВСЕ КЛИПЫ -->
+    <!-- пример -->
+    <!--
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/XXXXXXXX"></iframe>
     </div>
-    <!-- сюда добавляешь остальные клипы -->
+    -->
   </div>
 </section>
 
-<section id="contacts">
-  <h2>Контакты</h2>
-  <p>Telegram: @max_poison</p>
-  <p>Email: для сотрудничества</p>
+<section id="lives">
+  <h2>ЛАЙВЫ</h2>
+  <div class="grid">
+    <!-- ВСТАВЛЯЕШЬ ЛАЙВЫ -->
+  </div>
 </section>
 
 <footer>
-  maxpoison.ru
+  © Макс Пойзон · maxpoison.ru
 </footer>
-
-<script>
-function toggleMenu(){
-  document.getElementById('menu').classList.toggle('open');
-}
-</script>
 
 </body>
 </html>
