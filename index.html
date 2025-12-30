@@ -3,411 +3,487 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0c10" />
+  <meta name="theme-color" content="#0b0b0f" />
   <title>Макс Пойзон — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — музыка, клипы и лайвы в одном месте. Последний трек, клипы, живые выступления, контакты." />
+  <meta name="description" content="Макс Пойзон — музыка, клипы и лайвы в одном месте." />
+
   <style>
     :root{
-      --bg:#07080b;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
+      --bg:#07070b;
+      --card:rgba(14,14,20,.55);
+      --card2:rgba(18,18,26,.55);
       --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.14);
       --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.62);
-      --muted2:rgba(255,255,255,.48);
-      --shadow:0 18px 60px rgba(0,0,0,.55);
-      --radius:26px;
-      --radius2:18px;
-      --max:1060px;
-      --blur:18px;
+      --muted:rgba(255,255,255,.68);
+      --muted2:rgba(255,255,255,.55);
+      --shadow:0 18px 55px rgba(0,0,0,.55);
+      --shadow2:0 10px 30px rgba(0,0,0,.45);
+      --r:22px;
+      --r2:16px;
+      --max:1100px;
+      --pad:16px;
     }
+
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html,body{height:100%}
     body{
       margin:0;
-      background:radial-gradient(1200px 900px at 20% 0%, rgba(60,90,255,.16), transparent 55%),
-                 radial-gradient(900px 700px at 85% 10%, rgba(140,80,255,.14), transparent 55%),
-                 var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      line-height:1.25;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(84,93,255,.18), transparent 55%),
+                  radial-gradient(900px 600px at 95% 18%, rgba(255,60,116,.10), transparent 60%),
+                  radial-gradient(1000px 800px at 55% 120%, rgba(80,255,219,.07), transparent 60%),
+                  var(--bg);
       overflow-x:hidden;
     }
+
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 70px}
+    button{font:inherit}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
     .topbar{
-      position:sticky; top:0; z-index:50;
-      background:linear-gradient(to bottom, rgba(5,6,9,.78), rgba(5,6,9,.52));
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      position:fixed; left:0; right:0; top:0;
+      z-index:50;
+      padding: calc(env(safe-area-inset-top) + 10px) 0 10px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.62), rgba(0,0,0,.26), transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .topbar .wrap{padding:14px 16px}
-    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
-    .brand{display:flex; align-items:center; gap:10px; min-width:0}
-    .logo{
-      width:38px; height:38px; border-radius:12px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:0;
+    }
+    .brandLogo{
+      width:36px; height:36px; border-radius:12px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
       overflow:hidden; flex:0 0 auto;
+      box-shadow: var(--shadow2);
     }
-    .logo img{width:100%; height:100%; object-fit:cover; display:block}
-    .brandTitle{
+    .brandLogo img{width:100%; height:100%; object-fit:cover; display:block}
+    .brandName{
       font-weight:800;
-      letter-spacing:.14em;
+      letter-spacing:.10em;
       text-transform:uppercase;
       font-size:14px;
-      color:rgba(255,255,255,.86);
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+      max-width:62vw;
     }
+
     .menuBtn{
       display:inline-flex; align-items:center; gap:10px;
       padding:12px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color:rgba(255,255,255,.86);
-      font-weight:700;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      box-shadow: var(--shadow2);
       cursor:pointer;
     }
-    .menuBtn svg{opacity:.85}
+    .menuBtn:active{transform: translateY(1px)}
+    .hamb{
+      width:16px; height:12px; position:relative; flex:0 0 auto;
+    }
+    .hamb span{
+      position:absolute; left:0; right:0; height:2px; border-radius:999px;
+      background: rgba(255,255,255,.85);
+    }
+    .hamb span:nth-child(1){top:0}
+    .hamb span:nth-child(2){top:5px; opacity:.85}
+    .hamb span:nth-child(3){bottom:0; opacity:.7}
+
     .hero{
+      padding-top: calc(env(safe-area-inset-top) + 78px);
+      padding-bottom: 30px;
+    }
+    .heroFrame{
       position:relative;
-      border-radius:34px;
+      border-radius: 28px;
       overflow:hidden;
-      min-height:520px;
-      background:#0a0b10;
-      border:1px solid rgba(255,255,255,.07);
-      box-shadow:var(--shadow);
-      margin-top:16px;
-      isolation:isolate;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      min-height: min(72vh, 640px);
+      background:#0b0b10;
     }
     .heroBg{
       position:absolute; inset:0;
-      background-image:url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png");
-      background-size:cover;
-      background-position:50% 22%;
-      filter:saturate(1.05) contrast(1.05);
-      transform:scale(1.02);
+      background-image:
+        linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.40)),
+        radial-gradient(700px 520px at 40% 20%, rgba(130,140,255,.22), transparent 60%),
+        radial-gradient(680px 540px at 70% 72%, rgba(255,70,140,.12), transparent 62%),
+        url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png");
+      background-size: cover;
+      background-position: center 24%;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.03);
     }
-    .heroShade{
-      position:absolute; inset:0;
+    .heroGlow{
+      position:absolute; inset:-2px;
       background:
-        radial-gradient(900px 560px at 15% 65%, rgba(0,0,0,.70), transparent 62%),
-        linear-gradient(to top, rgba(6,7,11,.88), rgba(6,7,11,.18) 55%, rgba(6,7,11,.42));
+        radial-gradient(900px 500px at 25% 5%, rgba(120,130,255,.22), transparent 58%),
+        radial-gradient(700px 520px at 90% 30%, rgba(255,70,140,.12), transparent 60%),
+        radial-gradient(700px 560px at 70% 110%, rgba(60,255,220,.06), transparent 65%);
       pointer-events:none;
-    }
-    .heroInner{
-      position:relative;
-      padding:22px;
-      display:flex;
-      justify-content:flex-start;
-      align-items:flex-end;
-      min-height:520px;
+      mix-blend-mode:screen;
+      opacity:.85;
     }
     .heroCard{
-      width:min(560px, 100%);
-      background:rgba(10,12,18,.42);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:28px;
-      padding:22px 20px;
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      box-shadow:0 20px 70px rgba(0,0,0,.55);
-    }
-    .kicker{
-      font-size:12px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.70);
-      margin:0 0 10px;
-    }
-    .h1{
-      margin:0;
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      line-height:0.92;
-      font-size: clamp(40px, 6vw, 64px);
-    }
-    .sub{
-      margin:14px 0 18px;
-      color:rgba(255,255,255,.74);
-      font-size:18px;
-    }
-    .ctaRow{display:flex; flex-wrap:wrap; gap:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 18px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:rgba(255,255,255,.92);
-      font-weight:800;
-      cursor:pointer;
-      user-select:none;
-      transition:transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16)}
-    .btnPrimary{
-      background:rgba(255,255,255,.92);
-      color:#0a0b10;
-      border-color:rgba(255,255,255,.92);
-    }
-    .btnPrimary:hover{background:rgba(255,255,255,.98); border-color:rgba(255,255,255,.98)}
-    .section{padding:28px 2px 6px}
-    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:12px}
-    .title{
-      font-size:32px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      margin:0;
-      font-weight:900;
-    }
-    .hint{color:var(--muted2); font-weight:700}
-    .card{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      box-shadow:0 18px 60px rgba(0,0,0,.40);
-      overflow:hidden;
-    }
-    .pad{padding:18px}
-    .mini{color:var(--muted2); font-weight:700; font-size:13px}
-    .trackTitle{
-      margin:0 0 8px;
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:28px;
-    }
-    .audioBox{
-      margin-top:14px;
-      background:rgba(0,0,0,.25);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:12px;
-    }
-    audio{width:100%}
-    .platforms{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:10px;
-      margin-top:12px;
-    }
-    .plink{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:14px 14px;
-      border-radius:18px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-    .plink small{
-      display:block;
-      font-weight:700;
-      letter-spacing:0;
-      text-transform:none;
-      color:var(--muted2);
-      margin-top:4px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-    }
-    .tile{
-      position:relative;
-      border-radius:24px;
-      overflow:hidden;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 16px 44px rgba(0,0,0,.38);
-      cursor:pointer;
-      min-height:160px;
-    }
-    .thumb{
-      position:absolute; inset:0;
-      background-size:cover;
-      background-position:center;
-      filter:saturate(1.02) contrast(1.05);
-      transform:scale(1.01);
-    }
-    .tileShade{
-      position:absolute; inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.15) 60%, rgba(0,0,0,.35));
-    }
-    .tileMeta{
-      position:relative;
-      padding:16px;
-      display:flex; flex-direction:column; justify-content:flex-end;
-      min-height:160px;
-      gap:10px;
-    }
-    .tileTitle{
-      margin:0;
-      font-weight:900;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size:16px;
-      line-height:1.1;
-      color:rgba(255,255,255,.92);
-      text-shadow:0 10px 30px rgba(0,0,0,.55);
-    }
-    .playPill{
-      display:inline-flex; align-items:center; gap:10px;
-      width:max-content;
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.16);
+      position:absolute;
+      left: clamp(14px, 3vw, 26px);
+      right: clamp(14px, 3vw, 26px);
+      bottom: clamp(14px, 3vw, 26px);
+      border-radius: 24px;
+      padding: 18px 18px 16px;
+      background: linear-gradient(180deg, rgba(18,18,26,.38), rgba(12,12,18,.58));
+      border: 1px solid rgba(255,255,255,.12);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      font-weight:900;
-      color:rgba(255,255,255,.90);
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
     }
-    .aboutText{
-      color:rgba(255,255,255,.78);
-      font-size:16px;
-      line-height:1.55;
+    .kicker{
+      font-size: 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.70);
+      margin-bottom: 10px;
+    }
+    .heroTitle{
       margin:0;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      font-size: clamp(34px, 9.5vw, 64px);
+      line-height: .92;
+      text-shadow: 0 18px 60px rgba(0,0,0,.65);
+      display:block;
+      max-width: 100%;
+      word-break: keep-all;
     }
-    .contacts{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:12px;
+    .heroTitle span{display:block}
+    .heroSub{
+      margin: 12px 0 16px;
+      color: rgba(255,255,255,.78);
+      font-size: clamp(14px, 3.8vw, 18px);
+      line-height: 1.35;
     }
-    .contactBtn{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:16px;
-      border-radius:22px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-    .contactBtn span{color:rgba(255,255,255,.86)}
-    .footer{
-      text-align:center;
-      padding:26px 0 10px;
-      color:rgba(255,255,255,.45);
-      font-weight:700;
+    .heroActions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
     }
 
-    .overlay{
-      position:fixed; inset:0;
-      background:rgba(0,0,0,.72);
-      display:none;
+    .btn{
+      display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:18px;
-      z-index:120;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      box-shadow: var(--shadow2);
+      min-height: 46px;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
     }
-    .overlay.open{display:flex}
-    .modal{
-      width:min(980px, 100%);
-      background:rgba(10,12,18,.62);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:28px;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow:0 30px 100px rgba(0,0,0,.65);
-      overflow:hidden;
+    .btn:active{transform: translateY(1px)}
+    .btnPrimary{
+      background: rgba(255,255,255,.88);
+      color: rgba(0,0,0,.92);
+      border-color: rgba(255,255,255,.88);
+      font-weight:800;
     }
-    .modalTop{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:14px 14px 10px 16px;
-      border-bottom:1px solid rgba(255,255,255,.08);
+
+    .section{padding: 28px 0}
+    .sectionTop{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin: 0 0 12px;
     }
-    .modalTitle{
+    .h2{
       margin:0;
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:14px;
-      color:rgba(255,255,255,.90);
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: clamp(28px, 7.6vw, 44px);
+      line-height: 1.03;
+    }
+    .hint{
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
       white-space:nowrap;
     }
-    .closeBtn{
-      width:44px; height:44px;
-      border-radius:16px;
+
+    .card{
+      border-radius: var(--r);
+      background: linear-gradient(180deg, var(--card), rgba(10,10,14,.62));
       border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.06);
-      color:rgba(255,255,255,.92);
-      cursor:pointer;
-      font-size:18px;
-      font-weight:900;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
     }
-    .player{
-      aspect-ratio:16/9;
-      background:#000;
-      width:100%;
+    .cardBody{padding: 18px}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
-    .player iframe{
-      width:100%;
-      height:100%;
-      border:0;
+    @media (min-width: 860px){
+      .grid2{grid-template-columns: 1.15fr .85fr}
+    }
+
+    .miniBanner{
+      height: 120px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
+      background:#0b0b10;
+    }
+    .miniBanner::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(to bottom, rgba(0,0,0,.30), rgba(0,0,0,.55)),
+        radial-gradient(700px 220px at 20% 10%, rgba(120,130,255,.20), transparent 60%),
+        radial-gradient(680px 220px at 85% 60%, rgba(255,70,140,.12), transparent 62%);
+      pointer-events:none;
+    }
+    .miniBanner img{
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center 35%;
+      filter: saturate(1.02) contrast(1.02);
+      transform: scale(1.03);
       display:block;
     }
+    .miniBanner .label{
+      position:absolute; left:16px; bottom:12px;
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(10,10,14,.46);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
 
-    .sheet{
-      position:fixed; inset:0;
-      display:none;
-      z-index:110;
+    .playerTitleRow{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin-bottom: 10px;
     }
-    .sheet.open{display:block}
-    .sheetBg{
-      position:absolute; inset:0;
-      background:rgba(0,0,0,.55);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+    .playerTitle{
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin:0;
+      font-size: 20px;
     }
-    .sheetPanel{
-      position:absolute;
-      top:72px;
-      right:16px;
-      left:16px;
-      max-width:520px;
-      margin:0 auto;
-      background:rgba(10,12,18,.70);
+    audio{width:100%}
+
+    .links{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .linkItem{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 18px;
       border:1px solid rgba(255,255,255,.10);
-      border-radius:26px;
+      background: rgba(255,255,255,.05);
+    }
+    .linkItem .t{font-weight:800; letter-spacing:.02em}
+    .linkItem .s{font-size:12px; color:rgba(255,255,255,.60); margin-top:2px}
+    .linkItem .r{
+      width:38px; height:38px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      flex:0 0 auto;
+    }
+    .arrow{
+      width:16px; height:16px; opacity:.9;
+    }
+
+    .mediaGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 720px){
+      .mediaGrid{grid-template-columns: repeat(2, 1fr)}
+    }
+    @media (min-width: 1040px){
+      .mediaGrid{grid-template-columns: repeat(3, 1fr)}
+    }
+
+    .yt{
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
       overflow:hidden;
-      box-shadow:0 26px 90px rgba(0,0,0,.65);
+      box-shadow: var(--shadow2);
     }
-    .sheetA{
+    .ytThumb{
+      position:relative;
+      aspect-ratio: 16 / 9;
+      background: #0b0b10;
+      overflow:hidden;
+    }
+    .ytThumb img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.02) contrast(1.02);
+      transform: scale(1.01);
+    }
+    .ytThumb::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.45));
+      pointer-events:none;
+    }
+    .playBtn{
+      position:absolute; left:12px; top:12px;
+      width:44px; height:44px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    }
+    .playIcon{
+      width:18px; height:18px;
+      transform: translateX(1px);
+      opacity:.95;
+    }
+    .ytMeta{
+      padding: 12px 14px 14px;
+    }
+    .ytTitle{
+      margin:0;
+      font-weight: 900;
+      letter-spacing: .02em;
+      font-size: 15px;
+      line-height: 1.2;
+      min-height: 2.4em;
+    }
+    .ytSub{
+      margin: 6px 0 0;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .ytOpen{
+      display:inline-flex;
+      margin-top:10px;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      font-weight: 800;
+    }
+
+    .aboutText{
+      margin:0;
+      color: rgba(255,255,255,.78);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .footer{
+      padding: 30px 0 calc(env(safe-area-inset-bottom) + 26px);
+      color: rgba(255,255,255,.45);
+      text-align:center;
+      font-size: 13px;
+    }
+
+    .modal{
+      position:fixed; inset:0;
+      z-index:80;
+      display:none;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: calc(env(safe-area-inset-top) + 16px) 16px calc(env(safe-area-inset-bottom) + 16px);
+    }
+    .modal.open{display:block}
+    .modalCard{
+      max-width: 520px;
+      margin: 0 auto;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(16,16,22,.70);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .modalHead{
       display:flex; align-items:center; justify-content:space-between;
-      padding:16px 16px;
-      border-bottom:1px solid rgba(255,255,255,.07);
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.92);
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
-    .sheetA:last-child{border-bottom:none}
-
-    @media (max-width:860px){
-      .platforms{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .contacts{grid-template-columns:1fr}
-      .hero{min-height:560px}
-      .heroInner{min-height:560px}
-      .sub{font-size:16px}
+    .modalTitle{
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin:0;
+      color: rgba(255,255,255,.80);
+    }
+    .closeBtn{
+      width:40px; height:40px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      cursor:pointer;
+    }
+    .navList{padding: 12px}
+    .navList a{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: .02em;
     }
 
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.on{
+      opacity:1;
+      transform:none;
+    }
     @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .btn{transition:none}
+      .reveal{opacity:1; transform:none; transition:none}
+      .heroBg{transform:none}
     }
   </style>
 </head>
@@ -416,322 +492,383 @@
   <header class="topbar">
     <div class="wrap">
       <div class="row">
-        <div class="brand" aria-label="Max Poison">
-          <div class="logo" aria-hidden="true">
-            <img src="IMG_4881.png" alt="Макс Пойзон" />
+        <div class="brand" aria-label="Макс Пойзон">
+          <div class="brandLogo" aria-hidden="true">
+            <!-- Путь к логотипу: если у тебя логотип в assets/img/ — поменяй src -->
+            <img src="assets/img/logo.png" alt="" onerror="this.style.display='none'; this.parentElement.style.background='rgba(255,255,255,.08)';">
           </div>
-          <div class="brandTitle">МАКС ПОЙЗОН</div>
+          <div class="brandName">Макс Пойзон</div>
         </div>
 
-        <button class="menuBtn" id="menuBtn" type="button" aria-label="Открыть меню">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          Меню
+        <button class="menuBtn" id="openMenu" type="button" aria-label="Открыть меню">
+          <span class="hamb" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Меню</span>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero" aria-label="Титульный экран">
-      <div class="heroBg"></div>
-      <div class="heroShade"></div>
-      <div class="heroInner">
-        <div class="heroCard">
-          <p class="kicker">ОФИЦИАЛЬНЫЙ САЙТ</p>
-          <h1 class="h1">МАКС<br/>ПОЙЗОН</h1>
-          <p class="sub">Музыка · клипы · лайвы — в одном месте.</p>
-          <div class="ctaRow">
-            <a class="btn btnPrimary" href="#listen">▶ Последний трек</a>
-            <a class="btn" href="#clips">Смотреть клипы</a>
-            <a class="btn" href="#lives">Лайвы</a>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroFrame reveal">
+          <div class="heroBg" aria-hidden="true"></div>
+          <div class="heroGlow" aria-hidden="true"></div>
+
+          <div class="heroCard">
+            <div class="kicker">Официальный сайт</div>
+            <h1 class="heroTitle" aria-label="Макс Пойзон">
+              <span>Макс</span>
+              <span>Пойзон</span>
+            </h1>
+            <p class="heroSub">Музыка · клипы · лайвы — в одном месте.</p>
+
+            <div class="heroActions">
+              <a class="btn btnPrimary" href="#music">▶ Последний трек</a>
+              <a class="btn" href="#videos">Смотреть клипы</a>
+              <a class="btn" href="#lives">Лайвы</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="listen" class="section" aria-label="Слушать">
-      <div class="sectionHead">
-        <h2 class="title">СЛУШАТЬ</h2>
-        <div class="hint">Последний трек</div>
-      </div>
+    <section class="section" id="music">
+      <div class="wrap">
+        <div class="sectionTop">
+          <h2 class="h2 reveal">Слушать</h2>
+          <div class="hint reveal">Последний трек</div>
+        </div>
 
-      <div class="card">
-        <div class="pad">
-          <div class="mini">Плеер на сайте</div>
-          <h3 class="trackTitle">БОССФАЙТ</h3>
+        <div class="card reveal">
+          <div class="miniBanner">
+            <img src="IMG_6391.jpeg" alt="" loading="lazy" onerror="this.style.display='none'">
+            <div class="label">Боссфайт</div>
+          </div>
 
-          <div class="audioBox">
-            <audio controls preload="none" playsinline>
-              <source src="Боссфайт%20.mp3" type="audio/mpeg">
-              <source src="Боссфайт.mp3" type="audio/mpeg">
+          <div class="cardBody">
+            <div class="playerTitleRow">
+              <p class="playerTitle">Боссфайт</p>
+              <a class="btn" href="#" id="openAudio" style="min-height:42px; padding:10px 12px;">Открыть плеер</a>
+            </div>
+
+            <audio id="bossfight" controls preload="metadata" playsinline>
+              <source id="bfSrc1" src="Боссфайт.mp3" type="audio/mpeg">
+              <source id="bfSrc2" src="Боссфайт%20.mp3" type="audio/mpeg">
             </audio>
           </div>
+        </div>
 
-          <div class="platforms" aria-label="Площадки">
-            <a class="plink" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
-              <div>
-                Яндекс.Музыка
-                <small>Страница артиста</small>
-              </div>
-              <span aria-hidden="true">↗</span>
-            </a>
+        <div style="height:14px"></div>
 
-            <a class="plink" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
-              <div>
-                VK группа
-                <small>Официальное сообщество</small>
-              </div>
-              <span aria-hidden="true">↗</span>
-            </a>
+        <div class="sectionTop">
+          <h2 class="h2 reveal" style="font-size: clamp(22px, 6vw, 34px); letter-spacing:.08em;">Площадки</h2>
+          <div class="hint reveal">Официальные ссылки</div>
+        </div>
 
-            <a class="plink" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
-              <div>
-                Apple Music
-                <small>Страница артиста</small>
-              </div>
-              <span aria-hidden="true">↗</span>
-            </a>
+        <div class="card reveal">
+          <div class="cardBody">
+            <div class="links">
+              <a class="linkItem" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
+                <div>
+                  <div class="t">Яндекс.Музыка</div>
+                  <div class="s">Страница артиста</div>
+                </div>
+                <div class="r" aria-hidden="true">
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 16L16 8M10 8h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </a>
+
+              <a class="linkItem" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
+                <div>
+                  <div class="t">VK группа</div>
+                  <div class="s">Официальное сообщество</div>
+                </div>
+                <div class="r" aria-hidden="true">
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 16L16 8M10 8h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </a>
+
+              <a class="linkItem" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
+                <div>
+                  <div class="t">Apple Music</div>
+                  <div class="s">Страница артиста</div>
+                </div>
+                <div class="r" aria-hidden="true">
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 16L16 8M10 8h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="wrap">
+        <div class="sectionTop">
+          <h2 class="h2 reveal">Клипы</h2>
+          <div class="hint reveal">YouTube · открыть по клику</div>
+        </div>
+
+        <div class="card reveal">
+          <div class="miniBanner">
+            <img src="D64619FF-6F4A-4E90-83F1-1FFB1B33133A.png" alt="" loading="lazy" onerror="this.style.display='none'">
+            <div class="label">Клипы</div>
+          </div>
+
+          <div class="cardBody">
+            <div class="mediaGrid" id="clipsGrid">
+              <!-- Ссылки на клипы (YouTube). Заголовки подтянутся автоматически -->
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=9Qrlc1fiVVE"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=B3qdPETEejw"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=Dpmp4oaDsHE"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=QfE2VUTCoNE"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=4kcJd3sPoP4"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=AMACj-nDgqY"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=ORS89D6LRTU"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=R3nDA-GWJ_0"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=y6eAeUmBIbo"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=I0vL1n_6kJ4"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=ZcyNTVCs6sU"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=WIhVtSshb7g"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=sAbJ_BTGXw0"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=26kMZ7cm3a4"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=gQ5ryuP365I"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=9COBEYUdd4s"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=tif1ntp_ZwA"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=rubuyReQ8Z4"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=ckIhdEhsLSo"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=uokXnS2kqBM"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=QuOZISvlkeE"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=fDqi_Kti9ZY"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=uMgjzGeOjVA"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="clips" class="section" aria-label="Клипы">
-      <div class="sectionHead">
-        <h2 class="title">КЛИПЫ</h2>
-        <div class="hint">YouTube · смотреть на сайте</div>
-      </div>
+    <section class="section" id="lives">
+      <div class="wrap">
+        <div class="sectionTop">
+          <h2 class="h2 reveal">Лайвы</h2>
+          <div class="hint reveal">5 выступлений</div>
+        </div>
 
-      <div class="grid" id="clipsGrid"></div>
+        <div class="card reveal">
+          <div class="miniBanner">
+            <img src="IMG_4064.jpeg" alt="" loading="lazy" onerror="this.style.display='none'">
+            <div class="label">Лайвы</div>
+          </div>
+
+          <div class="cardBody">
+            <div class="mediaGrid" id="livesGrid">
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=M4KO0fu2xaM"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=jae5iwrn8YI"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=u0dgDPgRa9E"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=tOAnVkqOR7o"></div>
+              <div class="yt" data-yt="https://m.youtube.com/watch?v=KN024XA8skw"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section id="lives" class="section" aria-label="Лайвы">
-      <div class="sectionHead">
-        <h2 class="title">ЛАЙВЫ</h2>
-        <div class="hint">5 выступлений</div>
-      </div>
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="sectionTop">
+          <h2 class="h2 reveal">Обо мне</h2>
+          <div class="hint reveal">коротко и по делу</div>
+        </div>
 
-      <div class="grid" id="livesGrid"></div>
-    </section>
-
-    <section id="about" class="section" aria-label="Обо мне">
-      <div class="sectionHead">
-        <h2 class="title">ОБО МНЕ</h2>
-        <div class="hint">коротко и по делу</div>
-      </div>
-
-      <div class="card">
-        <div class="pad">
-          <p class="aboutText">
-            Макс Пойзон — независимый артист. Разогрев <b>Onyx</b> в Лужниках.
-            Финалист <b>Rap Music</b> (2010/2011). Победы на баттлах и фестивалях в Красноярске (2011/2016/2018).
-            Проекты: <b>DaOldCinema</b> и <b>Le Arestantz Crew</b>.
-            Этот сайт — точка входа: последний трек, клипы и лайвы без лишнего шума.
-          </p>
+        <div class="card reveal">
+          <div class="cardBody">
+            <p class="aboutText">
+              Макс Пойзон — независимый артист. На сцене с 2003 года.
+              Разогревал <b>Onyx</b> в Лужниках.
+              Финалист <b>Rap Music</b> (2010/2011).
+              Победитель хип-хоп фестивалей в Красноярске (2011, 2016, 2018).
+              За плечами — <b>18 клипов</b> и живая концертная практика.
+              Этот сайт — точка входа: последний трек, клипы и лайвы без лишнего шума.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contacts" class="section" aria-label="Контакты">
-      <div class="sectionHead">
-        <h2 class="title">КОНТАКТЫ</h2>
-        <div class="hint">для предложений и сотрудничества</div>
-      </div>
-
-      <div class="card">
-        <div class="pad contacts">
-          <a class="contactBtn" href="https://vk.com/max__poison" target="_blank" rel="noopener">
-            <span>VK</span><span aria-hidden="true">↗</span>
-          </a>
-          <a class="contactBtn" href="mailto:poison7sc@mail.ru">
-            <span>poison7sc@mail.ru</span><span aria-hidden="true">✉</span>
-          </a>
+    <section class="section" id="contacts">
+      <div class="wrap">
+        <div class="sectionTop">
+          <h2 class="h2 reveal">Контакты</h2>
+          <div class="hint reveal">для предложений и сотрудничества</div>
         </div>
+
+        <div class="card reveal">
+          <div class="cardBody">
+            <div class="links">
+              <a class="linkItem" href="https://vk.com/max__poison" target="_blank" rel="noopener">
+                <div>
+                  <div class="t">VK</div>
+                  <div class="s">Личная страница</div>
+                </div>
+                <div class="r" aria-hidden="true">
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 16L16 8M10 8h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </a>
+
+              <a class="linkItem" href="mailto:poison7sc@mail.ru">
+                <div>
+                  <div class="t">Почта</div>
+                  <div class="s">poison7sc@mail.ru</div>
+                </div>
+                <div class="r" aria-hidden="true">
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 16L16 8M10 8h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">maxpoison.ru</div>
       </div>
     </section>
-
-    <div class="footer">maxpoison.ru</div>
   </main>
 
-  <div class="sheet" id="sheet" aria-hidden="true">
-    <div class="sheetBg" id="sheetBg"></div>
-    <div class="sheetPanel" role="dialog" aria-label="Меню">
-      <a class="sheetA" href="#listen">Слушать <span aria-hidden="true">→</span></a>
-      <a class="sheetA" href="#clips">Клипы <span aria-hidden="true">→</span></a>
-      <a class="sheetA" href="#lives">Лайвы <span aria-hidden="true">→</span></a>
-      <a class="sheetA" href="#about">Обо мне <span aria-hidden="true">→</span></a>
-      <a class="sheetA" href="#contacts">Контакты <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-label="Видео">
-      <div class="modalTop">
-        <p class="modalTitle" id="modalTitle">Видео</p>
-        <button class="closeBtn" id="closeBtn" type="button" aria-label="Закрыть">×</button>
+  <div class="modal" id="menuModal" role="dialog" aria-modal="true" aria-label="Меню">
+    <div class="modalCard">
+      <div class="modalHead">
+        <p class="modalTitle">Меню</p>
+        <button class="closeBtn" id="closeMenu" type="button" aria-label="Закрыть">✕</button>
       </div>
-      <div class="player" id="player"></div>
+      <div class="navList">
+        <a href="#music" class="navA">Слушать <span>→</span></a>
+        <a href="#videos" class="navA">Клипы <span>→</span></a>
+        <a href="#lives" class="navA">Лайвы <span>→</span></a>
+        <a href="#about" class="navA">Обо мне <span>→</span></a>
+        <a href="#contacts" class="navA">Контакты <span>→</span></a>
+      </div>
     </div>
   </div>
 
   <script>
-    const YT = {
-      idFromUrl(url){
+    (function(){
+      const openMenu = document.getElementById('openMenu');
+      const closeMenu = document.getElementById('closeMenu');
+      const modal = document.getElementById('menuModal');
+
+      function open(){ modal.classList.add('open'); }
+      function close(){ modal.classList.remove('open'); }
+
+      openMenu?.addEventListener('click', open);
+      closeMenu?.addEventListener('click', close);
+      modal?.addEventListener('click', (e)=>{ if(e.target === modal) close(); });
+
+      document.querySelectorAll('.navA').forEach(a=>{
+        a.addEventListener('click', ()=>{
+          close();
+        });
+      });
+
+      const openAudio = document.getElementById('openAudio');
+      const audio = document.getElementById('bossfight');
+      openAudio?.addEventListener('click', (e)=>{
+        e.preventDefault();
+        audio?.scrollIntoView({behavior:'smooth', block:'center'});
+        setTimeout(()=>{ try{ audio?.play(); }catch(_){} }, 300);
+      });
+
+      if(audio){
+        const tryFix = () => {
+          if(!audio.currentSrc){
+            audio.load();
+          }
+        };
+        audio.addEventListener('error', tryFix);
+      }
+
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); }
+        });
+      }, {threshold: .14});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+      function getYouTubeId(url){
         try{
-          const u = new URL(url.replace("m.youtube.com","www.youtube.com"));
-          if(u.searchParams.get("v")) return u.searchParams.get("v");
-          const p = u.pathname.split("/").filter(Boolean);
-          if(p[0] === "watch" && u.searchParams.get("v")) return u.searchParams.get("v");
-          if(p[0] === "shorts" && p[1]) return p[1];
-          if(p[0] === "embed" && p[1]) return p[1];
-        }catch(e){}
-        return null;
-      },
-      thumb(id){
-        return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-      },
-      embed(id){
-        return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+          const u = new URL(url);
+          if(u.searchParams.get('v')) return u.searchParams.get('v');
+          const p = u.pathname.split('/').filter(Boolean);
+          const idx = p.indexOf('embed');
+          if(idx !== -1 && p[idx+1]) return p[idx+1];
+          const short = p[0] === 'shorts' && p[1] ? p[1] : null;
+          return short;
+        }catch(_){
+          return null;
+        }
       }
-    };
 
-    const clips = [
-      { url:"https://m.youtube.com/watch?v=9Qrlc1fiVVE", title:"Макс Пойзон — Приём (официальный клип)" },
-      { url:"https://m.youtube.com/watch?v=B3qdPETEejw", title:"Пойзон — #ГолосУлиц" },
-      { url:"https://m.youtube.com/watch?v=Dpmp4oaDsHE", title:"Макс Пойзон — Жизнь Борода" },
-      { url:"https://m.youtube.com/watch?v=QfE2VUTCoNE", title:"Poison Ivy (Le Arestantz) — На фоне этих состояний" },
-
-      { url:"https://m.youtube.com/watch?v=4kcJd3sPoP4", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=AMACj-nDgqY", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=ORS89D6LRTU", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=R3nDA-GWJ_0", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=y6eAeUmBIbo", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=I0vL1n_6kJ4", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=ZcyNTVCs6sU", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=WIhVtSshb7g", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=sAbJ_BTGXw0", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=26kMZ7cm3a4", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=gQ5ryuP365I", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=9COBEYUdd4s", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=tif1ntp_ZwA", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=rubuyReQ8Z4", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=ckIhdEhsLSo", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=uokXnS2kqBM", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=QuOZISvlkeE", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=fDqi_Kti9ZY", title:"Клип" },
-      { url:"https://m.youtube.com/watch?v=uMgjzGeOjVA", title:"Клип" }
-    ];
-
-    const lives = [
-      { url:"https://m.youtube.com/watch?v=M4KO0fu2xaM", title:"Лайв 1" },
-      { url:"https://m.youtube.com/watch?v=jae5iwrn8YI", title:"Лайв 2" },
-      { url:"https://m.youtube.com/watch?v=u0dgDPgRa9E", title:"Лайв 3" },
-      { url:"https://m.youtube.com/watch?v=tOAnVkqOR7o", title:"Лайв 4" },
-      { url:"https://m.youtube.com/watch?v=KN024XA8skw", title:"Лайв 5" }
-    ];
-
-    function makeTile(item){
-      const id = YT.idFromUrl(item.url);
-      const el = document.createElement("div");
-      el.className = "tile";
-      el.setAttribute("role","button");
-      el.setAttribute("tabindex","0");
-      el.dataset.videoId = id || "";
-      el.dataset.title = item.title || "Видео";
-
-      const thumb = document.createElement("div");
-      thumb.className = "thumb";
-      thumb.style.backgroundImage = id ? `url("${YT.thumb(id)}")` : "none";
-
-      const shade = document.createElement("div");
-      shade.className = "tileShade";
-
-      const meta = document.createElement("div");
-      meta.className = "tileMeta";
-
-      const t = document.createElement("p");
-      t.className = "tileTitle";
-      t.textContent = item.title || "Видео";
-
-      const pill = document.createElement("div");
-      pill.className = "playPill";
-      pill.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
-        </svg>
-        Смотреть
-      `;
-
-      meta.appendChild(t);
-      meta.appendChild(pill);
-
-      el.appendChild(thumb);
-      el.appendChild(shade);
-      el.appendChild(meta);
-
-      return el;
-    }
-
-    const clipsGrid = document.getElementById("clipsGrid");
-    const livesGrid = document.getElementById("livesGrid");
-
-    clips.forEach(x => clipsGrid.appendChild(makeTile(x)));
-    lives.forEach(x => livesGrid.appendChild(makeTile(x)));
-
-    const overlay = document.getElementById("overlay");
-    const player = document.getElementById("player");
-    const modalTitle = document.getElementById("modalTitle");
-    const closeBtn = document.getElementById("closeBtn");
-
-    function openVideo(id, title){
-      if(!id) return;
-      modalTitle.textContent = title || "Видео";
-      player.innerHTML = `<iframe src="${YT.embed(id)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-      overlay.classList.add("open");
-      overlay.setAttribute("aria-hidden","false");
-    }
-    function closeVideo(){
-      overlay.classList.remove("open");
-      overlay.setAttribute("aria-hidden","true");
-      player.innerHTML = "";
-    }
-
-    document.addEventListener("click", (e) => {
-      const tile = e.target.closest(".tile");
-      if(tile){
-        openVideo(tile.dataset.videoId, tile.dataset.title);
-        return;
+      async function oembedTitle(url){
+        try{
+          const endpoint = 'https://www.youtube.com/oembed?format=json&url=' + encodeURIComponent(url);
+          const r = await fetch(endpoint, {mode:'cors'});
+          if(!r.ok) return null;
+          const j = await r.json();
+          return j && j.title ? j.title : null;
+        }catch(_){
+          return null;
+        }
       }
-      if(e.target === overlay) closeVideo();
-    });
-    closeBtn.addEventListener("click", closeVideo);
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape") closeVideo();
-    });
 
-    const sheet = document.getElementById("sheet");
-    const menuBtn = document.getElementById("menuBtn");
-    const sheetBg = document.getElementById("sheetBg");
+      function createCard(el, url){
+        const id = getYouTubeId(url);
+        const thumb = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : '';
+        el.innerHTML = `
+          <div class="ytThumb" role="button" tabindex="0" aria-label="Открыть видео">
+            ${thumb ? `<img src="${thumb}" alt="" loading="lazy">` : ''}
+            <div class="playBtn" aria-hidden="true">
+              <svg class="playIcon" viewBox="0 0 24 24" fill="none">
+                <path d="M9 7.5v9l8-4.5-8-4.5Z" fill="rgba(255,255,255,.92)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ytMeta">
+            <p class="ytTitle">Загрузка названия…</p>
+            <p class="ytSub">YouTube · Макс Пойзон</p>
+            <a class="ytOpen" href="${url}" target="_blank" rel="noopener">Открыть</a>
+          </div>
+        `;
 
-    function openSheet(){
-      sheet.classList.add("open");
-      sheet.setAttribute("aria-hidden","false");
-    }
-    function closeSheet(){
-      sheet.classList.remove("open");
-      sheet.setAttribute("aria-hidden","true");
-    }
-    menuBtn.addEventListener("click", () => {
-      if(sheet.classList.contains("open")) closeSheet();
-      else openSheet();
-    });
-    sheetBg.addEventListener("click", closeSheet);
-    sheet.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if(a) closeSheet();
-    });
+        const open = () => window.open(url, '_blank', 'noopener');
+        const thumbEl = el.querySelector('.ytThumb');
+        thumbEl?.addEventListener('click', open);
+        thumbEl?.addEventListener('keydown', (e)=>{
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); }
+        });
+
+        oembedTitle(url).then(t=>{
+          const titleEl = el.querySelector('.ytTitle');
+          if(titleEl) titleEl.textContent = t || 'Видео';
+        });
+      }
+
+      document.querySelectorAll('.yt[data-yt]').forEach(el=>{
+        const url = el.getAttribute('data-yt');
+        if(url) createCard(el, url);
+      });
+    })();
   </script>
 </body>
 </html>
