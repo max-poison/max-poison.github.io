@@ -1,198 +1,794 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Макс Пойзон — официальный сайт</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Макс Пойзон — официальный сайт</title>
+  <meta name="description" content="Макс Пойзон — музыка, клипы и лайвы. Последний трек: Боссфайт." />
+  <meta name="theme-color" content="#0a0a0e" />
+  <meta name="color-scheme" content="dark" />
 
-<style>
-:root{
-  --bg:#0b0b0d;
-  --text:#ffffff;
-  --muted:#b3b3b3;
-  --card:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.12);
-}
+  <style>
+    :root{
+      --bg:#0a0a0e;
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.10);
+      --panel:rgba(18,18,24,.62);
+      --panel2:rgba(18,18,24,.78);
+      --shadow:0 28px 90px rgba(0,0,0,.55);
+      --shadow2:0 18px 60px rgba(0,0,0,.45);
+      --radius:22px;
+      --max:1120px;
+      --safeTop: env(safe-area-inset-top, 0px);
+      --safeBot: env(safe-area-inset-bottom, 0px);
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
 
-/* ---------- HEADER ---------- */
-header{
-  position:fixed;
-  top:0; left:0; right:0;
-  z-index:50;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 18px;
-  background:linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,0));
-}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.logo img{
-  width:34px;
-  height:34px;
-  border-radius:8px;
-}
+    /* ===== Topbar ===== */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      padding-top:var(--safeTop);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(to bottom, rgba(10,10,14,.80), rgba(10,10,14,.35));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
 
-.menuBtn{
-  padding:10px 16px;
-  border-radius:999px;
-  background:var(--card);
-  border:1px solid var(--border);
-  color:#fff;
-  font-size:14px;
-}
+    /* На мобиле убираем тяжёлый blur — быстрее открывается */
+    @media (max-width: 680px){
+      .topbar{
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        background:rgba(10,10,14,.86);
+      }
+    }
 
-/* ---------- HERO ---------- */
-.hero{
-  min-height:100vh;
-  padding:140px 20px 80px;
-  background:
-    linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.85)),
-    url("/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center top / cover no-repeat;
-}
+    .toprow{
+      height:64px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;
+    }
 
-.hero h1{
-  font-size:42px;
-  letter-spacing:.08em;
-  margin:0 0 12px;
-}
+    .brand{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .logoBox{
+      width:44px;height:44px;border-radius:14px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      display:grid;place-items:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logoBox img{
+      width:70%;height:70%;object-fit:contain;
+      filter:drop-shadow(0 6px 18px rgba(0,0,0,.45));
+    }
 
-.hero p{
-  color:var(--muted);
-  margin:0 0 28px;
-}
+    .menuBtn{
+      appearance:none;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:700;
+      letter-spacing:.02em;
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      cursor:pointer;
+    }
+    .menuBtn:active{transform:translateY(1px)}
 
-.actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.btn{
-  padding:14px 22px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:var(--card);
-  color:#fff;
-  text-decoration:none;
-  font-size:15px;
-}
-.btn.primary{
-  background:#fff;
-  color:#000;
-}
+    /* ===== Hero ===== */
+    .hero{
+      position:relative;
+      min-height:92vh;
+      display:flex;
+      align-items:flex-end;
+      padding:24px 0 calc(28px + var(--safeBot));
+      overflow:hidden;
+      background: #06060a;
+    }
 
-/* ---------- SECTIONS ---------- */
-section{
-  padding:70px 18px;
-}
-h2{
-  margin:0 0 22px;
-  font-size:22px;
-  letter-spacing:.08em;
-}
+    /* Фоновое фото (твой титульник) */
+    .hero::before{
+      content:"";
+      position:absolute;inset:-2px;
+      background:
+        url("/75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center 18% / cover no-repeat;
+      transform:scale(1.02);
+      filter:contrast(1.05) saturate(1.05);
+      opacity:.95;
+      z-index:0;
+    }
 
-/* ---------- PLAYER ---------- */
-.player{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:20px;
-}
-audio{
-  width:100%;
-  margin-top:10px;
-}
+    /* Тёмные слои — чтобы выглядело коммерчески и текст читался */
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(900px 560px at 18% 35%, rgba(120,80,255,.20), transparent 55%),
+        radial-gradient(800px 520px at 82% 28%, rgba(0,190,255,.14), transparent 58%),
+        linear-gradient(to bottom, rgba(6,6,10,.40), rgba(6,6,10,.72) 55%, rgba(6,6,10,.92));
+      z-index:1;
+    }
 
-/* ---------- GRID ---------- */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:16px;
-}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  overflow:hidden;
-}
-.card iframe{
-  width:100%;
-  height:160px;
-  border:0;
-}
+    .heroCard{
+      position:relative;z-index:2;
+      width:100%;
+      border-radius:26px;
+      background:rgba(10,10,14,.55);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
 
-/* ---------- FOOTER ---------- */
-footer{
-  padding:40px 18px;
-  text-align:center;
-  color:#666;
-  font-size:13px;
-}
-</style>
+    /* Внутренние аккуратные линии */
+    .heroCard::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,.08), transparent 22%),
+        radial-gradient(900px 360px at 50% 0%, rgba(255,255,255,.10), transparent 55%);
+      pointer-events:none;
+    }
+
+    .heroInner{
+      position:relative;
+      padding:28px 20px 22px;
+    }
+
+    .kicker{
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+
+    .title{
+      margin:0;
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      line-height:1.02;
+      font-size:clamp(42px, 7.2vw, 72px);
+    }
+
+    .sub{
+      margin:12px 0 18px;
+      color:rgba(255,255,255,.78);
+      font-size:16px;
+    }
+
+    .heroActions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:13px 16px;
+      border-radius:999px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      box-shadow:0 16px 46px rgba(0,0,0,.42);
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn.primary{
+      background:rgba(255,255,255,.90);
+      color:#0a0a0e;
+      border-color:transparent;
+    }
+    .btn:active{transform:translateY(1px)}
+
+    /* ===== Sections ===== */
+    section{padding:46px 0}
+    .sectionHead{
+      display:flex;align-items:flex-end;justify-content:space-between;
+      gap:10px;margin-bottom:16px;
+    }
+    .h2{
+      margin:0;
+      font-size:26px;
+      letter-spacing:.01em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .hint{color:var(--muted);font-size:13px}
+
+    .panel{
+      border-radius:var(--radius);
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column:span 6;
+      border-radius:22px;
+      background:rgba(18,18,24,.62);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      box-shadow:0 16px 50px rgba(0,0,0,.38);
+      transition:transform .18s ease, border-color .18s ease;
+    }
+    .card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.18)}
+    @media (max-width: 860px){ .card{grid-column:span 12;} }
+
+    .thumb{
+      position:relative;
+      aspect-ratio:16/9;
+      background:#0a0a0e;
+      overflow:hidden;
+    }
+    .thumb img{
+      width:100%;height:100%;object-fit:cover;display:block;
+      transform:scale(1.02);
+    }
+    .thumb::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.60), transparent 55%);
+      pointer-events:none;
+    }
+    .play{
+      position:absolute;left:14px;bottom:14px;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(10,10,14,.70);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:saturate(140%) blur(8px);
+      -webkit-backdrop-filter:saturate(140%) blur(8px);
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+    @media (max-width: 680px){
+      .play{backdrop-filter:none;-webkit-backdrop-filter:none}
+    }
+    .cardBody{padding:14px 14px 16px}
+    .cardTitle{margin:0 0 6px;font-weight:900}
+    .cardMeta{margin:0;color:var(--muted);font-size:13px}
+
+    /* ===== Listen (Bossfight) ===== */
+    .listenGrid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){ .listenGrid{grid-template-columns:1fr} }
+
+    .playerBox{padding:16px}
+    .playerTop{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+      padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.10);
+      margin-bottom:12px;
+    }
+    .playerName{margin:0;font-weight:1000;text-transform:uppercase;letter-spacing:.02em}
+    .playerBadge{color:var(--muted);font-size:13px;margin-top:6px}
+
+    audio{
+      width:100%;
+      margin-top:12px;
+      filter:drop-shadow(0 12px 30px rgba(0,0,0,.35));
+    }
+
+    .linksBox{padding:16px}
+    .linkRow{
+      display:flex;flex-direction:column;gap:10px;
+      margin-top:8px;
+    }
+    .linkBtn{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:900;
+    }
+    .arrow{color:rgba(255,255,255,.72)}
+
+    /* ===== Menu sheet ===== */
+    .sheet{
+      position:fixed;inset:0;
+      display:none;
+      z-index:90;
+    }
+    .sheet.show{display:block}
+    .sheetBg{
+      position:absolute;inset:0;
+      background:rgba(0,0,0,.60);
+    }
+    .sheetBox{
+      position:absolute;left:50%;top:calc(16px + var(--safeTop));
+      transform:translateX(-50%);
+      width:min(var(--max), calc(100% - 24px));
+      border-radius:26px;
+      background:rgba(16,16,22,.86);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .sheetHead{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .xBtn{
+      width:44px;height:44px;border-radius:16px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      cursor:pointer;
+      font-weight:1000;
+    }
+    .sheetList{display:flex;flex-direction:column}
+    .sheetItem{
+      padding:18px 16px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+    }
+    .sheetItem:last-child{border-bottom:none}
+
+    /* ===== Video modal ===== */
+    .modal{
+      position:fixed;inset:0;
+      display:none;
+      z-index:100;
+    }
+    .modal.show{display:block}
+    .modalBg{position:absolute;inset:0;background:rgba(0,0,0,.72)}
+    .modalBox{
+      position:absolute;left:50%;top:calc(16px + var(--safeTop));
+      transform:translateX(-50%);
+      width:min(980px, calc(100% - 24px));
+      border-radius:26px;
+      background:rgba(10,10,14,.86);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .modalHead{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .modalTitle{
+      margin:0;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+      font-size:16px;
+    }
+    .frame{
+      aspect-ratio:16/9;
+      background:#000;
+    }
+    .frame iframe{
+      width:100%;height:100%;
+      border:0;display:block;
+    }
+
+    /* Footer */
+    footer{
+      padding:30px 0 calc(22px + var(--safeBot));
+      color:rgba(255,255,255,.40);
+      text-align:center;
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <img src="/IMG_4881.png" alt="Max Poison">
-  </div>
-  <div class="menuBtn">Меню</div>
-</header>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="toprow">
+        <div class="brand" aria-label="Max Poison">
+          <div class="logoBox" title="Макс Пойзон">
+            <img src="/IMG_4881.png" alt="Логотип Макс Пойзон">
+          </div>
+        </div>
 
-<section class="hero">
-  <h1>МАКС ПОЙЗОН</h1>
-  <p>Музыка · клипы · лайвы — в одном месте</p>
-  <div class="actions">
-    <a href="#track" class="btn primary">Последний трек</a>
-    <a href="#clips" class="btn">Клипы</a>
-    <a href="#lives" class="btn">Лайвы</a>
-  </div>
-</section>
-
-<section id="track">
-  <h2>ПОСЛЕДНИЙ ТРЕК</h2>
-  <div class="player">
-    <strong>Боссфайт</strong>
-    <audio controls src="/Боссфайт.mp3"></audio>
-  </div>
-</section>
-
-<section id="clips">
-  <h2>КЛИПЫ</h2>
-  <div class="grid">
-    <!-- ВСТАВЛЯЕШЬ ВСЕ КЛИПЫ -->
-    <!-- пример -->
-    <!--
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/XXXXXXXX"></iframe>
+        <button class="menuBtn" id="menuBtn" type="button" aria-haspopup="dialog" aria-controls="sheet">Меню</button>
+      </div>
     </div>
-    -->
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="heroCard">
+          <div class="heroInner">
+            <p class="kicker">Официальный сайт</p>
+            <h1 class="title">МАКС<br>ПОЙЗОН</h1>
+            <p class="sub">Музыка · клипы · лайвы — в одном месте.</p>
+
+            <div class="heroActions">
+              <a class="btn primary" href="#listen">▶ Последний трек</a>
+              <a class="btn" href="#clips">Смотреть клипы</a>
+              <a class="btn" href="#lives">Лайвы</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Listen -->
+    <section id="listen">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Слушать</h2>
+          <div class="hint">Последний трек</div>
+        </div>
+
+        <div class="listenGrid">
+          <div class="panel playerBox">
+            <div class="playerTop">
+              <div>
+                <h3 class="playerName">Боссфайт</h3>
+                <div class="playerBadge">плеер на сайте (MP3 из репозитория)</div>
+              </div>
+              <button class="btn" type="button" id="openBossfight">Открыть плеер</button>
+            </div>
+
+            <audio id="bossAudio" controls preload="metadata">
+              <source src="/Боссфайт%20.mp3" type="audio/mpeg">
+              Ваш браузер не поддерживает аудио.
+            </audio>
+
+            <p class="hint" style="margin:10px 0 0;">
+              Если не играет — проверь, что файл в репо называется именно <b>«Боссфайт .mp3»</b> (с пробелом).
+            </p>
+          </div>
+
+          <div class="panel linksBox">
+            <h3 class="playerName" style="margin:0;">Площадки</h3>
+            <p class="hint" style="margin:6px 0 12px;">Официальные ссылки</p>
+
+            <div class="linkRow">
+              <a class="linkBtn" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">
+                YouTube <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">
+                RuTube <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">
+                Яндекс.Музыка <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://vk.com/maxpoison1" target="_blank" rel="noopener">
+                VK группа <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://vk.com/max__poison" target="_blank" rel="noopener">
+                VK личная <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">
+                TikTok <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://www.instagram.com/max_poison" target="_blank" rel="noopener">
+                Instagram <span class="arrow">↗</span>
+              </a>
+              <a class="linkBtn" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">
+                Apple Music <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clips -->
+    <section id="clips">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Клипы</h2>
+          <div class="hint">Все клипы с YouTube · названия подтянутся автоматически</div>
+        </div>
+
+        <div class="grid" id="clipsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Lives -->
+    <section id="lives">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Лайвы</h2>
+          <div class="hint">Кинь ссылки на лайвы — добавлю 1-в-1 как клипы</div>
+        </div>
+
+        <div class="panel" style="padding:16px;">
+          <p style="margin:0;color:var(--muted);">
+            Сейчас я не могу честно восстановить “все лайвы”, потому что ты их не прислал (а я не буду выдумывать).
+            Скидывай список ссылок — и я вставлю их сюда как полноценную сетку, как в «Клипы».
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Обо мне</h2>
+          <div class="hint">коротко и по делу</div>
+        </div>
+
+        <div class="panel" style="padding:16px;">
+          <p style="margin:0;color:rgba(255,255,255,.82);">
+            Макс Пойзон — независимый артист. Музыка, клипы и лайвы — здесь.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Контакты</h2>
+          <div class="hint">для предложений и сотрудничества</div>
+        </div>
+
+        <div class="panel" style="padding:16px;">
+          <div class="linkRow">
+            <a class="linkBtn" href="https://vk.com/max__poison" target="_blank" rel="noopener">VK <span class="arrow">↗</span></a>
+            <a class="linkBtn" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">YouTube <span class="arrow">↗</span></a>
+            <a class="linkBtn" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">RuTube <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      maxpoison.ru
+    </footer>
+  </main>
+
+  <!-- Menu sheet -->
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheetBg" data-close="sheet"></div>
+    <div class="sheetBox" role="dialog" aria-modal="true" aria-label="Меню">
+      <div class="sheetHead">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logoBox" style="width:40px;height:40px;border-radius:14px;">
+            <img src="/IMG_4881.png" alt="">
+          </div>
+          <div style="font-weight:1000;text-transform:uppercase;letter-spacing:.02em;">Навигация</div>
+        </div>
+        <button class="xBtn" type="button" data-close="sheet" aria-label="Закрыть">×</button>
+      </div>
+
+      <div class="sheetList">
+        <a class="sheetItem" href="#listen" data-close="sheet">Слушать</a>
+        <a class="sheetItem" href="#clips" data-close="sheet">Клипы</a>
+        <a class="sheetItem" href="#lives" data-close="sheet">Лайвы</a>
+        <a class="sheetItem" href="#about" data-close="sheet">Обо мне</a>
+        <a class="sheetItem" href="#contacts" data-close="sheet">Контакты</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<section id="lives">
-  <h2>ЛАЙВЫ</h2>
-  <div class="grid">
-    <!-- ВСТАВЛЯЕШЬ ЛАЙВЫ -->
+  <!-- Video modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalBg" data-close="modal"></div>
+    <div class="modalBox" role="dialog" aria-modal="true" aria-label="Видео">
+      <div class="modalHead">
+        <h3 class="modalTitle" id="modalTitle">Видео</h3>
+        <button class="xBtn" type="button" data-close="modal" aria-label="Закрыть">×</button>
+      </div>
+      <div class="frame" id="frame"></div>
+    </div>
   </div>
-</section>
 
-<footer>
-  © Макс Пойзон · maxpoison.ru
-</footer>
+  <script>
+    // ===== ДАННЫЕ: все клипы (YouTube) =====
+    // (Список из нашей памяти — раздел «Клипы»)
+    const CLIPS = [
+      "https://m.youtube.com/watch?v=9Qrlc1fiVVE",
+      "https://m.youtube.com/watch?v=B3qdPETEejw",
+      "https://m.youtube.com/watch?v=Dpmp4oaDsHE",
+      "https://m.youtube.com/watch?v=QfE2VUTCoNE",
+      "https://m.youtube.com/watch?v=4kcJd3sPoP4",
+      "https://m.youtube.com/watch?v=AMACj-nDgqY",
+      "https://m.youtube.com/watch?v=ORS89D6LRTU",
+      "https://m.youtube.com/watch?v=R3nDA-GWJ_0",
+      "https://m.youtube.com/watch?v=y6eAeUmBIbo",
+      "https://m.youtube.com/watch?v=I0vL1n_6kJ4",
+      "https://m.youtube.com/watch?v=ZcyNTVCs6sU",
+      "https://m.youtube.com/watch?v=WIhVtSshb7g",
+      "https://m.youtube.com/watch?v=sAbJ_BTGXw0",
+      "https://m.youtube.com/watch?v=26kMZ7cm3a4",
+      "https://m.youtube.com/watch?v=gQ5ryuP365I",
+      "https://m.youtube.com/watch?v=9COBEYUdd4s",
+      "https://m.youtube.com/watch?v=tif1ntp_ZwA",
+      "https://m.youtube.com/watch?v=rubuyReQ8Z4",
+      "https://m.youtube.com/watch?v=ckIhdEhsLSo",
+      "https://m.youtube.com/watch?v=uokXnS2kqBM",
+      "https://m.youtube.com/watch?v=QuOZISvlkeE",
+      "https://m.youtube.com/watch?v=fDqi_Kti9ZY",
+      "https://m.youtube.com/watch?v=uMgjzGeOjVA"
+    ];
 
+    // ===== Утилиты =====
+    const $ = (s, root=document) => root.querySelector(s);
+    const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+
+    function getVideoId(url){
+      try{
+        const u = new URL(url);
+        if (u.searchParams.get("v")) return u.searchParams.get("v");
+        // короткие/всякие варианты
+        const m = url.match(/\/watch\?v=([a-zA-Z0-9_-]+)/);
+        if (m) return m[1];
+      }catch(e){}
+      return null;
+    }
+
+    function ytThumb(id){
+      // maxres иногда 404 — браузер сам быстро упадёт на hq
+      return `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+    }
+
+    async function fetchTitle(url){
+      // oEmbed обычно отдаёт title без API-ключа
+      const api = `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(url)}`;
+      try{
+        const r = await fetch(api);
+        if(!r.ok) throw new Error("oembed fail");
+        const j = await r.json();
+        return j.title || "Видео";
+      }catch(e){
+        return "Видео";
+      }
+    }
+
+    // ===== Рендер клипов =====
+    const clipsGrid = $("#clipsGrid");
+
+    (async function renderClips(){
+      const cards = CLIPS.map((url, idx) => {
+        const id = getVideoId(url);
+        const card = document.createElement("article");
+        card.className = "card";
+        card.dataset.url = url;
+        card.dataset.vid = id || "";
+        card.innerHTML = `
+          <div class="thumb">
+            <img alt="" loading="lazy" src="${id ? ytThumb(id) : ""}"
+                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${id}/hqdefault.jpg';">
+            <div class="play">▶ Смотреть</div>
+          </div>
+          <div class="cardBody">
+            <h3 class="cardTitle" id="t_${idx}">Загрузка названия…</h3>
+            <p class="cardMeta">YouTube · Макс Пойзон</p>
+          </div>
+        `;
+        card.addEventListener("click", () => openVideo(url, idx));
+        return card;
+      });
+
+      cards.forEach(c => clipsGrid.appendChild(c));
+
+      // Подтягиваем названия как на YouTube
+      for(let i=0;i<CLIPS.length;i++){
+        const t = await fetchTitle(CLIPS[i]);
+        const el = $("#t_"+i);
+        if(el) el.textContent = t;
+      }
+    })();
+
+    // ===== Модалка видео =====
+    const modal = $("#modal");
+    const frame = $("#frame");
+    const modalTitle = $("#modalTitle");
+
+    async function openVideo(url, idx){
+      const id = getVideoId(url);
+      modalTitle.textContent = "Видео";
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+
+      if(id){
+        frame.innerHTML = `
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        `;
+      }else{
+        frame.innerHTML = `<div style="padding:18px;color:rgba(255,255,255,.78)">Не удалось открыть видео.</div>`;
+      }
+
+      // title
+      const t = await fetchTitle(url);
+      modalTitle.textContent = t;
+    }
+
+    function closeModal(){
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden","true");
+      frame.innerHTML = "";
+    }
+
+    // ===== Меню =====
+    const sheet = $("#sheet");
+    const menuBtn = $("#menuBtn");
+
+    function openSheet(){
+      sheet.classList.add("show");
+      sheet.setAttribute("aria-hidden","false");
+    }
+    function closeSheet(){
+      sheet.classList.remove("show");
+      sheet.setAttribute("aria-hidden","true");
+    }
+
+    menuBtn.addEventListener("click", openSheet);
+
+    document.addEventListener("click", (e) => {
+      const close = e.target && e.target.getAttribute && e.target.getAttribute("data-close");
+      if(close === "sheet") closeSheet();
+      if(close === "modal") closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        closeSheet();
+        closeModal();
+      }
+    });
+
+    // Закрывать меню при клике по пунктам
+    $$("[data-close='sheet']").forEach(el => {
+      el.addEventListener("click", () => closeSheet());
+    });
+
+    // ===== Bossfight: открыть плеер (просто скролл к нему) =====
+    $("#openBossfight").addEventListener("click", () => {
+      document.getElementById("bossAudio").scrollIntoView({behavior:"smooth", block:"center"});
+      // на iOS autoplay запрещён — но пользователь уже нажал кнопку, так что play можно попробовать
+      const a = document.getElementById("bossAudio");
+      a.play().catch(()=>{});
+    });
+  </script>
 </body>
 </html>
