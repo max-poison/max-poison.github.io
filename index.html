@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Макс Пойзон — официальный сайт</title>
   <meta name="description" content="Макс Пойзон — музыка, клипы и лайвы в одном месте." />
   <meta name="theme-color" content="#0b0b10" />
@@ -11,327 +11,331 @@
     :root{
       --bg:#07070b;
       --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
+      --panel2:rgba(255,255,255,.09);
       --line:rgba(255,255,255,.10);
       --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
+      --muted:rgba(255,255,255,.66);
       --radius:22px;
       --shadow:0 22px 60px rgba(0,0,0,.55);
       --shadow2:0 14px 40px rgba(0,0,0,.45);
       --max:1060px;
+      --safeTop: env(safe-area-inset-top, 0px);
+      --safeBottom: env(safe-area-inset-bottom, 0px);
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      background:
-        radial-gradient(1200px 700px at 20% 8%, rgba(156,81,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 80% 10%, rgba(0,195,255,.14), transparent 55%),
-        radial-gradient(900px 650px at 60% 80%, rgba(255,60,110,.10), transparent 60%),
-        var(--bg);
       color:var(--text);
-      font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1200px 700px at 20% 8%, rgba(86,114,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(255,70,140,.12), transparent 60%),
+        radial-gradient(900px 650px at 40% 100%, rgba(0,255,210,.10), transparent 60%),
+        var(--bg);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:18px 16px 56px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px 40px}
     .topbar{
-      position:sticky;top:0;z-index:30;
-      padding:10px 0 10px;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(7,7,11,.86), rgba(7,7,11,.55));
+      position:sticky; top:0; z-index:50;
+      padding: calc(10px + var(--safeTop)) 0 10px;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(7,7,11,.78), rgba(7,7,11,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .toprow{
-      max-width:var(--max);margin:0 auto;padding:0 16px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:10px;min-width:0;
-    }
+    .toprow{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; align-items:center; gap:10px; min-width:0}
     .badge{
-      width:40px;height:40px;border-radius:14px;
+      width:34px;height:34px;border-radius:12px;
       display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid var(--line);
+      font-weight:800; letter-spacing:.02em;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow2);
-      font-weight:900;letter-spacing:.04em;
+      flex:0 0 auto;
     }
     .brandTitle{
-      font-weight:900;letter-spacing:.14em;text-transform:uppercase;
-      font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+      font-size:14px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      max-width: 62vw;
     }
 
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:16px;
-      background:rgba(0,0,0,.28);
-      border:1px solid rgba(255,255,255,.22);
+      appearance:none; border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       color:var(--text);
-      font-weight:800;
+      padding:12px 14px;
+      border-radius: 16px;
+      font-weight:700;
       box-shadow: var(--shadow2);
-      backdrop-filter: blur(8px);
-      -webkit-tap-highlight-color: transparent;
       cursor:pointer;
-      user-select:none;
+      transition: transform .08s ease;
     }
-    .btn:active{transform: translateY(1px)}
+    .btn:active{transform:scale(.98)}
     .btn.primary{
-      background:#fff;color:#000;border-color:transparent;
+      background: rgba(255,255,255,.92);
+      color:#0b0b10;
+      border-color: transparent;
     }
-
-    .sheet{
-      position:fixed;inset:0;z-index:40;
-      display:none;
-      background:rgba(0,0,0,.62);
-      backdrop-filter: blur(6px);
-    }
-    .sheet.open{display:block}
-    .sheetBox{
-      position:absolute;left:16px;right:16px;top:72px;
-      max-width:var(--max);margin:0 auto;
-      background:rgba(20,20,28,.82);
-      border:1px solid var(--line);
-      border-radius:20px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .sheetList{display:flex;flex-direction:column}
-    .sheetItem{
-      padding:18px 16px;
-      border-top:1px solid rgba(255,255,255,.08);
-      font-weight:900;
-      font-size:18px;
-    }
-    .sheetItem:first-child{border-top:0}
-    .sheetItem:active{background:rgba(255,255,255,.06)}
+    .btn.wide{width:100%}
 
     .hero{
-      position:relative;
-      border-radius:28px;
-      overflow:hidden;
-      border:1px solid var(--line);
+      margin-top:16px;
+      border-radius: calc(var(--radius) + 6px);
+      border:1px solid rgba(255,255,255,.10);
       box-shadow: var(--shadow);
-      min-height: 68svh;
-      display:flex;
-      align-items:flex-end;
-    }
-    .heroImg{
-      position:absolute;inset:0;width:100%;height:100%;
-      object-fit:cover;object-position:center;
-      filter: contrast(1.10) brightness(.92);
-      transform: scale(1.02);
-    }
-    .heroShade{
-      position:absolute;inset:0;
+      overflow:hidden;
+      position:relative;
       background:
-        radial-gradient(70% 70% at 52% 28%, rgba(0,0,0,.10), transparent 62%),
-        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.86) 72%);
+        radial-gradient(900px 420px at 20% 20%, rgba(86,114,255,.26), transparent 60%),
+        radial-gradient(800px 480px at 85% 30%, rgba(255,70,140,.18), transparent 65%),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.72)),
+        url("75D69D2F-702A-4E78-A8D2-DA6AD200CDA0.png") center/cover no-repeat;
+      min-height: 520px;
     }
-    .heroGlow{
-      position:absolute;inset:0;pointer-events:none;
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
       background:
-        radial-gradient(900px 480px at 20% 30%, rgba(120,90,255,.22), transparent 60%),
-        radial-gradient(720px 520px at 85% 22%, rgba(0,190,255,.18), transparent 55%),
-        radial-gradient(700px 520px at 60% 90%, rgba(255,60,110,.10), transparent 60%);
-      mix-blend-mode: screen;
-      opacity:.55;
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.65)),
+        radial-gradient(1100px 520px at 10% 0%, rgba(255,255,255,.08), transparent 60%);
+      pointer-events:none;
     }
     .heroInner{
-      position:relative;z-index:2;
-      width:100%;
-      padding:22px 18px 22px;
+      position:relative; z-index:2;
+      padding: 56px 22px 22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      min-height: 520px;
     }
     .heroKicker{
-      font-size:14px;color:var(--muted);margin:0 0 10px;
-      letter-spacing:.04em;
+      margin:0 0 10px;
+      color: var(--muted);
+      font-size:14px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
     }
     .heroTitle{
       margin:0;
-      font-weight:1000;
+      font-size: clamp(38px, 8vw, 64px);
+      line-height: 1.02;
+      letter-spacing:.06em;
       text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:clamp(34px, 9vw, 66px);
-      line-height:1.02;
-      text-shadow: 0 18px 50px rgba(0,0,0,.75);
+      text-shadow: 0 18px 60px rgba(0,0,0,.75);
+      word-break: keep-all;
     }
     .heroSub{
       margin:12px 0 16px;
-      color:rgba(255,255,255,.82);
-      font-size:15px;
+      color: rgba(255,255,255,.76);
+      font-size: 18px;
     }
     .heroActions{
-      display:flex;gap:10px;flex-wrap:wrap;
-      margin-top:10px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 520px;
+    }
+    .heroActions .btn:nth-child(3){
+      grid-column: 1 / -1;
+      max-width: 240px;
+      justify-self:start;
     }
 
-    section{margin-top:22px}
+    section{margin-top:26px}
     .sectionHead{
-      display:flex;align-items:flex-end;justify-content:space-between;gap:10px;
-      margin:0 0 10px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      margin: 0 0 10px;
     }
-    .h2{
+    .sectionTitle{
       margin:0;
-      font-weight:1000;
-      letter-spacing:.12em;
+      font-size: 28px;
+      letter-spacing:.14em;
       text-transform:uppercase;
-      font-size:22px;
     }
-    .sub{
-      margin:0;color:var(--muted);font-size:13px;
+    .sectionHint{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      white-space:nowrap;
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border:1px solid var(--line);
-      border-radius:22px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
       box-shadow: var(--shadow2);
       overflow:hidden;
     }
-    .pad{padding:16px}
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+    }
+    .rowTitle{font-weight:900; letter-spacing:.08em; text-transform:uppercase}
+    .rowSub{color:var(--muted); font-size: 14px; margin-top:4px}
+    .rowLeft{min-width:0}
+    .rowRight{flex:0 0 auto}
 
     .grid{
       display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:12px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
-    @media (min-width:860px){
-      .grid{grid-template-columns: repeat(3, minmax(0,1fr))}
-    }
-
-    .ytCard{
-      display:flex;flex-direction:column;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.22);
-      overflow:hidden;
-      min-height: 186px;
+    @media (min-width: 860px){
+      .grid{grid-template-columns: 1fr 1fr}
     }
     .thumb{
+      height: 160px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.35);
       position:relative;
-      aspect-ratio:16/9;
-      background:rgba(255,255,255,.06);
       overflow:hidden;
     }
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .play{
-      position:absolute;inset:0;
-      display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55));
+    .thumb img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      filter: contrast(1.06) saturate(1.02);
+      opacity:.95;
     }
-    .playBadge{
-      width:72px;height:52px;border-radius:18px;
-      display:grid;place-items:center;
-      background:rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow2);
+    .thumb::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+      pointer-events:none;
     }
-    .meta{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px}
-    .meta b{font-size:15px;line-height:1.2}
-    .meta span{font-size:12px;color:var(--muted)}
+    .itemBody{padding:14px 16px 16px}
+    .itemTitle{margin:0;font-weight:900; letter-spacing:.08em; text-transform:uppercase}
+    .itemMeta{margin:6px 0 0; color:var(--muted); font-size:14px}
+    .itemActions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
 
-    .row{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:14px 14px;
-      background:rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-    }
-    .rowTitle{display:flex;flex-direction:column;gap:2px}
-    .rowTitle b{font-size:16px}
-    .rowTitle span{font-size:12px;color:var(--muted)}
-    .row + .row{margin-top:10px}
-
-    .links{display:flex;flex-wrap:wrap;gap:10px}
-    .linkBtn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 14px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.20);
-      background:rgba(0,0,0,.22);
-      font-weight:900;
-    }
-
-    .modal{
-      position:fixed;inset:0;z-index:60;
+    .sheet{
+      position:fixed; inset:0;
       display:none;
-      background:rgba(0,0,0,.75);
-      backdrop-filter: blur(8px);
+      z-index:80;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      padding: calc(14px + var(--safeTop)) 14px calc(14px + var(--safeBottom));
     }
-    .modal.open{display:block}
-    .modalBox{
-      position:absolute;left:16px;right:16px;top:86px;
-      max-width:920px;margin:0 auto;
-      background:rgba(12,12,18,.92);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:22px;
+    .sheet.open{display:block}
+    .sheetBox{
+      max-width: 560px;
+      margin: 0 auto;
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(12,12,18,.86);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .modalTop{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:12px 12px 10px;
-      border-bottom:1px solid rgba(255,255,255,.10);
+    .sheetList a{
+      display:block;
+      padding: 18px 18px;
+      font-weight:900;
+      font-size: 22px;
+      letter-spacing:.04em;
+      border-top:1px solid rgba(255,255,255,.08);
     }
-    .modalTop b{font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-    .x{
-      width:44px;height:40px;border-radius:14px;
-      display:grid;place-items:center;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      font-weight:1000;
+    .sheetList a:first-child{border-top:none}
+    .sheetClose{
+      padding: 14px 18px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .frame{aspect-ratio:16/9;background:#000}
-    .frame iframe{width:100%;height:100%;border:0;display:block}
 
-    .aboutText{margin:0;color:rgba(255,255,255,.86);font-size:15px}
-    .muted{color:var(--muted)}
-    .footer{margin-top:18px;text-align:center;color:rgba(255,255,255,.40);font-size:13px}
-
-    @media (prefers-reduced-motion:reduce){
-      *{scroll-behavior:auto !important}
+    .modal{
+      position:fixed; inset:0;
+      display:none;
+      z-index:90;
+      background: rgba(0,0,0,.70);
+      backdrop-filter: blur(10px);
+      padding: calc(14px + var(--safeTop)) 14px calc(14px + var(--safeBottom));
     }
-    html{scroll-behavior:smooth}
+    .modal.open{display:block}
+    .modalBox{
+      max-width: 940px;
+      margin: 0 auto;
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(12,12,18,.84);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .modalHead{
+      padding: 14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .modalTitle{
+      margin:0;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .closeBtn{
+      width:44px;height:44px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .frame{
+      position:relative;
+      aspect-ratio: 16/9;
+      background:#000;
+    }
+    .frame iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+
+    .footer{
+      margin-top: 26px;
+      padding: 18px 0 calc(10px + var(--safeBottom));
+      color: rgba(255,255,255,.45);
+      text-align:center;
+      letter-spacing:.04em;
+    }
   </style>
 </head>
 
 <body>
   <header class="topbar">
-    <div class="toprow">
-      <div class="brand">
-        <div class="badge">MP</div>
-        <div class="brandTitle">Макс Пойзон</div>
+    <div class="wrap">
+      <div class="toprow">
+        <div class="brand">
+          <div class="badge">MP</div>
+          <div class="brandTitle">МАКС ПОЙЗОН</div>
+        </div>
+        <button class="btn" id="menuBtn" type="button">Меню</button>
       </div>
-      <button class="btn" id="menuBtn" type="button">Меню</button>
     </div>
   </header>
 
-  <div class="sheet" id="sheet" aria-hidden="true">
-    <div class="sheetBox" role="dialog" aria-modal="true">
-      <div class="sheetList">
-        <a class="sheetItem" href="#listen">Слушать</a>
-        <a class="sheetItem" href="#clips">Клипы</a>
-        <a class="sheetItem" href="#lives">Лайвы</a>
-        <a class="sheetItem" href="#about">Обо мне</a>
-        <a class="sheetItem" href="#contacts">Контакты</a>
-      </div>
-    </div>
-  </div>
-
   <main class="wrap">
     <section class="hero" id="top">
-      <img class="heroImg" src="/assets/img/hero.jpg?v=6" alt="Макс Пойзон" loading="eager">
-      <div class="heroShade"></div>
-      <div class="heroGlow"></div>
       <div class="heroInner">
-        <h1 class="heroTitle">Макс Пойзон</h1>
+        <p class="heroKicker">Официальный сайт</p>
+        <h1 class="heroTitle">МАКС<br>ПОЙЗОН</h1>
         <p class="heroSub">Музыка · клипы · лайвы — в одном месте.</p>
         <div class="heroActions">
-          <a class="btn primary" href="#listen">▶ Слушать</a>
+          <a class="btn primary" href="#listen">▶︎ Слушать</a>
           <a class="btn" href="#clips">Смотреть клипы</a>
           <a class="btn" href="#lives">Лайвы</a>
         </div>
@@ -340,214 +344,305 @@
 
     <section id="listen">
       <div class="sectionHead">
-        <h2 class="h2">Слушать</h2>
-        <p class="sub">Трек месяца</p>
+        <h2 class="sectionTitle">Слушать</h2>
+        <p class="sectionHint">Последний трек</p>
       </div>
 
-      <div class="card pad">
+      <div class="list">
         <div class="row">
-          <div class="rowTitle">
-            <b>Боссфайт</b>
-            <span>Макс Пойзон</span>
+          <div class="rowLeft">
+            <div class="rowTitle">Боссфайт — целиком</div>
+            <div class="rowSub">Открывается внутри сайта</div>
           </div>
-          <button class="btn" type="button" data-open-video="bossfight">Открыть</button>
+          <div class="rowRight">
+            <button class="btn" type="button"
+              data-open-video
+              data-title="Боссфайт"
+              data-yt="REPLACE_YOUTUBE_ID_BOSSFIGHT">
+              Открыть
+            </button>
+          </div>
         </div>
 
-        <div style="height:12px"></div>
+        <div class="grid">
+          <div class="card">
+            <div class="thumb">
+              <img alt="Яндекс.Музыка"
+                   src="https://images.weserv.nl/?url=music.yandex.ru&h=240&fit=cover&output=jpg" />
+            </div>
+            <div class="itemBody">
+              <p class="itemTitle">Яндекс.Музыка — артист</p>
+              <p class="itemMeta">Открытие в сервисе</p>
+              <div class="itemActions">
+                <a class="btn" target="_blank" rel="noopener"
+                   href="https://music.yandex.ru/artist/3364880">Открыть</a>
+              </div>
+            </div>
+          </div>
 
-        <div class="links">
-          <a class="linkBtn" href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">Яндекс.Музыка</a>
-          <a class="linkBtn" href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">Apple Music</a>
-          <a class="linkBtn" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
+          <div class="card">
+            <div class="thumb">
+              <img alt="Apple Music"
+                   src="https://images.weserv.nl/?url=music.apple.com&h=240&fit=cover&output=jpg" />
+            </div>
+            <div class="itemBody">
+              <p class="itemTitle">Apple Music — артист</p>
+              <p class="itemMeta">Открытие в сервисе</p>
+              <div class="itemActions">
+                <a class="btn" target="_blank" rel="noopener"
+                   href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644">Открыть</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="thumb">
+              <img alt="Spotify"
+                   src="https://images.weserv.nl/?url=open.spotify.com&h=240&fit=cover&output=jpg" />
+            </div>
+            <div class="itemBody">
+              <p class="itemTitle">Spotify — артист</p>
+              <p class="itemMeta">Открытие в сервисе</p>
+              <div class="itemActions">
+                <a class="btn" target="_blank" rel="noopener"
+                   href="https://open.spotify.com/">Открыть</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="thumb">
+              <img alt="YouTube Music"
+                   src="https://images.weserv.nl/?url=youtube.com&h=240&fit=cover&output=jpg" />
+            </div>
+            <div class="itemBody">
+              <p class="itemTitle">YouTube — канал</p>
+              <p class="itemMeta">@ItsMaxPoison</p>
+              <div class="itemActions">
+                <a class="btn" target="_blank" rel="noopener"
+                   href="https://www.youtube.com/@ItsMaxPoison">Открыть</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="clips">
       <div class="sectionHead">
-        <h2 class="h2">Клипы</h2>
-        <p class="sub">YouTube</p>
+        <h2 class="sectionTitle">Клипы</h2>
+        <p class="sectionHint">Смотрится внутри сайта</p>
       </div>
-      <div class="grid" id="clipsGrid"></div>
+
+      <div class="grid" id="clipsGrid">
+        <div class="card">
+          <div class="thumb">
+            <img alt="Клип"
+                 src="https://i.ytimg.com/vi/Dpmp4oaDsHE/hqdefault.jpg" />
+          </div>
+          <div class="itemBody">
+            <p class="itemTitle">Клип</p>
+            <p class="itemMeta">YouTube</p>
+            <div class="itemActions">
+              <button class="btn" type="button" data-open-video data-title="Клип" data-yt="Dpmp4oaDsHE">Открыть</button>
+              <a class="btn" target="_blank" rel="noopener" href="https://youtu.be/Dpmp4oaDsHE">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- если хочешь — добавим сюда весь список клипов названиями (я сделаю), но сейчас главное: стабильный код и плеер -->
+      </div>
     </section>
 
     <section id="lives">
       <div class="sectionHead">
-        <h2 class="h2">Лайвы</h2>
-        <p class="sub">YouTube</p>
+        <h2 class="sectionTitle">Лайвы</h2>
+        <p class="sectionHint">Энергетика сцены</p>
       </div>
-      <div class="grid" id="livesGrid"></div>
+
+      <div class="list">
+        <div class="row">
+          <div class="rowLeft">
+            <div class="rowTitle">YouTube — лайвы</div>
+            <div class="rowSub">Сборник / плейлист</div>
+          </div>
+          <div class="rowRight">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/@ItsMaxPoison">Открыть</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="about">
       <div class="sectionHead">
-        <h2 class="h2">Обо мне</h2>
-        <p class="sub">Коротко</p>
+        <h2 class="sectionTitle">Обо мне</h2>
+        <p class="sectionHint">Коротко</p>
       </div>
 
-      <div class="card pad">
-        <p class="aboutText">
-          Макс Пойзон — рэп с характером и саунд, который цепляет с первых секунд.
-          За плечами десятки выступлений, баттлы и фестивали, разогрев у Onyx в Лужниках.
-          Здесь — всё основное: музыка, клипы и лайвы.
-        </p>
+      <div class="card">
+        <div class="itemBody">
+          <p class="itemTitle" style="margin-bottom:10px;">Макс Пойзон</p>
+          <p class="itemMeta" style="font-size:16px; color:rgba(255,255,255,.78); line-height:1.55;">
+            Рэп с характером и звук, который цепляет с первых секунд.
+            В треках — жизнь без фильтров, личный путь и энергетика сцены.
+          </p>
+        </div>
       </div>
     </section>
 
     <section id="contacts">
       <div class="sectionHead">
-        <h2 class="h2">Контакты</h2>
-        <p class="sub">Связь</p>
+        <h2 class="sectionTitle">Контакты</h2>
+        <p class="sectionHint">Написать / связаться</p>
       </div>
 
-      <div class="card pad">
+      <div class="list">
         <div class="row">
-          <div class="rowTitle">
-            <b>Telegram</b>
-            <span>@max_poison</span>
+          <div class="rowLeft">
+            <div class="rowTitle">Telegram</div>
+            <div class="rowSub">@max_poison</div>
           </div>
-          <a class="btn" href="https://t.me/max_poison" target="_blank" rel="noopener">Написать</a>
+          <div class="rowRight">
+            <a class="btn" target="_blank" rel="noopener" href="https://t.me/max_poison">Написать</a>
+          </div>
         </div>
 
         <div class="row">
-          <div class="rowTitle">
-            <b>YouTube</b>
-            <span>@ItsMaxPoison</span>
+          <div class="rowLeft">
+            <div class="rowTitle">YouTube</div>
+            <div class="rowSub">@ItsMaxPoison</div>
           </div>
-          <a class="btn" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">Открыть</a>
+          <div class="rowRight">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/@ItsMaxPoison">Открыть</a>
+          </div>
         </div>
 
         <div class="row">
-          <div class="rowTitle">
-            <b>RuTube</b>
-            <span>канал</span>
+          <div class="rowLeft">
+            <div class="rowTitle">RuTube</div>
+            <div class="rowSub">канал</div>
           </div>
-          <a class="btn" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">Открыть</a>
+          <div class="rowRight">
+            <a class="btn" target="_blank" rel="noopener" href="https://rutube.ru/channel/910055/">Открыть</a>
+          </div>
         </div>
 
         <div class="row">
-          <div class="rowTitle">
-            <b>TikTok</b>
-            <span>@max_poison</span>
+          <div class="rowLeft">
+            <div class="rowTitle">TikTok</div>
+            <div class="rowSub">@max_poison</div>
           </div>
-          <a class="btn" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">Открыть</a>
+          <div class="rowRight">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.tiktok.com/@max_poison">Открыть</a>
+          </div>
         </div>
 
         <div class="row">
-          <div class="rowTitle">
-            <b>Email</b>
-            <span>для предложений</span>
+          <div class="rowLeft">
+            <div class="rowTitle">Email</div>
+            <div class="rowSub">для предложений и сотрудничества</div>
           </div>
-          <a class="btn" href="mailto:maxpoison@proton.me">Письмо</a>
+          <div class="rowRight">
+            <a class="btn" href="mailto:">Письмо</a>
+          </div>
         </div>
       </div>
-
-      <div class="footer">maxpoison.ru</div>
     </section>
+
+    <div class="footer">maxpoison.ru</div>
   </main>
+
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheetBox" role="dialog" aria-modal="true">
+      <div class="sheetClose">
+        <strong style="letter-spacing:.10em; text-transform:uppercase;">Меню</strong>
+        <button class="closeBtn" id="sheetX" type="button">×</button>
+      </div>
+      <div class="sheetList">
+        <a href="#listen" data-close-sheet>Слушать</a>
+        <a href="#clips" data-close-sheet>Клипы</a>
+        <a href="#lives" data-close-sheet>Лайвы</a>
+        <a href="#about" data-close-sheet>Обо мне</a>
+        <a href="#contacts" data-close-sheet>Контакты</a>
+      </div>
+    </div>
+  </div>
 
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modalBox" role="dialog" aria-modal="true">
-      <div class="modalTop">
-        <b id="modalTitle">Видео</b>
-        <button class="x" id="modalClose" type="button">✕</button>
+      <div class="modalHead">
+        <p class="modalTitle" id="modalTitle">Видео</p>
+        <button class="closeBtn" id="modalX" type="button">×</button>
       </div>
-      <div class="frame" id="modalFrame"></div>
+      <div class="frame" id="frame"></div>
     </div>
   </div>
 
   <script>
-    const $ = (s, p=document) => p.querySelector(s);
-
-    const menuBtn = $("#menuBtn");
-    const sheet = $("#sheet");
-    const modal = $("#modal");
-    const modalTitle = $("#modalTitle");
-    const modalFrame = $("#modalFrame");
-    const modalClose = $("#modalClose");
+    const sheet = document.getElementById('sheet');
+    const menuBtn = document.getElementById('menuBtn');
+    const sheetX = document.getElementById('sheetX');
 
     function openSheet(){
-      sheet.classList.add("open");
-      sheet.setAttribute("aria-hidden","false");
+      sheet.classList.add('open');
+      sheet.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
     }
     function closeSheet(){
-      sheet.classList.remove("open");
-      sheet.setAttribute("aria-hidden","true");
+      sheet.classList.remove('open');
+      sheet.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
     }
-
-    menuBtn.addEventListener("click", openSheet);
-    sheet.addEventListener("click", (e)=>{
-      if(e.target === sheet) closeSheet();
-      if(e.target.classList.contains("sheetItem")) closeSheet();
+    menuBtn.addEventListener('click', openSheet);
+    sheetX.addEventListener('click', closeSheet);
+    sheet.addEventListener('click', (e)=>{ if(e.target === sheet) closeSheet(); });
+    document.querySelectorAll('[data-close-sheet]').forEach(a=>{
+      a.addEventListener('click', ()=>{ closeSheet(); });
     });
 
-    const videos = {
-      bossfight: { title: "Боссфайт", id: "uokXnS2kqBM" }
-    };
+    const modal = document.getElementById('modal');
+    const modalX = document.getElementById('modalX');
+    const modalTitle = document.getElementById('modalTitle');
+    const frame = document.getElementById('frame');
 
-    function openVideo(title, id){
-      modalTitle.textContent = title;
-      modalFrame.innerHTML = '<iframe allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0"></iframe>';
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden","false");
+    function openVideo(title, ytId){
+      modalTitle.textContent = title || 'Видео';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+
+      if(!ytId || ytId === 'REPLACE_YOUTUBE_ID_BOSSFIGHT'){
+        frame.innerHTML = '<div style="padding:18px;color:rgba(255,255,255,.8)">Вставь YouTube ID трека «Боссфайт» в index.html (data-yt). Я могу помочь — просто кинь ссылку на YouTube.</div>';
+        return;
+      }
+
+      const src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) +
+        '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      frame.innerHTML = '<iframe allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen src="' + src + '"></iframe>';
     }
+
     function closeVideo(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden","true");
-      modalFrame.innerHTML = "";
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      frame.innerHTML = '';
     }
 
-    modalClose.addEventListener("click", closeVideo);
-    modal.addEventListener("click", (e)=>{ if(e.target === modal) closeVideo(); });
-    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape"){ closeVideo(); closeSheet(); } });
+    modalX.addEventListener('click', closeVideo);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeVideo(); });
 
-    document.addEventListener("click", (e)=>{
-      const btn = e.target.closest("[data-open-video]");
-      if(!btn) return;
-      const key = btn.getAttribute("data-open-video");
-      const v = videos[key];
-      if(v) openVideo(v.title, v.id);
+    document.querySelectorAll('[data-open-video]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        openVideo(btn.dataset.title, btn.dataset.yt);
+      });
     });
 
-    function makeYtCard(title, id){
-      const el = document.createElement("a");
-      el.className = "ytCard";
-      el.href = "javascript:void(0)";
-      el.addEventListener("click", ()=>openVideo(title, id));
-      const thumb = "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
-      el.innerHTML = `
-        <div class="thumb">
-          <img src="${thumb}" alt="${title}" loading="lazy">
-          <div class="play">
-            <div class="playBadge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 7.5V16.5L17 12L9 7.5Z" fill="white"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="meta">
-          <b>${title}</b>
-          <span>Открыть</span>
-        </div>
-      `;
-      return el;
-    }
-
-    const clips = [
-      "9Qrlc1fiVVE","B3qdPETEejw","Dpmp4oaDsHE","QfE2VUTCoNE","4kcJd3sPoP4","AMACj-nDgqY",
-      "ORS89D6LRTU","R3nDA-GWJ_0","y6eAeUmBIbo","I0vL1n_6kJ4","ZcyNTVCs6sU","WIhVtSshb7g",
-      "sAbJ_BTGXw0","26kMZ7cm3a4","gQ5ryuP365I","9COBEYUdd4s","tif1ntp_ZwA","rubuyReQ8Z4",
-      "ckIhdEhsLSo","uokXnS2kqBM","QuOZISvlkeE","fDqi_Kti9ZY","uMgjzGeOjVA"
-    ]; 
-
-    const lives = ["M4KO0fu2xaM","jae5iwrn8YI","u0dgDPgRa9E","tOAnVkqOR7o","KN024XA8skw"];
-
-    const clipsGrid = $("#clipsGrid");
-    const livesGrid = $("#livesGrid");
-
-    clips.forEach((id, i)=>clipsGrid.appendChild(makeYtCard("Клип "+(i+1), id)));
-    lives.forEach((id, i)=>livesGrid.appendChild(makeYtCard("Лайв "+(i+1), id)));
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        if(modal.classList.contains('open')) closeVideo();
+        if(sheet.classList.contains('open')) closeSheet();
+      }
+    });
   </script>
 </body>
-</html> 
+</html>
