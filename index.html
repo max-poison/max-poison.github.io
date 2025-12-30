@@ -1,893 +1,663 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>МАКС ПОЙЗОН — официальный сайт</title>
-  <meta name="description" content="Макс Пойзон — музыка, клипы, лайвы. Официальный сайт.">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="МАКС ПОЙЗОН — официальный сайт">
-  <meta property="og:description" content="Музыка · клипы · лайвы">
-  <meta property="og:url" content="https://maxpoison.ru/">
-  <meta property="og:image" content="https://maxpoison.ru/hero.png">
-
-  <meta name="theme-color" content="#0b0b0f">
+  <meta name="description" content="МАКС ПОЙЗОН — музыка, клипы и лайвы в одном месте." />
 
   <style>
     :root{
       --bg:#0b0b0f;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.62);
-      --muted2:rgba(255,255,255,.48);
-      --shadow:0 18px 60px rgba(0,0,0,.55);
-      --r:22px;
-      --r2:16px;
-      --pad:16px;
-      --max:980px;
-      --blur:18px;
+      --card:#12121a;
+      --card2:#0f0f16;
+      --text:#f2f2f7;
+      --muted:#b6b6c6;
+      --line:rgba(255,255,255,.08);
+      --accent:#ffffff;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius:16px;
+      --radius2:12px;
+      --max:1100px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Arial,sans-serif;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,.10), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(255,255,255,.06), transparent 60%),
+                  var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 10% -10%, rgba(255,0,80,.18), transparent 60%),
-        radial-gradient(900px 700px at 110% 20%, rgba(0,160,255,.16), transparent 55%),
-        radial-gradient(900px 600px at 40% 120%, rgba(170,0,255,.12), transparent 55%),
-        var(--bg);
-      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-
     a{color:inherit;text-decoration:none}
-    button{font:inherit;color:inherit}
-
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:18px var(--pad) 96px;
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 16px;}
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,11,15,.72);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line);
     }
-
     .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      position:sticky;
-      top:0;
-      z-index:50;
-      padding:12px var(--pad);
-      margin:0 calc(var(--pad) * -1);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      background:linear-gradient(to bottom, rgba(11,11,15,.78), rgba(11,11,15,.28));
-      border-bottom:1px solid rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:space-between;
+      height:56px;
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
-    .avatar{
-      width:40px;height:40px;border-radius:14px;
-      background:linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
-      display:grid;place-items:center;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-
-    .titlebox{min-width:0}
-    .title{
+    .brand{display:flex; gap:10px; align-items:center;}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.06));
+      border:1px solid var(--line);
+      box-shadow: 0 8px 20px rgba(0,0,0,.35);
+      display:grid; place-items:center;
       font-weight:800;
-      letter-spacing:.06em;
-      font-size:14px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      letter-spacing:.5px;
     }
-    .subtitle{
-      font-size:12px;
+    .brand .name{font-weight:900; letter-spacing:.12em; font-size:13px;}
+    nav{display:flex; gap:12px; align-items:center;}
+    nav a{
+      font-size:13px;
       color:var(--muted);
-      margin-top:2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      padding:8px 10px;
+      border-radius:10px;
     }
-
-    .iconbtn{
-      width:46px;height:46px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      box-shadow:0 14px 50px rgba(0,0,0,.45);
-      display:grid;place-items:center;
-      cursor:pointer;
-      flex:0 0 auto;
-      transition:transform .15s ease, background .15s ease;
-    }
-    .iconbtn:active{transform:scale(.98)}
+    nav a:hover{color:var(--text); background: rgba(255,255,255,.06);}
     .burger{
-      width:18px;height:14px;position:relative;
+      display:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      cursor:pointer;
     }
-    .burger span{
-      position:absolute;left:0;right:0;height:2px;border-radius:2px;
-      background:rgba(255,255,255,.88);
-      transition:transform .2s ease, top .2s ease, opacity .2s ease;
-    }
-    .burger span:nth-child(1){top:0}
-    .burger span:nth-child(2){top:6px}
-    .burger span:nth-child(3){top:12px}
-    .iconbtn.is-open .burger span:nth-child(1){top:6px;transform:rotate(45deg)}
-    .iconbtn.is-open .burger span:nth-child(2){opacity:0}
-    .iconbtn.is-open .burger span:nth-child(3){top:6px;transform:rotate(-45deg)}
 
-    .hero{
-      margin-top:14px;
-      border-radius:var(--r);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      position:relative;
+    /* mobile menu */
+    .mnav{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:10px 0 14px;
     }
-    .heroimg{
-      width:100%;
-      height:min(520px, 56vh);
-      object-fit:cover;
+    .mnav a{
       display:block;
-      filter:saturate(1.05) contrast(1.02);
+      padding:12px 14px;
+      margin:6px 0;
+      border-radius:12px;
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      color:var(--text);
     }
-    .heroshade{
-      position:absolute;inset:0;
+
+    /* hero */
+    .hero{
+      padding:28px 0 18px;
+    }
+    .heroCard{
+      position:relative;
+      overflow:hidden;
+      border-radius: calc(var(--radius) + 6px);
+      border:1px solid var(--line);
       background:
-        linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.10) 55%, rgba(0,0,0,.35)),
-        radial-gradient(900px 600px at 15% 20%, rgba(255,255,255,.10), transparent 60%);
-      pointer-events:none;
-    }
-    .herocontent{
-      position:absolute;
-      inset:auto 0 0 0;
-      padding:18px 16px 16px;
+        linear-gradient(90deg, rgba(0,0,0,.70), rgba(0,0,0,.25)),
+        url("assets/img/hero.jpg") center/cover no-repeat,
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      min-height: 320px;
       display:flex;
-      flex-direction:column;
-      gap:10px;
+      align-items:flex-end;
     }
-    .h1{
-      font-size:34px;
-      font-weight:900;
-      letter-spacing:.03em;
+    /* если hero.jpg ещё не залит — будет норм фон без картинки */
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(900px 420px at 10% 10%, rgba(255,255,255,.10), transparent 55%),
+                  radial-gradient(800px 500px at 90% 20%, rgba(255,255,255,.06), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode:screen;
+      opacity:.55;
+    }
+    .heroInner{
+      position:relative;
+      width:100%;
+      padding:22px 18px 18px;
+    }
+    h1{
       margin:0;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: .08em;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .sub{
+      margin:10px 0 14px;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700;
+      font-size:13px;
+    }
+    .btn:hover{background: rgba(255,255,255,.10);}
+    .btn.primary{
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    section{padding:26px 0;}
+    .secHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .secTitle{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.06em;
+      font-weight:900;
       text-transform:uppercase;
     }
-    .lead{
-      margin:0;
-      color:rgba(255,255,255,.78);
-      font-size:15px;
-      max-width:62ch;
-      line-height:1.35;
-    }
-    .cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:6px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.07);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      box-shadow:0 18px 50px rgba(0,0,0,.45);
-      cursor:pointer;
-      transition:transform .15s ease, background .15s ease;
-      user-select:none;
-    }
-    .btn:active{transform:scale(.99)}
-    .btn .ic{
-      width:18px;height:18px;display:grid;place-items:center;
-      opacity:.9;
-    }
-
-    section{scroll-margin-top:88px}
-
-    .grid{
-      margin-top:16px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
+    .secDesc{margin:0; color:var(--muted); font-size:13px;}
     .card{
-      border-radius:var(--r);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
       overflow:hidden;
     }
-
-    details{
-      border-radius:var(--r);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
     }
-    summary{
-      list-style:none;
+    .tile{
+      background: rgba(0,0,0,.25);
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      overflow:hidden;
       cursor:pointer;
-      padding:16px 16px;
+      transition: transform .08s ease;
+    }
+    .tile:hover{transform: translateY(-1px);}
+    .thumb{
+      width:100%;
+      aspect-ratio: 16/9;
+      display:block;
+      object-fit:cover;
+      background: #0a0a0f;
+    }
+    .tileBody{
+      padding:10px 10px 12px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      user-select:none;
+      gap:10px;
     }
-    summary::-webkit-details-marker{display:none}
-    .sumleft{min-width:0}
-    .sumtitle{
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      margin:0;
-    }
-    .sumsub{
-      margin-top:4px;
-      color:var(--muted);
+    .tileTitle{
       font-size:13px;
-      line-height:1.25;
+      color:rgba(255,255,255,.9);
+      font-weight:800;
+      letter-spacing:.02em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-    .chev{
-      width:34px;height:34px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      display:grid;place-items:center;
+    .pill{
+      font-size:12px;
+      padding:6px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background: rgba(255,255,255,.04);
       flex:0 0 auto;
-      transition:transform .18s ease;
     }
-    details[open] .chev{transform:rotate(180deg)}
-    .body{
-      padding:0 16px 16px;
-    }
-    .sep{height:1px;background:rgba(255,255,255,.08);margin:0 16px 14px;border-radius:1px}
 
     .list{
-      display:flex;
-      flex-direction:column;
+      display:grid;
+      grid-template-columns: 1fr;
       gap:12px;
     }
-
     .row{
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:12px;
-      padding:14px 14px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-    }
-    .row .text{min-width:0}
-    .row .t1{font-weight:800}
-    .row .t2{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.25}
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      cursor:pointer;
-      flex:0 0 auto;
-      transition:transform .15s ease;
-      user-select:none;
-    }
-    .pill:active{transform:scale(.98)}
-
-    .embedbox{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.30);
-      overflow:hidden;
-    }
-    .embedbox iframe{
-      width:100%;
-      height:460px;
-      border:0;
-      display:block;
-      background:transparent;
-    }
-    .embedbox .yt{
-      height:220px;
-    }
-
-    .hscroll{
-      display:flex;
-      gap:12px;
-      overflow:auto;
-      padding-bottom:2px;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-    }
-    .shot{
-      flex:0 0 auto;
-      width:min(260px, 74vw);
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      overflow:hidden;
-      scroll-snap-align:start;
-      box-shadow:0 14px 40px rgba(0,0,0,.38);
-      position:relative;
-    }
-    .shot img{width:100%;height:170px;object-fit:cover;display:block}
-    .shot .cap{
-      padding:12px 12px 12px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.25;
-    }
-
-    .drawerOverlay{
-      position:fixed; inset:0;
-      background:rgba(0,0,0,.55);
-      opacity:0; pointer-events:none;
-      transition:opacity .18s ease;
-      z-index:80;
-    }
-    .drawer{
-      position:fixed;
-      top:0; right:0;
-      height:100%;
-      width:min(320px, 86vw);
-      background:rgba(14,14,20,.88);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      border-left:1px solid rgba(255,255,255,.10);
-      transform:translateX(102%);
-      transition:transform .18s ease;
-      z-index:90;
-      display:flex;
-      flex-direction:column;
       padding:14px;
-      gap:12px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
     }
-    body.drawerOpen .drawer{transform:translateX(0)}
-    body.drawerOpen .drawerOverlay{opacity:1;pointer-events:auto}
-
-    .drawerTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:6px 4px 2px;
-    }
-    .drawerTitle{
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+    .row b{letter-spacing:.02em}
+    .row small{display:block; color:var(--muted); margin-top:4px}
+    .row .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .row .actions a{
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
       font-size:13px;
-      color:rgba(255,255,255,.85);
+      font-weight:700;
     }
-    .drawerClose{
-      width:42px;height:42px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
+    .row .actions a:hover{background: rgba(255,255,255,.10);}
+
+    /* Modal player */
+    .modal{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.72);
+      display:none;
+      z-index:1000;
+      padding: 18px;
+    }
+    .modal.open{display:flex;}
+    .modalBox{
+      margin:auto;
+      width: min(980px, 100%);
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(14,14,20,.96);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:12px 12px 10px;
+      border-bottom:1px solid var(--line);
+    }
+    .modalTop .mtitle{
+      font-weight:900;
+      letter-spacing:.04em;
+      font-size:13px;
+      color: rgba(255,255,255,.92);
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .xbtn{
       cursor:pointer;
-      display:grid;place-items:center;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:900;
     }
-    .drawerNav{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:2px;
+    .frameWrap{background:#000;}
+    iframe{width:100%; height: min(56.25vw, 552px); border:0; display:block;}
+    .modalBottom{
+      display:flex; justify-content:flex-end; gap:10px;
+      padding:12px;
+      border-top:1px solid var(--line);
     }
-    .drawerNav a{
-      padding:14px 14px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
+    .modalBottom a{
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      font-size:13px;
+      font-weight:800;
     }
-    .drawerNav .small{
+
+    footer{
+      padding:18px 0 34px;
       color:var(--muted);
-      font-size:12px;
+      border-top:1px solid var(--line);
+      margin-top:10px;
     }
+    .footNav{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
+    .footNav a{padding:8px 10px; border-radius:10px; border:1px solid var(--line); background: rgba(255,255,255,.04);}
 
-    .bottomNav{
-      position:fixed;
-      left:0; right:0; bottom:0;
-      z-index:60;
-      padding:12px 12px calc(12px + env(safe-area-inset-bottom));
-      background:linear-gradient(to top, rgba(11,11,15,.86), rgba(11,11,15,.25));
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      border-top:1px solid rgba(255,255,255,.06);
-    }
-    .tabs{
-      max-width:var(--max);
-      margin:0 auto;
-      display:flex;
-      gap:10px;
-    }
-    .tab{
-      flex:1 1 0;
-      min-width:0;
-      padding:10px 8px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      cursor:pointer;
-      user-select:none;
-    }
-    .tab span{font-size:12px;color:rgba(255,255,255,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .tab .i{opacity:.9}
-
-    .footer{
-      text-align:center;
-      color:rgba(255,255,255,.42);
-      font-size:12px;
-      margin-top:18px;
-    }
-
-    @media (min-width:860px){
-      .wrap{padding-bottom:110px}
-      .embedbox iframe{height:520px}
-      .embedbox .yt{height:320px}
-      .h1{font-size:44px}
+    @media (max-width: 900px){
+      nav{display:none;}
+      .burger{display:inline-flex;}
+      .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+      h1{font-size:30px;}
+      .heroCard{min-height: 300px;}
     }
   </style>
 </head>
 
 <body>
-  <div class="drawerOverlay" id="drawerOverlay"></div>
-  <aside class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawerTop">
-      <div class="drawerTitle">Меню</div>
-      <button class="drawerClose" id="drawerClose" type="button" aria-label="Закрыть меню">✕</button>
-    </div>
-    <nav class="drawerNav">
-      <a href="#listen" data-close="1">
-        <div>
-          <div><strong>Слушать</strong></div>
-          <div class="small">плееры внутри сайта</div>
-        </div>
-        <div>→</div>
-      </a>
-      <a href="#videos" data-close="1">
-        <div>
-          <div><strong>Клипы</strong></div>
-          <div class="small">просмотр внутри сайта</div>
-        </div>
-        <div>→</div>
-      </a>
-      <a href="#live" data-close="1">
-        <div>
-          <div><strong>Лайвы</strong></div>
-          <div class="small">живые выступления</div>
-        </div>
-        <div>→</div>
-      </a>
-      <a href="#about" data-close="1">
-        <div>
-          <div><strong>Обо мне</strong></div>
-          <div class="small">кратко и по делу</div>
-        </div>
-        <div>→</div>
-      </a>
-      <a href="#contacts" data-close="1">
-        <div>
-          <div><strong>Контакты</strong></div>
-          <div class="small">написать / связаться</div>
-        </div>
-        <div>→</div>
-      </a>
-    </nav>
-  </aside>
-
-  <header class="topbar">
+<header>
+  <div class="wrap topbar">
     <div class="brand">
-      <div class="avatar">
-        <img src="hero.png" alt="Макс Пойзон">
-      </div>
-      <div class="titlebox">
-        <div class="title">МАКС ПОЙЗОН</div>
-        <div class="subtitle">Музыка · клипы · лайвы</div>
-      </div>
+      <div class="logo">MP</div>
+      <div class="name">МАКС ПОЙЗОН</div>
     </div>
-    <button class="iconbtn" id="burgerBtn" type="button" aria-label="Открыть меню">
-      <div class="burger" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </div>
-    </button>
-  </header>
 
-  <main class="wrap">
-    <section class="hero" id="top">
-      <img class="heroimg" src="hero.png" alt="Макс Пойзон">
-      <div class="heroshade"></div>
-      <div class="herocontent">
-        <h1 class="h1">МАКС ПОЙЗОН</h1>
-        <p class="lead">Официальный сайт: музыка, клипы и лайвы — в одном месте.</p>
+    <nav>
+      <a href="#listen">Слушать</a>
+      <a href="#clips">Клипы</a>
+      <a href="#lives">Лайвы</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <button class="burger" id="burger">Меню</button>
+  </div>
+
+  <div class="wrap mnav" id="mnav">
+    <a href="#listen">Слушать</a>
+    <a href="#clips">Клипы</a>
+    <a href="#lives">Лайвы</a>
+    <a href="#about">Обо мне</a>
+    <a href="#contacts">✉️ Контакты</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="heroCard">
+      <div class="heroInner">
+        <h1>МАКС ПОЙЗОН</h1>
+        <p class="sub">Музыка · клипы · лайвы — в одном месте.</p>
         <div class="cta">
-          <a class="btn" href="#listen">
-            <span class="ic">▶</span><span>Слушать</span>
-          </a>
-          <a class="btn" href="#videos">
-            <span class="ic">🎬</span><span>Смотреть клипы</span>
-          </a>
-          <a class="btn" href="#live">
-            <span class="ic">🎤</span><span>Лайвы</span>
-          </a>
+          <a class="btn primary" href="#listen">▶ Слушать</a>
+          <a class="btn" href="#clips">Смотреть клипы</a>
+          <a class="btn" href="#lives">Лайвы</a>
         </div>
-      </div>
-    </section>
-
-    <div class="grid">
-
-      <details id="listen" open>
-        <summary>
-          <div class="sumleft">
-            <div class="sumtitle">Слушать</div>
-            <div class="sumsub">Встроенные плееры</div>
-          </div>
-          <div class="chev">⌃</div>
-        </summary>
-        <div class="sep"></div>
-        <div class="body">
-          <div class="list">
-
-            <div class="row">
-              <div class="text">
-                <div class="t1">Яндекс.Музыка — артист</div>
-                <div class="t2">Встроенный плеер</div>
-              </div>
-              <button class="pill" type="button" data-modal="ym">Открыть</button>
-            </div>
-
-            <div class="row">
-              <div class="text">
-                <div class="t1">Spotify — артист</div>
-                <div class="t2">Встроенный плеер</div>
-              </div>
-              <button class="pill" type="button" data-modal="sp">Открыть</button>
-            </div>
-
-            <div class="row">
-              <div class="text">
-                <div class="t1">Apple Music — артист</div>
-                <div class="t2">Встроенный плеер</div>
-              </div>
-              <button class="pill" type="button" data-modal="am">Открыть</button>
-            </div>
-
-          </div>
-        </div>
-      </details>
-
-      <details id="videos">
-        <summary>
-          <div class="sumleft">
-            <div class="sumtitle">Клипы</div>
-            <div class="sumsub">Превью + просмотр внутри сайта</div>
-          </div>
-          <div class="chev">⌃</div>
-        </summary>
-        <div class="sep"></div>
-        <div class="body">
-          <div class="hscroll">
-            <div class="shot">
-              <img src="hero.png" alt="Клип 1">
-              <div class="cap"><strong>Клип 1</strong></div>
-            </div>
-            <div class="shot">
-              <img src="hero.png" alt="Клип 2">
-              <div class="cap"><strong>Клип 2</strong></div>
-            </div>
-            <div class="shot">
-              <img src="hero.png" alt="Клип 3">
-              <div class="cap"><strong>Клип 3</strong></div>
-            </div>
-          </div>
-
-          <div style="height:12px"></div>
-
-          <div class="list">
-            <div class="row">
-              <div class="text">
-                <div class="t1">YouTube — Клип 1</div>
-                <div class="t2">Встроенный просмотр</div>
-              </div>
-              <button class="pill" type="button" data-modal="yt1">Открыть</button>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">YouTube — Клип 2</div>
-                <div class="t2">Встроенный просмотр</div>
-              </div>
-              <button class="pill" type="button" data-modal="yt2">Открыть</button>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">YouTube — Клип 3</div>
-                <div class="t2">Встроенный просмотр</div>
-              </div>
-              <button class="pill" type="button" data-modal="yt3">Открыть</button>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details id="live">
-        <summary>
-          <div class="sumleft">
-            <div class="sumtitle">Лайвы</div>
-            <div class="sumsub">Живые выступления</div>
-          </div>
-          <div class="chev">⌃</div>
-        </summary>
-        <div class="sep"></div>
-        <div class="body">
-          <div class="list">
-            <div class="row">
-              <div class="text">
-                <div class="t1">Live 1</div>
-                <div class="t2">Встроенный просмотр</div>
-              </div>
-              <button class="pill" type="button" data-modal="lv1">Открыть</button>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">Live 2</div>
-                <div class="t2">Встроенный просмотр</div>
-              </div>
-              <button class="pill" type="button" data-modal="lv2">Открыть</button>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">Live 3</div>
-                <div class="t2">Встроенный просмотр</div>
-              </div>
-              <button class="pill" type="button" data-modal="lv3">Открыть</button>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details id="about">
-        <summary>
-          <div class="sumleft">
-            <div class="sumtitle">Обо мне</div>
-            <div class="sumsub">Коротко</div>
-          </div>
-          <div class="chev">⌃</div>
-        </summary>
-        <div class="sep"></div>
-        <div class="body">
-          <div class="list">
-            <div class="row">
-              <div class="text">
-                <div class="t1">Бэкграунд</div>
-                <div class="t2">Разогрев Onyx (Лужники) · финалист Rap Music (2010/2011) · победы на баттлах и фестивалях</div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">Проекты / группы</div>
-                <div class="t2">DaOldCinema · Le Arestantz Crew</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details id="contacts">
-        <summary>
-          <div class="sumleft">
-            <div class="sumtitle">Контакты</div>
-            <div class="sumsub">Связаться</div>
-          </div>
-          <div class="chev">⌃</div>
-        </summary>
-        <div class="sep"></div>
-        <div class="body">
-          <div class="list">
-            <div class="row">
-              <div class="text">
-                <div class="t1">Telegram</div>
-                <div class="t2">@max_poison</div>
-              </div>
-              <a class="pill" href="https://t.me/max_poison" target="_blank" rel="noopener">Написать</a>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">Email</div>
-                <div class="t2">для предложений и сотрудничества</div>
-              </div>
-              <a class="pill" href="mailto:max.poison.artist@gmail.com">Письмо</a>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">YouTube</div>
-                <div class="t2">@ItsMaxPoison</div>
-              </div>
-              <a class="pill" href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">Открыть</a>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">RuTube</div>
-                <div class="t2">канал</div>
-              </div>
-              <a class="pill" href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">Открыть</a>
-            </div>
-            <div class="row">
-              <div class="text">
-                <div class="t1">TikTok</div>
-                <div class="t2">@max_poison</div>
-              </div>
-              <a class="pill" href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">Открыть</a>
-            </div>
-          </div>
-        </div>
-      </details>
-
-    </div>
-
-    <div class="footer">maxpoison.ru</div>
-  </main>
-
-  <nav class="bottomNav" aria-label="Навигация">
-    <div class="tabs">
-      <a class="tab" href="#listen"><span class="i">🎵</span><span>Слушать</span></a>
-      <a class="tab" href="#videos"><span class="i">🎬</span><span>Клипы</span></a>
-      <a class="tab" href="#live"><span class="i">🎤</span><span>Лайвы</span></a>
-      <a class="tab" href="#about"><span class="i">👤</span><span>Обо мне</span></a>
-      <a class="tab" href="#contacts"><span class="i">✉️</span><span>Контакты</span></a>
-    </div>
-  </nav>
-
-  <div id="modalRoot" style="position:fixed;inset:0;z-index:120;display:none;">
-    <div id="modalBg" style="position:absolute;inset:0;background:rgba(0,0,0,.65);"></div>
-    <div id="modalBox" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(920px,92vw);max-height:82vh;overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.12);background:rgba(14,14,20,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 90px rgba(0,0,0,.65);">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.08);">
-        <div id="modalTitle" style="font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:rgba(255,255,255,.86);"></div>
-        <button id="modalClose" type="button" style="width:42px;height:42px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);cursor:pointer;">✕</button>
-      </div>
-      <div style="padding:12px;">
-        <div class="embedbox" id="modalEmbed"></div>
       </div>
     </div>
   </div>
 
-  <script>
-    const body = document.body;
-    const burgerBtn = document.getElementById('burgerBtn');
-    const drawer = document.getElementById('drawer');
-    const overlay = document.getElementById('drawerOverlay');
-    const closeBtn = document.getElementById('drawerClose');
+  <!-- LISTEN -->
+  <section id="listen">
+    <div class="secHead">
+      <div>
+        <h2 class="secTitle">Слушать</h2>
+        <p class="secDesc">Плееры внутри сайта + быстрый старт с одного трека</p>
+      </div>
+    </div>
 
-    function openDrawer(){
-      body.classList.add('drawerOpen');
-      burgerBtn.classList.add('is-open');
-      drawer.setAttribute('aria-hidden','false');
-    }
-    function closeDrawer(){
-      body.classList.remove('drawerOpen');
-      burgerBtn.classList.remove('is-open');
-      drawer.setAttribute('aria-hidden','true');
-    }
+    <div class="list">
+      <div class="row">
+        <div>
+          <b>Боссфайт — целиком</b>
+          <small>Встроенный плеер (временная витрина, пока ты режешь MP3-нарезки)</small>
+        </div>
+        <div class="actions">
+          <a href="#bossfight">Открыть</a>
+        </div>
+      </div>
 
-    burgerBtn.addEventListener('click', () => {
-      if(body.classList.contains('drawerOpen')) closeDrawer(); else openDrawer();
-    });
-    overlay.addEventListener('click', closeDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    drawer.addEventListener('click', (e) => {
-      const a = e.target.closest('a[data-close="1"]');
-      if(a) closeDrawer();
-    });
+      <div class="card" id="bossfight">
+        <!-- YouTube (topic) -->
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/l7upaZlx5os"
+          title="Макс Пойзон — Боссфайт"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-    const modalRoot = document.getElementById('modalRoot');
-    const modalBg = document.getElementById('modalBg');
-    const modalClose = document.getElementById('modalClose');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalEmbed = document.getElementById('modalEmbed');
+      <div class="row">
+        <div>
+          <b>Яндекс.Музыка — артист</b>
+          <small>Открытие в сервисе</small>
+        </div>
+        <div class="actions">
+          <a href="https://music.yandex.ru/artist/3364880" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
 
-    const embeds = {
-      ym: {
-        title: 'Яндекс.Музыка — артист',
-        html: '<iframe src="https://music.yandex.ru/artist/3364880" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
-      },
-      sp: {
-        title: 'Spotify — артист',
-        html: '<iframe style="border-radius:18px" src="https://open.spotify.com/embed/artist/7YF0u2jYk2cJZ8xX4bQmQm" width="100%" height="460" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>'
-      },
-      am: {
-        title: 'Apple Music — артист',
-        html: '<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="460" style="width:100%;overflow:hidden;border-radius:18px" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644"></iframe>'
-      },
-      yt1: {
-        title: 'Клип 1',
-        html: '<iframe class="yt" src="https://www.youtube.com/embed/Dpmp4oaDsHE" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-      },
-      yt2: {
-        title: 'Клип 2',
-        html: '<iframe class="yt" src="https://www.youtube.com/embed/9Qrlc1fiVVE" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-      },
-      yt3: {
-        title: 'Клип 3',
-        html: '<iframe class="yt" src="https://www.youtube.com/embed/B3qdPETEejw" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-      },
-      lv1: {
-        title: 'Live 1',
-        html: '<iframe class="yt" src="https://www.youtube.com/embed/AMACj-nDgqY" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-      },
-      lv2: {
-        title: 'Live 2',
-        html: '<iframe class="yt" src="https://www.youtube.com/embed/ORS89D6LRTU" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-      },
-      lv3: {
-        title: 'Live 3',
-        html: '<iframe class="yt" src="https://www.youtube.com/embed/R3nDA-GWJ_0" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-      }
-    };
+      <div class="row">
+        <div>
+          <b>Apple Music — артист</b>
+          <small>Открытие в сервисе</small>
+        </div>
+        <div class="actions">
+          <a href="https://music.apple.com/ru/artist/%D0%BC%D0%B0%D0%BA%D1%81-%D0%BF%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD/917126644" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
 
-    function openModal(key){
-      const item = embeds[key];
-      if(!item) return;
-      modalTitle.textContent = item.title;
-      modalEmbed.innerHTML = item.html;
-      modalRoot.style.display = 'block';
-      body.style.overflow = 'hidden';
-    }
-    function closeModal(){
-      modalEmbed.innerHTML = '';
-      modalRoot.style.display = 'none';
-      body.style.overflow = '';
-    }
+      <div class="row">
+        <div>
+          <b>Spotify — артист</b>
+          <small>Открытие в сервисе</small>
+        </div>
+        <div class="actions">
+          <a href="https://open.spotify.com/search/%D0%9C%D0%B0%D0%BA%D1%81%20%D0%9F%D0%BE%D0%B9%D0%B7%D0%BE%D0%BD" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
 
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-modal]');
-      if(btn){
-        openModal(btn.getAttribute('data-modal'));
-      }
-    });
+      <div class="row">
+        <div>
+          <b>Завтра добавим: MP3-нарезки</b>
+          <small>Ты нарежешь 6 треков, закинешь в <code>assets/audio/</code> — и подключим нативный плеер.</small>
+        </div>
+        <div class="actions">
+          <a href="#contacts">Напомнить себе</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    modalBg.addEventListener('click', closeModal);
-    modalClose.addEventListener('click', closeModal);
+  <!-- CLIPS -->
+  <section id="clips">
+    <div class="secHead">
+      <div>
+        <h2 class="secTitle">Клипы</h2>
+        <p class="secDesc">Превью + просмотр внутри сайта (открывается одним плеером, сайт не тормозит)</p>
+      </div>
+    </div>
 
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape'){
-        if(body.classList.contains('drawerOpen')) closeDrawer();
-        if(modalRoot.style.display === 'block') closeModal();
-      }
-    });
-  </script>
+    <div class="grid" id="clipsGrid"></div>
+  </section>
+
+  <!-- LIVES -->
+  <section id="lives">
+    <div class="secHead">
+      <div>
+        <h2 class="secTitle">Лайвы</h2>
+        <p class="secDesc">Живые выступления (отдельно от клипов)</p>
+      </div>
+    </div>
+
+    <div class="grid" id="livesGrid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="secHead">
+      <div>
+        <h2 class="secTitle">Обо мне</h2>
+        <p class="secDesc">Коротко и по делу</p>
+      </div>
+    </div>
+
+    <div class="card" style="padding:16px;">
+      <p style="margin:0 0 10px; color:rgba(255,255,255,.92); font-weight:800; letter-spacing:.02em;">
+        Бэкграунд
+      </p>
+      <p style="margin:0; color:var(--muted); line-height:1.6;">
+        Разогрев Onyx (Лужники) · финалист Rap Music (2010/2011) · победы на баттлах и фестивалях.<br/>
+        Проекты / группы: DaOldCinema · Le Arestantz Crew.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <div class="secHead">
+      <div>
+        <h2 class="secTitle">Контакты</h2>
+        <p class="secDesc">Написать / связаться</p>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="row">
+        <div>
+          <b>Telegram</b>
+          <small>@max_poison</small>
+        </div>
+        <div class="actions">
+          <a href="https://t.me/max_poison" target="_blank" rel="noopener">Написать</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <b>YouTube</b>
+          <small>@ItsMaxPoison</small>
+        </div>
+        <div class="actions">
+          <a href="https://www.youtube.com/@ItsMaxPoison" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <b>RuTube</b>
+          <small>канал</small>
+        </div>
+        <div class="actions">
+          <a href="https://rutube.ru/channel/910055/" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <b>TikTok</b>
+          <small>@max_poison</small>
+        </div>
+        <div class="actions">
+          <a href="https://www.tiktok.com/@max_poison" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <b>Email</b>
+          <small>для предложений и сотрудничества</small>
+        </div>
+        <div class="actions">
+          <a href="mailto:poison@maxpoison.ru">Письмо</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>maxpoison.ru</div>
+    <div class="footNav">
+      <a href="#listen">Слушать</a>
+      <a href="#clips">Клипы</a>
+      <a href="#lives">Лайвы</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modalBox">
+    <div class="modalTop">
+      <div class="mtitle" id="modalTitle">Просмотр</div>
+      <button class="xbtn" id="closeModal">✕</button>
+    </div>
+    <div class="frameWrap">
+      <iframe id="modalFrame" src="" title="Просмотр" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="modalBottom">
+      <a id="modalOpenYT" href="#" target="_blank" rel="noopener">Открыть на YouTube</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // burger
+  const burger = document.getElementById('burger');
+  const mnav = document.getElementById('mnav');
+  burger?.addEventListener('click', () => {
+    const isOpen = mnav.style.display === 'block';
+    mnav.style.display = isOpen ? 'none' : 'block';
+  });
+  // close mobile menu on click
+  mnav?.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> mnav.style.display='none'));
+
+  // DATA
+  const CLIPS = [
+    "9Qrlc1fiVVE","B3qdPETEejw","Dpmp4oaDsHE","QfE2VUTCoNE","4kcJd3sPoP4","AMACj-nDgqY",
+    "ORS89D6LRTU","R3nDA-GWJ_0","y6eAeUmBIbo","I0vL1n_6kJ4","ZcyNTVCs6sU","WIhVtSshb7g",
+    "sAbJ_BTGXw0","26kMZ7cm3a4","gQ5ryuP365I","9COBEYUdd4s","tif1ntp_ZwA","rubuyReQ8Z4",
+    "ckIhdEhsLSo","uokXnS2kqBM","QuOZISvlkeE","fDqi_Kti9ZY","uMgjzGeOjVA"
+  ];
+
+  const LIVES = ["M4KO0fu2xaM","jae5iwrn8YI","u0dgDPgRa9E","tOAnVkqOR7o","KN024XA8skw"];
+
+  // Modal logic
+  const modal = document.getElementById('modal');
+  const modalFrame = document.getElementById('modalFrame');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalOpenYT = document.getElementById('modalOpenYT');
+  const closeModal = document.getElementById('closeModal');
+
+  function openVideo(id, title){
+    modalTitle.textContent = title || "Просмотр";
+    modalFrame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
+    modalOpenYT.href = `https://youtu.be/${id}`;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo(){
+    modal.classList.remove('open');
+    modalFrame.src = "";
+    document.body.style.overflow = '';
+  }
+  closeModal?.addEventListener('click', closeVideo);
+  modal?.addEventListener('click', (e)=> { if(e.target === modal) closeVideo(); });
+  document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeVideo(); });
+
+  // Build tiles
+  function makeTile(id, prefix){
+    const tile = document.createElement('div');
+    tile.className = 'tile';
+    const img = document.createElement('img');
+    img.className = 'thumb';
+    img.loading = 'lazy';
+    img.alt = `${prefix} ${id}`;
+    img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+
+    const body = document.createElement('div');
+    body.className = 'tileBody';
+
+    const title = document.createElement('div');
+    title.className = 'tileTitle';
+    title.textContent = prefix;
+
+    const pill = document.createElement('div');
+    pill.className = 'pill';
+    pill.textContent = '▶ смотреть';
+
+    body.appendChild(title);
+    body.appendChild(pill);
+
+    tile.appendChild(img);
+    tile.appendChild(body);
+
+    tile.addEventListener('click', () => openVideo(id, prefix));
+    return tile;
+  }
+
+  const clipsGrid = document.getElementById('clipsGrid');
+  CLIPS.forEach((id, i) => clipsGrid.appendChild(makeTile(id, `Клип ${i+1}`)));
+
+  const livesGrid = document.getElementById('livesGrid');
+  LIVES.forEach((id, i) => livesGrid.appendChild(makeTile(id, `Лайв ${i+1}`)));
+</script>
 </body>
-</html> 
+</html>
