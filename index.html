@@ -511,6 +511,22 @@
       .modalBody{grid-template-columns: 1fr}
       .modalLeft{border-right:0; border-bottom:1px solid rgba(255,255,255,.10)}
     }
+ /* iOS swipe fix */
+.lane, .modalLane{
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* чтобы модалка не мешала скроллу внутри себя */
+.modal{
+  overflow:auto;
+}
+
+/* убрать подсветку тапа */
+.card, .mCard{
+  -webkit-tap-highlight-color: transparent;
+}
   </style>
 </head>
 
