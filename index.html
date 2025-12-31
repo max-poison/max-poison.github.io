@@ -527,7 +527,43 @@
 .card, .mCard{
   -webkit-tap-highlight-color: transparent;
 }
-  </style>
+ /* === FIX: модалка клипов / лайвов (iOS + Android) === */
+
+/* ограничиваем высоту окна */
+.modalCard{
+  max-height: 92dvh;
+}
+
+/* разрешаем нормальный скролл */
+.modalBody{
+  max-height: 92dvh;
+  overflow: hidden;
+}
+
+/* левая часть (лента) */
+.modalLeft{
+  overflow-y: auto;
+  max-height: 92dvh;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* правая часть (плеер) */
+.modalRight{
+  overflow-y: auto;
+  max-height: 92dvh;
+}
+
+/* свайп ленты */
+.modalLane{
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* чтобы iframe не раздувал экран */
+.playerBox{
+  max-height: 56vh;
+} </style>
 </head>
 
 <body>
